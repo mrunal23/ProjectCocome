@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import com.cocome.bean.User;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport {
@@ -12,9 +14,8 @@ public class LoginAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1976838670802225984L;
-	private String user;
-	private String password;
-	private String name;
+	private User user;
+
 	
 	public String execute(){
 		String ret = ERROR;
@@ -27,12 +28,12 @@ public class LoginAction extends ActionSupport {
 	         String sql = "SELECT name FROM login WHERE";
 	         sql+=" user = ? AND password = ?";
 	         PreparedStatement ps = conn.prepareStatement(sql);
-	         ps.setString(1, user);
-	         ps.setString(2, password);
+	         ps.setString(1, user.getUserId());
+	         ps.setString(2, user.getPassword());
 	         ResultSet rs = ps.executeQuery();
 
 	         while (rs.next()) {
-	            name = rs.getString(1);
+	            user.setName(rs.getString(1));
 	            ret = SUCCESS;
 	         }
 	      } catch (Exception e) {
@@ -48,27 +49,13 @@ public class LoginAction extends ActionSupport {
 	      return ret;		
 	}
 	
-	public String getUser() {
+	public User getUser() {
 	      return user;
 	   }
 
-	public void setUser(String user) {
+	public void setUser(User user) {
 	      this.user = user;
 	   }
 
-	public String getPassword() {
-	      return password;
-	   }
-
-	public void setPassword(String password) {
-	      this.password = password;
-	   }
-
-	public String getName() {
-	      return name;
-	   }
-
-	public void setName(String name) {
-	      this.name = name;
-	   }
+	
 }

@@ -178,11 +178,11 @@
 						<h2>Please Sign In</h2>
 						<hr class="colorgraph">
 						<div class="form-group">
-							<input name="user" id="email" class="form-control input-lg"
+							<input name="user.userId" id="email" class="form-control input-lg"
 								placeholder="Email Address" type="email">
 						</div>
 						<div class="form-group">
-							<input name="password" id="password"
+							<input name="user.password" id="password"
 								class="form-control input-lg" placeholder="Password"
 								type="password">
 						</div>

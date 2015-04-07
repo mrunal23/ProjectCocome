@@ -8,6 +8,6 @@
 <title>Successful Login</title>
 </head>
 <body>
-   Hello World, <s:property value="name"/>
+   Hello World, <s:property value="user.name"/>
 </body>
 </html>
