@@ -6,15 +6,48 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<package name="login" extends="struts-default">
-		<action name = "loginaction" 
-		class = "com.cocome.action.LoginAction"
-		method = "execute">
-			<result name="success">/success.jsp</result>
+		<action name="loginaction" class="com.cocome.action.LoginAction"
+			method="execute">
+			<result name="success">/home.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-	
+
 	</package>
-	
+	<package name="home" extends="struts-default">
+		<action name="callNewsfeedAction" class="com.cocome.action.HomeAction"
+			method="newsfeedAction">
+			<result name="success">/newsfeed.jsp</result>
+		</action>
+		<action name="callTimelineAction" class="com.cocome.action.HomeAction"
+			method="timelineAction">
+			<result name="success">/timeline.jsp</result>
+		</action>
+		<action name="callSuggestedFriendsAction" class="com.cocome.action.HomeAction"
+			method="suggestedFriendsAction">
+			<result name="success">/suggestedFriends.jsp</result>
+		</action>
+		<action name="callFriendsOnlineAction" class="com.cocome.action.HomeAction"
+			method="friendsOnlineAction">
+			<result name="success">/chat.jsp</result>
+		</action>
+		<action name="callSomething" class="com.cocome.action.HomeAction"
+			method="somethingAction">
+			<result name="success">/something.jsp</result>
+		</action>
+		<action name="callViewDiscussionsAction" class="com.cocome.action.HomeAction"
+			method="viewDiscussionsAction">
+			<result name="success">/viewDiscussions.jsp</result>
+		</action>
+		<action name="callPostQuestionAction" class="com.cocome.action.HomeAction"
+			method="postQuestionAction">
+			<result name="success">/postQuestion.jsp</result>
+		</action>
+		<action name="callStartDiscussionAction" class="com.cocome.action.HomeAction"
+			method="startDiscussionAction">
+			<result name="success">/startDiscussion.jsp</result>
+		</action>
+	</package>
+
 
 
 </struts>

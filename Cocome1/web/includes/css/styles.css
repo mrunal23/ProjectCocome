@@ -33,6 +33,18 @@ Author:  Nihar Khetan
    Layout
    -------------------------------------- */
 
+#features{
+	text-align:center;
+}
+
+#features img{
+	margin:0 0 20px;
+}
+
+.tile-notification-text{
+	margin-top:10px;
+}
+
 .footer {
 	position: absolute;
 	bottom: 0;
@@ -44,9 +56,15 @@ Author:  Nihar Khetan
 }
 
 
+
 /* --------------------------------------
    Typography
    -------------------------------------- */
+.glyphicon-tiles{
+	font-size: 7em;	  
+  	color: #5bc0de;
+}
+
 
 /* --------------------------------------
    Navbar
