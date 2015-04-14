@@ -10,6 +10,7 @@ package com.cocome.DAO;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 import com.mysql.jdbc.Connection;
 
 public class DBConnection_Singleton {
@@ -71,7 +72,7 @@ public class DBConnection_Singleton {
 	public Connection getDBConnection() throws SQLException, ClassNotFoundException{
 		Class.forName(myDriver);
 		if(connection==null)
-			connection = (Connection) DriverManager. getConnection(myUrl,getUsername(),getPassword());
+			connection = (Connection) DriverManager. getConnection(myUrl,"root","");
 	    return connection;
 	}
 

@@ -16,7 +16,7 @@
 <!-- Bootstrap CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+
 <!-- Custom CSS -->
 <link href="includes/css/styles.css" rel="stylesheet">
 
@@ -96,90 +96,17 @@
 	</div>
 	<!--end navbar  -->
 	<div class="container" id="main">
-		<ul class="timeline">
-			<li>
-				<!---Time Line Element--->
-				<div class="timeline-badge up">
-					<i class="fa fa-thumbs-up"></i>
-				</div>
-				<div class="timeline-panel">
-					<div class="timeline-heading">
-						<h4 class="timeline-title">Time Line Entry #1</h4>
-					</div>
-					<div class="timeline-body">
-						<!---Time Line Body&Content--->
-						<p>Time line content is placed here...</p>
-					</div>
-				</div>
-			</li>
-			<li>
-				<!---Time Line Element--->
-				<div class="timeline-badge down">
-					<i class="fa fa-thumbs-down"></i>
-				</div>
-				<div class="timeline-panel">
-					<div class="timeline-heading">
-						<h4 class="timeline-title">Time Line Entry #2</h4>
-					</div>
-					<div class="timeline-body">
-						<!---Time Line Body&Content--->
-						<p>Time line content is placed here...</p>
-						<p>And some more Time line content</p>
-					</div>
-				</div>
-			</li>
-			<li>
-				<!---Time Line Element--->
-				<div class="timeline-badge neutral">
-					<i class="fa fa-navicon"></i>
-				</div>
-				<div class="timeline-panel">
-					<div class="timeline-heading">
-						<h4 class="timeline-title">Time Line Entry #3</h4>
-					</div>
-					<div class="timeline-body">
-						<!---Time Line Body&Content--->
-						<p>Time line content is placed here...</p>
-						<p>This appears to be a neutral time line enty...</p>
-					</div>
-				</div>
-			</li>
-			<li>
-				<!---Time Line Element--->
-				<div class="timeline-badge down">
-					<i class="fa fa-thumbs-down"></i>
-				</div>
-				<div class="timeline-panel">
-					<div class="timeline-heading">
-						<h4 class="timeline-title">Time Line Entry #4</h4>
-					</div>
-					<div class="timeline-body">
-						<!---Time Line Body&Content--->
-						<p>Time line content is placed here...</p>
-						<p>And some more Time line content</p>
-					</div>
-				</div>
-			</li>
-
-			<li>
-				<!---Time Line Element--->
-				<div class="timeline-badge up">
-					<i class="fa fa-thumbs-up"></i>
-				</div>
-				<div class="timeline-panel">
-					<div class="timeline-heading">
-						<h4 class="timeline-title">Time Line Entry #5</h4>
-					</div>
-					<div class="timeline-body">
-						<!---Time Line Body&Content--->
-						<p>Time line content is placed here...</p>
-					</div>
-				</div>
-			</li>
-		</ul>
+		<div class="row clearfix">
+			<h4>
+				Hello
+				
+			</h4>
 
 
+		</div>
 
+		
+		
 		<div class="row" id="moreInfo"></div>
 		<div class="row" id="moreCourses"></div>
 	</div>

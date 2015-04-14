@@ -1,11 +1,5 @@
 package com.cocome.action;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import com.cocome.bean.User;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HomeAction extends ActionSupport {

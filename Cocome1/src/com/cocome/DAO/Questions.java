@@ -1,13 +1,13 @@
 package com.cocome.DAO;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Questions {
 		private int question_No;
 		private String user_id;
 		private int upvote;
 		private int downvote;
-		private Date timestamp;
+		private Timestamp timestamp;
 		private String content;
 		private String topic;
 		public int getQuestion_No() {
@@ -35,23 +35,30 @@ public class Questions {
 		public void setDownvote(int downvote) {
 			this.downvote = downvote;
 		}
-		public Date getTimestamp() {
+		public Timestamp getTimestamp() {
 			return timestamp;
 		}
-		public void setTimestamp(Date timestamp) {
+		public void setTimestamp(Timestamp timestamp) {
 			this.timestamp = timestamp;
 		}
 		public String getContent() {
+			
 			return content;
 		}
 		public void setContent(String content) {
+			System.out.println(content);
 			this.content = content;
 		}
 		public String getTopic() {
 			return topic;
 		}
 		public void setTopic(String topic) {
+			System.out.println(topic);
 			this.topic = topic;
 		}
+//		public void forwardQuestion(){
+//			Map session = ActionContext.getContext().getSession();
+//			session.put("Question", value)
+//		}
 
 }

@@ -2,6 +2,7 @@ package com.cocome.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 	private Connection db_connection;
 	private PreparedStatement statement;
 	private String query;
-	QuestionsDAOImpl() throws ClassNotFoundException, SQLException{
+	public QuestionsDAOImpl() throws ClassNotFoundException, SQLException{
 		db_connection=DBConnection_Singleton.getInstance().getDBConnection();
 	}
 	public boolean insertQuestions(Questions questions) throws SQLException{
@@ -21,7 +22,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 		statement.setString(1,questions.getUser_id());
 		statement.setInt(2, questions.getUpvote());
 		statement.setInt(3, questions.getDownvote());
-		statement.setDate(4,questions.getTimestamp());
+		statement.setTimestamp(4,questions.getTimestamp());
 		statement.setString(5, questions.getContent());
 		statement.setString(6, questions.getTopic());
 		int val=statement.executeUpdate();
@@ -45,7 +46,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 			question.setUser_id(rs.getString("user_id"));
 			question.setUpvote(rs.getInt("upvote_count"));
 			question.setDownvote(rs.getInt("downvote_count"));
-			question.setTimestamp(rs.getDate("post_date"));
+			question.setTimestamp(new Timestamp(rs.getDate("post_date").getTime()));
 			question.setContent(rs.getString("content"));
 			question.setTopic(rs.getString("topic"));
 			questions.add(question);
