@@ -51,6 +51,18 @@
 		</action>
 
 	</package>
+	<package name="forgotpassword" extends="struts-default">
+		<action name="forgotpassword" class="com.cocome.action.ForgotPasswordAction"
+			method="load">
+			<result name="success">/ForgotPassword.jsp</result>
+		</action>
+		<action name="forgotpasswordupdate" class="com.cocome.action.ForgotPasswordAction"
+			method="execute">
+			<result name="success">/ForgotPassword.jsp</result>
+			<result name="error">/ForgotPassword.jsp</result>
+		</action>
+
+	</package>
 	<package name="home" extends="struts-default">
 		<action name="callNewsfeedAction" class="com.cocome.action.HomeAction"
 			method="newsfeedAction">

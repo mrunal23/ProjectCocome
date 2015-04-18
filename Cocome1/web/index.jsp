@@ -188,7 +188,7 @@
 								type="password" required />
 								
 						</div>
-						<a href=""
+						<a href=<s:url action="forgotpassword"/>
 								class="btn btn-link pull-right">Forgot Password?</a> <br />
 							<hr class="colorgraph">
 							<div class="row">

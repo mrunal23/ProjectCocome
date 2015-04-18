@@ -70,5 +70,21 @@ public class LoginDAOImpl implements LoginDAO {
 		
 			return false;
 	}
+	
+	@Override
+	public boolean updateLogin(Login login) throws SQLException {
+		String query="update login set password=? where user_id=?";
+		statement=(PreparedStatement) db_connection.prepareStatement(query);
+		System.out.println(login.getPassword());
+		System.out.println(login.getUser_id());
+		statement.setString(1, login.getPassword());
+		statement.setString(2,login.getUser_id());
+		int val=statement.executeUpdate();
+		statement.close();
+		if(val>0)
+			return true;
+		else
+			return false;
+	}
 
 }
