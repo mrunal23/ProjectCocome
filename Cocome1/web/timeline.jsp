@@ -16,7 +16,7 @@
 <!-- Bootstrap CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
 <!-- Custom CSS -->
 <link href="includes/css/styles.css" rel="stylesheet">
 
@@ -95,18 +95,68 @@
 		<!-- end container -->
 	</div>
 	<!--end navbar  -->
+
+
 	<div class="container" id="main">
 		<div class="row clearfix">
-			<h4>
-				Hello
-				
-			</h4>
 
+			<ul class="timeline">
+				<s:iterator value="posts" status="stat">
+					<li>
+						<!---Time Line Element--->
+						<div class="timeline-badge up">
+							<i class="fa fa-user"></i>
+						</div>
+						<div class="timeline-panel">
+							
+							<div class="row clearfix">
+								<div class="col-md-6 col-xs-6 col-sm-6">
+									<div class="timeline-heading">
+										<h4 class="timeline-title">
+											<s:label name="posts[%{#stat.index}].content"
+												value="%{content}" theme="simple" />
+										</h4>
+									</div>
+									<div class="timeline-body">
+										<!---Time Line Body&Content--->										
+										<p>
+											Somethign to add
+										</p>
+									</div>
+
+								</div>
+								<div class="col-md-6 col-xs-6 col-sm-6">
+									<ul class="list-inline list-unstyled">
+										<li><span><i class="glyphicon glyphicon-calendar"></i>
+												<s:date name="%{post_date}" format="MM/dd/yyyy hh:mm:ss" /> </span></li>
+										<li>|</li>
+										<span><i class="glyphicon glyphicon-thumbs-up"></i> <s:label name="posts[%{#stat.index}].likes_count"
+												value="%{likes_count}" theme="simple" /> Likes</span>
+										<li>|</li>
+										<span><i class="glyphicon glyphicon-thumbs-down"></i> <s:label name="posts[%{#stat.index}].likes_count"
+												value="%{likes_count}" theme="simple" /> Dislikes</span>
+										<li>
+											<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+											<span><i class="fa fa-facebook-square"></i></span> <span><i
+												class="fa fa-twitter-square"></i></span> <span><i
+												class="fa fa-google-plus-square"></i></span>
+										</li>
+									</ul>
+
+								</div>
+
+
+							</div>
+
+						</div>
+					</li>
+				</s:iterator>
+			</ul>
 
 		</div>
 
-		
-		
+
+
 		<div class="row" id="moreInfo"></div>
 		<div class="row" id="moreCourses"></div>
 	</div>
@@ -148,8 +198,6 @@
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
-	
-		
 	</script>
 
 	<!-- Bootstrap JS -->

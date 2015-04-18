@@ -97,16 +97,103 @@
 	<!--end navbar  -->
 	<div class="container" id="main">
 		<div class="row clearfix">
-			<h4>
-				Hello
+
+
+			<div class="qa-message-list" id="wallmessages">
+
+				<s:iterator value="newsfeeds" status="stat">
+				<div class="message-item" id="m16">
 				
-			</h4>
+					<div class="message-inner">
+						<div class="message-head clearfix">
+							<div class="avatar pull-left">
+								<a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img
+									src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
+							</div>
+							<div class="user-detail">
+								<h5 class="handle">
+									<s:label name="newsfeeds[%{#stat.index}].type_of_feed"
+										value="%{type_of_feed}" theme="simple" />
+								</h5>
+								<div class="post-meta">
+									<div class="asker-meta">
+										<span class="qa-message-what"></span> <span
+											class="qa-message-when"> <span
+											class="qa-message-when-data"><s:label
+													name="newsfeeds[%{#stat.index}].date" value="%{date}" theme="simple" /></span>
+										</span> <span class="qa-message-who"> <span
+											class="qa-message-who-pad">by </span> <span
+											class="qa-message-who-data"><a><s:label
+														name="newsfeeds[%{#stat.index}].posted_by"
+														value="%{posted_by}" theme="simple"  /></a></span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="qa-message-content">
+							<s:label name="newsfeeds[%{#stat.index}].content"
+								value="%{content}" theme="simple"  />
+						</div>
+						<form role="form">
+							<div class="row customPadComment">
+								<div class="col-xs-4 col-sm-4 col-md-4">
+									<div class="text-center">
+										<div class="row">
+											<div class="col-xs-4 col-sm-4 col-md-4">
+												<a class="like" href="#"><span
+													class="glyphicon glyphicon-thumbs-up"></span> <s:label
+														name="newsfeeds[%{#stat.index}].likes_count"
+														value="%{likes_count}" theme="simple"  /> likes</a>
+											</div>
+											<div class="col-xs-4 col-sm-4 col-md-4">
+												<a class="dislike" href="#"><span
+													class="glyphicon glyphicon-thumbs-down"></span> <s:label
+														name="newsfeeds[%{#stat.index}].dislikes_count"
+														value="%{dislikes_count}" theme="simple"  /> dislikes</a>
+											</div>
+											<div class="col-xs-4 col-sm-4 col-md-4">
+												<a class="comments" href="#"><span
+													class="glyphicon glyphicon-comment"></span> <s:label
+														name="newsfeeds[%{#stat.index}].comment_count"
+														value="%{comment_count}" theme="simple"  /> comments</a>
+											</div>
+										</div>
+
+
+									</div>
+
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<input type="text" name="comment" id="comment"
+										class="form-control input-sm" placeholder="Add Comment">
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-2">
+									<input type="submit" value="Comment"
+										class="btn btn-info btn-block">
+								</div>
+
+							</div>
+
+
+
+						</form>
+					</div>
+					
+				</div>
+
+
+				</s:iterator>
+			</div>
+
+
+
 
 
 		</div>
 
-		
-		
+
+
 		<div class="row" id="moreInfo"></div>
 		<div class="row" id="moreCourses"></div>
 	</div>
@@ -148,8 +235,6 @@
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
-	
-		
 	</script>
 
 	<!-- Bootstrap JS -->

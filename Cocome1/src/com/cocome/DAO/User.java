@@ -1,5 +1,6 @@
 package com.cocome.DAO;
 
+import java.io.File;
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -13,13 +14,19 @@ public class User {
 	private Date date_of_birth;
 	private String gender;
 	private String phone_number;
-	private String alternate_email_id;
+	private String location;
 	private String profession;
 	private String education;
 	private String hobby;
+	private String rel_stat;
 	private String about_me;
 	private String linkedin_handle;
 	private Timestamp last_update;
+	private Timestamp logout_time;
+	private int count_of_friends;
+	private int pending_friend_requests;
+
+	//private File image;
 	public String getUser_id() {
 		return user_id;
 	}
@@ -74,11 +81,11 @@ public class User {
 	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
-	public String getAlternate_email_id() {
-		return alternate_email_id;
+	public String getLocation() {
+		return location;
 	}
-	public void setAlternate_email_id(String alternate_email_id) {
-		this.alternate_email_id = alternate_email_id;
+	public void setLocation(String location) {
+		this.location= location;
 	}
 	public String getProfession() {
 		return profession;
@@ -116,5 +123,36 @@ public class User {
 	public void setLast_update(Timestamp last_update) {
 		this.last_update = last_update;
 	}
+	public String getRel_stat() {
+		return rel_stat;
+	}
+	public void setRel_stat(String rel_stat) {
+		this.rel_stat = rel_stat;
+	}
+//	public File getImage() {
+//		return image;
+//	}
+//	public void setImage(File image) {
+//		this.image = image;
+//	}
+	public Timestamp getLogout_time() {
+		return logout_time;
+	}
+	public void setLogout_time(Timestamp logout_time) {
+		this.logout_time = logout_time;
+	}
+	public int getCount_of_friends() {
+		return count_of_friends;
+	}
+	public void setCount_of_friends(int count_of_friends) {
+		this.count_of_friends = count_of_friends;
+	}
+	public int getPending_friend_requests() {
+		return pending_friend_requests;
+	}
+	public void setPending_friend_requests(int pending_friend_requets) {
+		this.pending_friend_requests = pending_friend_requets;
+	}
+
 	
 }

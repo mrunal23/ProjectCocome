@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="com.opensymphony.xwork2.ActionContext"%>
+<%@ page import="com.cocome.DAO.User"%>
+<%@ page import="java.util.Map"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +19,8 @@
 <!-- Bootstrap CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css"
+	href="font-awesome/css/font-awesome.min.css" />
 <!-- Custom CSS -->
 <link href="includes/css/styles.css" rel="stylesheet">
 
@@ -97,18 +101,63 @@
 	<!--end navbar  -->
 	<div class="container" id="main">
 		<div class="row clearfix">
-			<h4>
-				Hello
-				
-			</h4>
-
-
+			<nav class="navbar navbar-default friendsPanelnavbar">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<h4 class="friendsPanelFont">
+						<%!Map session = ActionContext.getContext().getSession();
+	User user = (User) session.get("user");%>
+						<%=user.getFirst_name()%>
+						has 
+						<%=user.getCount_of_friends()%>
+						Friends
+					</h4>
+				</div>
+			</div>
+			</nav>
 		</div>
 
-		
-		
-		<div class="row" id="moreInfo"></div>
-		<div class="row" id="moreCourses"></div>
+
+
+
+
+		<div class="row" id="friendsTiles">
+
+			<s:iterator value="friends" status="stat">
+				<div class="col-md-12 friends-bar">
+					<div class="well well-sm ">
+						<div class="row">
+							<div class="col-xs-3 col-md-3 col-sm-3 text-center">
+								<span class="glyphicon glyphicon-user glyph-user-style"></span>
+							</div>
+							<div class="col-xs-9 col-md-9 col-xs-9 section-box">
+								<h4>
+									<s:label name="friends[%{#stat.index}].user.first_name"
+										value="%{user.first_name}" theme="simple" />
+									<s:label name="friends[%{#stat.index}].user.last_name"
+										value="%{user.last_name}" theme="simple" />
+									<a href="http://bootsnipp.com/" target="_blank"><span
+										class="glyphicon glyphicon-new-window"> </span></a>
+								</h4>
+								<hr />
+								<p>
+									<s:label name="friends[%{#stat.index}].user.location"
+										value="%{user.location}" theme="simple" />
+									|
+									<s:label name="friends[%{#stat.index}].user.about_me"
+										value="%{user.about_me}" theme="simple" />
+								</p>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</s:iterator>
+		</div>
+
+	</div>
+	<div class="row" id="moreCourses"></div>
 	</div>
 	<!-- end container  -->
 	<!-- 	<form action="loginaction" method="post"> -->
@@ -148,10 +197,14 @@
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
-	
-		
 	</script>
-
+	<script>
+		$(document).ready(function() {
+			$('#Carousel').carousel({
+				interval : 5000
+			})
+		});
+	</script>
 	<!-- Bootstrap JS -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 

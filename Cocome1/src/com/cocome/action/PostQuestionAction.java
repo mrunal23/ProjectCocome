@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.cocome.DAO.Questions;
 import com.cocome.DAO.QuestionsDAOImpl;
+import com.cocome.DAO.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,6 +16,7 @@ public class PostQuestionAction extends ActionSupport {
 	//Questions question;
 	String content;
 	String topic;
+	String visibility;
 	public String getTopic() {
 		return topic;
 	}
@@ -32,6 +34,15 @@ public String getContent() {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+
+	public String getVisibility() {
+		return visibility;
+	}
+
+	public void setVisibility(String visibility) {
+		this.visibility = visibility;
+	}
 
 	//	public Questions getQuestion() {
 //		System.out.println(question.getTopic());
@@ -47,14 +58,16 @@ public String getContent() {
 		question.setTopic(topic);
 		question.setDownvote(0);
 		question.setUpvote(0);
-		
+		question.setVisibility(visibility);
 		Date currentDate=new Date();
 		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		question.setTimestamp(new Timestamp(currentDate.getTime()));
-		question.setUser_id("bde@indiana.edu");
-		QuestionsDAOImpl ques=new QuestionsDAOImpl();
+		
 		Map session = ActionContext.getContext().getSession();
-		session.put("Name","Bipra" );
+		User user=(User) session.get("user");
+		question.setUser_id(user.getUser_id());
+		QuestionsDAOImpl ques=new QuestionsDAOImpl();
+		
 		
 		ques.insertQuestions(question);
 		return SUCCESS;

@@ -10,6 +10,8 @@ public class Questions {
 		private Timestamp timestamp;
 		private String content;
 		private String topic;
+		private String visibility;
+		private int no_of_answers;
 		public int getQuestion_No() {
 			return question_No;
 		}
@@ -56,9 +58,19 @@ public class Questions {
 			System.out.println(topic);
 			this.topic = topic;
 		}
-//		public void forwardQuestion(){
-//			Map session = ActionContext.getContext().getSession();
-//			session.put("Question", value)
-//		}
+		public String getVisibility() {
+			return visibility;
+		}
+		public void setVisibility(String visibility) {
+			this.visibility = visibility;
+		}
+		public int getNo_of_answers() {
+			return no_of_answers;
+		}
+		public void setNo_of_answers(int no_of_answers) {
+			this.no_of_answers = no_of_answers;
+		}
+		
+
 
 }

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="com.opensymphony.xwork2.ActionContext"%>
+<%@ page import="com.cocome.DAO.User"%>
+<%@ page import="java.util.Map"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -78,13 +81,14 @@
 							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
 									Settings</a></li>
 
-							<li><a href="#"><span
+							<li action="EditprofLoad"><a
+								href=<s:url action="EditprofLoad"/>><span
 									class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
 
 							<li class="divider"></li>
 
-							<li><a href="#"><span class="glyphicon glyphicon-off"></span>
-									Sign out</a></li>
+							<li><a href="index.jsp"><span
+									class="glyphicon glyphicon-off"></span> Sign out</a></li>
 						</ul></li>
 				</ul>
 				<!-- end nav pull-right -->
@@ -96,11 +100,32 @@
 	</div>
 	<!--end navbar  -->
 	<div class="container" id="main">
+
+		<div class="row panel">
+			<div class="col-md-4 col-xs-4 col-sm-4 bg_blur ">
+				
+			</div>
+			<div class="col-md-8 col-sm-8  col-xs-8">
+				<img src="images/nkhetan.jpg"
+					class="img-thumbnail picture hidden-xs" /> 
+				<div class="header">
+					<h1>
+						<%!Map session = ActionContext.getContext().getSession();
+				User user=(User) session.get("user");	
+				%>
+				<%=user.getFirst_name()%>
+
+
+					</h1>
+					<h4><%=user.getProfession()%></h4>
+					<span><%=user.getStatus()%></span>
+				</div>
+			</div>
+		</div>
+
 		<div class="row clearfix">
-			<h4>
-				Hello
-				<s:property value="user.name" />
-			</h4>
+			
+
 
 
 		</div>
@@ -114,19 +139,21 @@
 		</div>
 		<!-- end featuresHeading -->
 		<div class="row" id="features">
-			<div class="col-sm-3 feature" >
+			<div class="col-sm-3 feature">
 				<form role="form" action="callNewsfeedAction" method="post">
-				<div class="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">My Newsfeed</h3>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">My Newsfeed</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-time glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="Newsfeed" class="btn btn-warning btn-block"
+							type="submit">
 					</div>
-					<!-- end panel-heading -->
-					 <span class="glyphicon glyphicon-time glyphicon-tiles" aria-hidden="true"></span>
-
-					<p class="tile-notification-text">Can add values here</p>
-
-					<input value="Newsfeed" class="btn btn-warning btn-block" type="submit">
-				</div>
 				</form>
 				<!-- end panel -->
 			</div>
@@ -134,17 +161,19 @@
 
 			<div class="col-sm-3 feature">
 				<form role="form" action="callTimelineAction" method="post">
-				<div class="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">My Timeline</h3>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">My Timeline</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-list-alt glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="Timeline" class="btn btn-warning btn-block"
+							type="submit">
 					</div>
-					<!-- end panel-heading -->
-					<span class="glyphicon glyphicon-list-alt glyphicon-tiles" aria-hidden="true"></span>
-
-					<p class="tile-notification-text">Can add values here</p>
-
-					<input value="Timeline" class="btn btn-warning btn-block" type="submit" >
-				</div>
 				</form>
 				<!-- end panel -->
 			</div>
@@ -152,34 +181,38 @@
 
 			<div class="col-sm-3 feature">
 				<form role="form" action="callSuggestedFriendsAction" method="post">
-				<div class="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">Suggested Friends</h3>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Suggested Friends</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-magnet glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="View Suggested Friends"
+							class="btn btn-warning btn-block" type="submit">
 					</div>
-					<!-- end panel-heading -->
-					<span class="glyphicon glyphicon-magnet glyphicon-tiles" aria-hidden="true"></span>
-
-					<p class="tile-notification-text">Can add values here</p>
-
-					<input	value="View Suggested Friends" class="btn btn-warning btn-block" type="submit">
-				</div>
 				</form>
 				<!-- end panel -->
 			</div>
-			
+
 			<div class="col-sm-3 feature">
 				<form role="form" action="callFriendsOnlineAction" method="post">
-				<div class="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">4 Friends Online</h3>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">4 Friends Online</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-comment glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="Chat" class="btn btn-warning btn-block"
+							type="submit">
 					</div>
-					<!-- end panel-heading -->
-					<span class="glyphicon glyphicon-comment glyphicon-tiles" aria-hidden="true"></span>
-
-					<p class="tile-notification-text">Can add values here</p>
-
-					<input	value="Chat" class="btn btn-warning btn-block" type="submit">
-				</div>
 				</form>
 				<!-- end panel -->
 			</div>
@@ -189,17 +222,19 @@
 		<div class="row" id="features">
 			<div class="col-sm-3 feature">
 				<form role="form" action="callSomething" method="post">
-				<div class="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">Something</h3>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Something</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-plane glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="Something" class="btn btn-warning btn-block"
+							type="submit">
 					</div>
-					<!-- end panel-heading -->
-					<span class="glyphicon glyphicon-plane glyphicon-tiles" aria-hidden="true"></span>
-
-					<p class="tile-notification-text">Can add values here</p>
-
-					<input	value="Something" class="btn btn-warning btn-block" type="submit">
-				</div>
 				</form>
 				<!-- end panel -->
 			</div>
@@ -207,17 +242,19 @@
 
 			<div class="col-sm-3 feature">
 				<form role="form" action="callViewDiscussionsAction" method="post">
-				<div class="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">Discussions</h3>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Post A Discussion</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-glass glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Start a discussion</p>
+
+						<input value="View Discussions" class="btn btn-warning btn-block"
+							type="submit">
 					</div>
-					<!-- end panel-heading -->
-					<span class="glyphicon glyphicon-glass glyphicon-tiles" aria-hidden="true"></span>
-
-					<p class="tile-notification-text">Can add values here</p>
-
-					<input	value="View Discussions" class="btn btn-warning btn-block" type="submit">
-				</div>
 				</form>
 				<!-- end panel -->
 			</div>
@@ -225,37 +262,81 @@
 
 			<div class="col-sm-3 feature">
 				<form role="form" action="callPostQuestionAction" method="post">
-				<div class="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">Questions</h3>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Questions</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-bullhorn glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="Post a Question" class="btn btn-warning btn-block"
+							type="submit">
 					</div>
-					<!-- end panel-heading -->
-					<span class="glyphicon glyphicon-bullhorn glyphicon-tiles" aria-hidden="true"></span>
-
-					<p class="tile-notification-text">Can add values here</p>
-
-					<input	value="Post a Question" class="btn btn-warning btn-block" type="submit">
-				</div>
 				</form>
 				<!-- end panel -->
 			</div>
-			
+
 			<div class="col-sm-3 feature">
-				<form role="form" action="callStartDiscussionAction" method="post">
-				<div class="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">Discussion</h3>
+				<form role="form" action="viewUserPosts" method="post">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">My Discussions</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-flag glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="Start a Discussion"
+							class="btn btn-warning btn-block" type="submit">
 					</div>
-					<!-- end panel-heading -->
-					<span class="glyphicon glyphicon-flag glyphicon-tiles" aria-hidden="true"></span>
-
-					<p class="tile-notification-text">Can add values here</p>
-
-					<input	value="Start a Discussion" class="btn btn-warning btn-block" type="submit">
-				</div>
 				</form>
 				<!-- end panel -->
 			</div>
+
+			<div class="col-sm-3 feature">
+				<form role="form" action="callMyFriendsAction" method="post">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">My Friends</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-flag glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="See My Friends" class="btn btn-warning btn-block"
+							type="submit">
+					</div>
+				</form>
+				<!-- end panel -->
+			</div>
+
+			<div class="col-sm-3 feature">
+				<form role="form" action="callFriendsNotificationAction"
+					method="post">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Friends Requests</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-flag glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="See Pending Requests"
+							class="btn btn-warning btn-block" type="submit">
+					</div>
+				</form>
+				<!-- end panel -->
+			</div>
+
 			<!-- end feature -->
 		</div>
 		<div class="row" id="moreInfo"></div>
@@ -299,8 +380,6 @@
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
-	
-		
 	</script>
 
 	<!-- Bootstrap JS -->

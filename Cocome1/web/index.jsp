@@ -178,31 +178,26 @@
 						<h2>Please Sign In</h2>
 						<hr class="colorgraph">
 						<div class="form-group">
-							<input name="userId" id="email" class="form-control input-lg"
-								placeholder="Email Address" type="email">
+							  <input name="login.user_id" id="user_id" class="form-control input-lg"
+								placeholder="Email Address" type="email" required />
+							
 						</div>
 						<div class="form-group">
-							<input name="password" id="password"
+							 <input name="login.password" id="password"
 								class="form-control input-lg" placeholder="Password"
-								type="password">
+								type="password" required />
+								
 						</div>
-						<div class="button-checkbox">
-							<button type="button" class="btn btn-info active"
-								data-color="info">
-								<i class="state-icon glyphicon glyphicon-check"></i>&nbsp;Remember
-								Me
-							</button>
-							<input name="remember_me" id="remember_me" checked="checked"
-								class="hidden" type="checkbox"> <a href=""
-								class="btn btn-link pull-right">Forgot Password?</a> </span>
+						<a href=""
+								class="btn btn-link pull-right">Forgot Password?</a> <br />
 							<hr class="colorgraph">
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<input class="btn btn-lg btn-success btn-block" value="Login"
+								  	<input class="btn btn-lg btn-success btn-block" value="Login"
 										type="submit">
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<a href="" class="btn btn-lg btn-primary btn-block">Register</a>
+									<a href="RegisterNew.jsp" class="btn btn-lg btn-primary btn-block">Register</a>
 								</div>
 							</div>
 					</fieldset>

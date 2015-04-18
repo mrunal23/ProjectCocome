@@ -162,11 +162,11 @@
 
 							<p>Visible to :</p>
 							<div class="radio">
-								<label><input type="radio" name="Friends">Friends
+								<label><input type="radio" name="visibility" value="Friends">Friends
 									</label>
 							</div>
 							<div class="radio">
-								<label><input type="radio" name="Public">Public
+								<label><input type="radio" name="visibility" value="Public">Public
 									</label>
 							</div>
 							

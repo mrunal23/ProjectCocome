@@ -17,7 +17,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 		db_connection=DBConnection_Singleton.getInstance().getDBConnection();
 	}
 	public boolean insertQuestions(Questions questions) throws SQLException{
-		query="insert into questions(user_id,upvote_count,downvote_count,post_date,content,topic) values(?,?,?,?,?,?)";
+		query="insert into questions(user_id,upvote_count,downvote_count,post_date,content,topic,visibility) values(?,?,?,?,?,?,?)";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1,questions.getUser_id());
 		statement.setInt(2, questions.getUpvote());
@@ -25,6 +25,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 		statement.setTimestamp(4,questions.getTimestamp());
 		statement.setString(5, questions.getContent());
 		statement.setString(6, questions.getTopic());
+		statement.setString(7, questions.getVisibility());
 		int val=statement.executeUpdate();
 		statement.close();
 		if(val>0)
@@ -38,7 +39,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 		List<Questions> questions=new ArrayList<Questions>();
 		query="select * from questions where user_id=?";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
-		statement.setString(1, "user_id");
+		statement.setString(1, user_id);
 		ResultSet rs=statement.executeQuery();
 		while(rs.next()){
 			Questions question=new Questions();
@@ -46,25 +47,53 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 			question.setUser_id(rs.getString("user_id"));
 			question.setUpvote(rs.getInt("upvote_count"));
 			question.setDownvote(rs.getInt("downvote_count"));
-			question.setTimestamp(new Timestamp(rs.getDate("post_date").getTime()));
+			question.setTimestamp(rs.getTimestamp("post_date")	);
 			question.setContent(rs.getString("content"));
 			question.setTopic(rs.getString("topic"));
+			question.setVisibility(rs.getString("visibility"));
+			question.setNo_of_answers(rs.getInt("no_of_answers"));
 			questions.add(question);
+			//System.out.println(rs.getTimestamp("post_date"));
+			
 		}
 		statement.close();
 		return questions;
-		
+	}
+	public Questions getQuestion(int question_no) throws SQLException{
+		//System.out.println("DAO "+question_no);
+		query="select * from questions where qno=?";
+		statement=(PreparedStatement) db_connection.prepareStatement(query);
+		statement.setInt(1, question_no);
+		ResultSet rs=statement.executeQuery();
+		if(rs.next()){
+			Questions question=new Questions();
+			question.setQuestion_No(rs.getInt("qno"));
+			question.setUser_id(rs.getString("user_id"));
+			question.setUpvote(rs.getInt("upvote_count"));
+			question.setDownvote(rs.getInt("downvote_count"));
+			question.setTimestamp(rs.getTimestamp("post_date")	);
+			question.setContent(rs.getString("content"));
+			question.setTopic(rs.getString("topic"));
+			question.setVisibility(rs.getString("visibility"));
+			question.setNo_of_answers(rs.getInt("no_of_answers"));
+			return question;
+		}
+		else
+			return null;
 		
 	}
+		
+	
 	@Override
 	public boolean updateQuestions(Questions questions) throws SQLException {
-		query="update questions set upvote_count=?,downvote_count=?,content=?,topic=? where qno=?";
+		query="update questions set upvote_count=?,downvote_count=?,content=?,topic=?,visibility=? where qno=?";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
 		statement.setInt(1, questions.getUpvote());
 		statement.setInt(2, questions.getDownvote());
 		statement.setString(3,questions.getContent());
 		statement.setString(4,questions.getTopic());
-		statement.setInt(5,questions.getQuestion_No());
+		statement.setString(5,questions.getVisibility());
+		statement.setInt(6,questions.getQuestion_No());
 		int val=statement.executeUpdate();
 		statement.close();
 		if(val>0)

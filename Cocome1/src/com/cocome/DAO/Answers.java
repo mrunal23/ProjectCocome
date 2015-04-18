@@ -1,15 +1,17 @@
 package com.cocome.DAO;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Answers {
 	private int answer_no;
 	private int question_No;
-	private String user_id;
+	//private String user_id;
 	private int upvote;
 	private int downvote;
-	private Date timestamp;
+	private Timestamp timestamp;
 	private String content;
+	private User user;
 	
 	public int getAnswer_no() {
 		return answer_no;
@@ -23,13 +25,13 @@ public class Answers {
 	public void setQuestion_No(int question_No) {
 		this.question_No = question_No;
 	}
-	
-	public String getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
+//	
+//	public String getUser_id() {
+//		return user_id;
+//	}
+//	public void setUser_id(String user_id) {
+//		this.user_id = user_id;
+//	}
 	public int getUpvote() {
 		return upvote;
 	}
@@ -42,10 +44,10 @@ public class Answers {
 	public void setDownvote(int downvote) {
 		this.downvote = downvote;
 	}
-	public Date getTimestamp() {
+	public Timestamp getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
 	public String getContent() {
@@ -54,5 +56,11 @@ public class Answers {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 }

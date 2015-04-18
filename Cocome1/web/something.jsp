@@ -97,17 +97,63 @@
 	<!--end navbar  -->
 	<div class="container" id="main">
 		<div class="row clearfix">
-			<h4>
-				Hello
-				
-			</h4>
+			<s:form action="fileUpload" method="post"
+				enctype="multipart/form-data">
+    				<s:file name="toBeUploaded" label="Choose file to upload" />
+  				  <s:submit value="Upload" align="center" />
+			</s:form>
 
 
 		</div>
 
-		
-		
-		<div class="row" id="moreInfo"></div>
+
+
+		<div class="row commentBox" id="posts">
+
+			<div class="box">
+				<div class="icon">
+					<div class="image">
+						<span class="glyphicon glyphicon-list-alt btn-lg white"></span>
+					</div>
+					<div class="info">
+						<h3 class="title">How to deal with net neutrality?</h3>
+						<p>Satvik: I am totally against it. Let us create awareness.</p>
+						<div class="text-center">
+							<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>
+								Like</a> <a href="#"><span
+								class="glyphicon glyphicon-thumbs-down"></span> Dislike</a> <a
+								href="#"><span class="glyphicon glyphicon-comment"></span> 3
+								Comments</a>
+						</div>
+						<form role="form">
+							<div class="row customPadComment">
+								<div class="col-xs-2 col-sm-2 col-md-2"></div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<input type="text" name="comment" id="comment"
+										class="form-control input-sm" placeholder="Add Comment">
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-2">
+									<input type="submit" value="Comment"
+										class="btn btn-info btn-block">
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-2"></div>
+							</div>
+
+
+
+						</form>
+						<div class="more">
+							<a href="#" title="Title Link"><i class="fa fa-plus"></i>
+								Details </a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="space"></div>
+
+
+
+		</div>
 		<div class="row" id="moreCourses"></div>
 	</div>
 	<!-- end container  -->
@@ -148,8 +194,6 @@
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
-	
-		
 	</script>
 
 	<!-- Bootstrap JS -->
@@ -157,7 +201,5 @@
 
 	<!-- Custom JS -->
 	<script src="includes/js/script.js"></script>
-
-
 </body>
 </html>
