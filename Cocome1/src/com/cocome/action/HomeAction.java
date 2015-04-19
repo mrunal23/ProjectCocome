@@ -12,6 +12,8 @@ import com.cocome.DAO.Newsfeed;
 import com.cocome.DAO.NewsfeedDAOImpl;
 import com.cocome.DAO.Posts;
 import com.cocome.DAO.PostsDAOImpl;
+import com.cocome.DAO.Timeline;
+import com.cocome.DAO.TimelineDAOImpl;
 import com.cocome.DAO.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -22,6 +24,10 @@ public class HomeAction extends ActionSupport {
 	private List<Newsfeed> newsfeeds;
 	private List<Friends> friends;
 	private List<FriendRequests> friendRequests;
+	private List<Timeline> timelines;
+	
+
+
 	private User user;
 	
 	
@@ -52,12 +58,26 @@ public class HomeAction extends ActionSupport {
 		Map session = ActionContext.getContext().getSession();
 		user=(User) session.get("user");
 		System.out.println(user.getUser_id());
-		PostsDAOImpl postsDAO=new PostsDAOImpl();
-		posts = postsDAO.getPostsOfUser(user.getUser_id());
-		System.out.println("Posts of the given user");
-		for(Posts q:posts){
-			System.out.println(q.getPost_id());
+		
+		TimelineDAOImpl timelineDAO = new TimelineDAOImpl();
+		timelines = timelineDAO.getTimelineOfUser(user.getUser_id());
+		
+		
+		System.out.println("From Homa ACtion Timeline list");
+		for (Timeline ts: timelines){
+			System.out.println(ts.getType_of_feed());
+			System.out.println(ts.getContent());
+			System.out.println(ts.getComment());
+			System.out.println(ts.getLikes());
+			System.out.println(ts.getDislikes());
+			System.out.println(ts.getDate());
 		}
+//		PostsDAOImpl postsDAO=new PostsDAOImpl();
+//		posts = postsDAO.getPostsOfUser(user.getUser_id());
+//		System.out.println("Posts of the given user");
+//		for(Posts q:posts){
+//			System.out.println(q.getPost_id());
+//		}
 		//session.put("user_posts", posts); 
 		return SUCCESS;		
 	}
@@ -163,6 +183,15 @@ public class HomeAction extends ActionSupport {
 
 	public void setFriendRequests(List<FriendRequests> friendRequests) {
 		this.friendRequests = friendRequests;
+	}
+	
+	public List<Timeline> getTimelines() {
+		return timelines;
+	}
+
+
+	public void setTimelines(List<Timeline> timelines) {
+		this.timelines = timelines;
 	}
 
 

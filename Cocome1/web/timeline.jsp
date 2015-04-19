@@ -16,7 +16,8 @@
 <!-- Bootstrap CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="font-awesome/css/font-awesome.min.css" />
 <!-- Custom CSS -->
 <link href="includes/css/styles.css" rel="stylesheet">
 
@@ -101,48 +102,57 @@
 		<div class="row clearfix">
 
 			<ul class="timeline">
-				<s:iterator value="posts" status="stat">
+				<s:iterator value="timelines" status="stat">
 					<li>
 						<!---Time Line Element--->
 						<div class="timeline-badge up">
 							<i class="fa fa-user"></i>
 						</div>
 						<div class="timeline-panel">
-							
+
 							<div class="row clearfix">
 								<div class="col-md-6 col-xs-6 col-sm-6">
 									<div class="timeline-heading">
-										<h4 class="timeline-title">
-											<s:label name="posts[%{#stat.index}].content"
-												value="%{content}" theme="simple" />
+										<h4 class="timeline-title blue_color">
+											<s:label name="timelines[%{#stat.index}].type_of_feed"
+												value="%{type_of_feed}" theme="simple" />
 										</h4>
 									</div>
 									<div class="timeline-body">
-										<!---Time Line Body&Content--->										
-										<p>
-											Somethign to add
+										<!---Time Line Body&Content--->
+										<p class="timeline_content">
+											<s:label name="timlines[%{#stat.index}].content"
+												value="%{content}" theme="simple" />
 										</p>
 									</div>
 
 								</div>
 								<div class="col-md-6 col-xs-6 col-sm-6">
+								<div class="timeline-body-upper">
 									<ul class="list-inline list-unstyled">
 										<li><span><i class="glyphicon glyphicon-calendar"></i>
-												<s:date name="%{post_date}" format="MM/dd/yyyy hh:mm:ss" /> </span></li>
+												<s:date name="%{date}" /> </span></li>
 										<li>|</li>
-										<span><i class="glyphicon glyphicon-thumbs-up"></i> <s:label name="posts[%{#stat.index}].likes_count"
-												value="%{likes_count}" theme="simple" /> Likes</span>
+										<span><i class="glyphicon glyphicon-thumbs-up"></i> <s:label
+												name="newsfeeds[%{#stat.index}].likes" value="%{likes}"
+												theme="simple" /></span>
 										<li>|</li>
-										<span><i class="glyphicon glyphicon-thumbs-down"></i> <s:label name="posts[%{#stat.index}].likes_count"
-												value="%{likes_count}" theme="simple" /> Dislikes</span>
-										<li>
-											<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-											<span><i class="fa fa-facebook-square"></i></span> <span><i
-												class="fa fa-twitter-square"></i></span> <span><i
-												class="fa fa-google-plus-square"></i></span>
-										</li>
+										<span><i class="glyphicon glyphicon-thumbs-down"></i> <s:label
+												name="newsfeeds[%{#stat.index}].dislikes"
+												value="%{dislikes}" theme="simple" /></span>
+										
+										
+										
 									</ul>
-
+								</div>
+								<div class="timeline-body-lower">
+									<ul class="list-inline list-unstyled">
+									<li>
+										<span><s:label
+												name="newsfeeds[%{#stat.index}].comment" value="%{comment}"
+												theme="simple" /></span>
+									</li>
+									</ul>
 								</div>
 
 
