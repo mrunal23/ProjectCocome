@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.mysql.jdbc.Connection;
@@ -43,10 +45,19 @@ public class PostsDAOImpl implements PostsDAO {
 			post.setContent(rs.getString("content"));
 			post.setPost_date(new Timestamp(rs.getDate("post_date").getTime()));
 			post.setLikes_count(rs.getInt("likes_count"));
-			post.setDislikes_count(rs.getInt("dislikes_count"));
+			post.setDislikes_count(rs.getInt("dislike_count"));
 			posts.add(post);
 		}
 		statement.close();
+		
+		Collections.sort(posts, new Comparator<Posts>() {
+			  public int compare(Posts p1,  Posts p2) {
+			      if (p1.getPost_date() == null || p2.getPost_date() == null)
+			        return 0;
+			      return p2.getPost_date().compareTo(p1.getPost_date());
+			  }
+			});
+		
 		return posts;		
 	}
 		

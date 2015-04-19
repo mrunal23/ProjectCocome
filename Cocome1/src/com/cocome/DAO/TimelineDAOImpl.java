@@ -35,21 +35,21 @@ public class TimelineDAOImpl implements TimelineDAO {
 		Map session = ActionContext.getContext().getSession();
 		User user=(User) session.get("user");
 		
-		// Getting posts of user
-		query1="select * from posts where user_id=?";
-		statement1=(PreparedStatement) db_connection.prepareStatement(query1);
-		statement1.setString(1, user_id);		
-		ResultSet rs=statement1.executeQuery();
-		while(rs.next()){
-			Timeline timeline=new Timeline();
-			timeline.setType_of_feed("My Status Message");
-			timeline.setComment("");
-			timeline.setContent(rs.getString("content"));			
-			timeline.setDate(new Timestamp(rs.getDate("post_date").getTime()));
-			timeline.setLikes(Integer.toString(rs.getInt("likes_count")) + " Likes");			
-			timeline.setDislikes(Integer.toString(rs.getInt("dislike_count")) + " Dis-likes");
-			timelines.add(timeline);
-		}
+//		// Getting posts of user
+//		query1="select * from posts where user_id=?";
+//		statement1=(PreparedStatement) db_connection.prepareStatement(query1);
+//		statement1.setString(1, user_id);		
+//		ResultSet rs=statement1.executeQuery();
+//		while(rs.next()){
+//			Timeline timeline=new Timeline();
+//			timeline.setType_of_feed("My Status Message");
+//			timeline.setComment("");
+//			timeline.setContent(rs.getString("content"));			
+//			timeline.setDate(new Timestamp(rs.getDate("post_date").getTime()));
+//			timeline.setLikes(Integer.toString(rs.getInt("likes_count")) + " Likes");			
+//			timeline.setDislikes(Integer.toString(rs.getInt("dislike_count")) + " Dis-likes");
+//			timelines.add(timeline);
+//		}
 		
 //		
 //		for (Timeline ts: timelines){

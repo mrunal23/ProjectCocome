@@ -142,6 +142,93 @@ function updateStatus(){
 
 
 		</form>
+		<hr class="colorgraph">
+		<div class="row" id="featuresHeading" class="panel-home-above-tiles">
+			<div class="col-12">
+				<h3>My Status Updates</h3>
+
+			</div>
+		</div>
+		
+		
+		<div class="row clearfix">
+
+			<ul class="timeline">
+				<s:iterator value="posts" status="stat">
+					<li>
+						<!---Time Line Element--->
+						<div class="timeline-badge up">
+							<i class="fa fa-user"></i>
+						</div>
+						<div class="timeline-panel">
+
+							<div class="row clearfix">
+								<div class="col-md-6 col-xs-6 col-sm-6">
+									<div class="timeline-heading">
+										<h4 class="timeline-title blue_color">
+											<s:label name="posts[%{#stat.index}].content"
+												value="%{content}" theme="simple" />
+										</h4>
+									</div>
+									<div class="timeline-body lower-font">
+										<!---Time Line Body&Content--->
+										<p><i class="glyphicon glyphicon-glass"></i>
+										<i class="glyphicon glyphicon-music"></i>
+										<i class="glyphicon glyphicon-calendar"></i>
+										<i class="glyphicon glyphicon-heart"></i>
+										<i class="glyphicon glyphicon-star"></i>
+										<i class="glyphicon glyphicon-film"></i>
+										<i class="glyphicon glyphicon-road"></i>
+										<i class="glyphicon glyphicon-headphones"></i>
+										<i class="glyphicon glyphicon-camera"></i>
+										<i class="glyphicon glyphicon-glass"></i></p>
+									</div>
+
+								</div>
+								<div class="col-md-6 col-xs-6 col-sm-6">
+									<ul class="list-inline list-unstyled">
+										<li><span><i class="glyphicon glyphicon-calendar"></i>
+												<s:date name="%{post_date}" />
+										</span></li>
+										<li>|</li>
+										<span class="timeline-likes"><a><i class="glyphicon glyphicon-thumbs-up"></i> <s:label
+												name="posts[%{#stat.index}].likes_count"
+												value="%{likes_count}" theme="simple" /> Likes</a></span>
+										<li>|</li>
+										<span class="timeline-dislikes"><a><i class="glyphicon glyphicon-thumbs-down"></i> <s:label
+												name="posts[%{#stat.index}].likes_count"
+												value="%{likes_count}" theme="simple" /> Dislikes</a></span>
+										<li>
+											<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+											<span><i class="fa fa-facebook-square"></i></span> <span><i
+												class="fa fa-twitter-square"></i></span> <span><i
+												class="fa fa-google-plus-square"></i></span>
+										</li>
+									</ul>
+
+								</div>
+
+
+							</div>
+
+						</div>
+					</li>
+				</s:iterator>
+			</ul>
+
+		</div>
+
+
+		<hr class="colorgraph">
+		<div class="row" id="featuresHeading" class="panel-home-above-tiles">
+			<div class="col-12">
+				<h3>My Events</h3>
+
+			</div>
+		</div>
+
+
+
 		<div class="row clearfix">
 
 			<ul class="timeline">

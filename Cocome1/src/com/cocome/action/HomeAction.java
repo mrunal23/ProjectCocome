@@ -59,6 +59,10 @@ public class HomeAction extends ActionSupport {
 		user=(User) session.get("user");
 		System.out.println(user.getUser_id());
 		
+		
+		PostsDAOImpl postsDAO=new PostsDAOImpl();
+		posts = postsDAO.getPostsOfUser(user.getUser_id());
+		
 		TimelineDAOImpl timelineDAO = new TimelineDAOImpl();
 		timelines = timelineDAO.getTimelineOfUser(user.getUser_id());
 		

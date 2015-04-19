@@ -559,8 +559,13 @@ body {
 .timeline-likes {
 	color: rgb(90, 161, 55);
 }
-
+.timeline-likes a{
+	color: rgb(90, 161, 55);
+}
 .timeline-dislikes {
+	color: rgb(219, 10, 10);
+}
+.timeline-dislikes a{
 	color: rgb(219, 10, 10);
 }
 
@@ -792,4 +797,8 @@ body {
 
 .blue_color {
 	color: rgb(12, 23, 100);
+}
+
+.lower-font{
+	font-size: 10px;
 }

@@ -96,152 +96,159 @@
 	</div>
 	<!--end navbar  -->
 	<div class="container" id="main">
-		<div class="row clearfix">
 
 
-			<div class="qa-message-list" id="wallmessages">
+		
 
-				<s:iterator value="newsfeeds" status="stat">
-				<div class="message-item" id="m16">
-				
-					<div class="message-inner">
-						<div class="message-head clearfix">
-							<div class="avatar pull-left">
-								<a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img
-									src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
-							</div>
-							<div class="user-detail">
-								<h5 class="handle">
-									<s:label name="newsfeeds[%{#stat.index}].type_of_feed"
-										value="%{type_of_feed}" theme="simple" />
-								</h5>
-								<div class="post-meta">
-									<div class="asker-meta">
-										<span class="qa-message-what"></span> <span
-											class="qa-message-when"> <span
-											class="qa-message-when-data"><s:date
-													name="%{date}" /></span>
-										</span> <span class="qa-message-who"> <span
-											class="qa-message-who-pad">by </span> <span
-											class="qa-message-who-data"><a><s:label
-														name="newsfeeds[%{#stat.index}].posted_by"
-														value="%{posted_by}" theme="simple"  /></a></span>
-										</span>
+
+
+
+			<div class="row clearfix">
+
+
+				<div class="qa-message-list" id="wallmessages">
+
+					<s:iterator value="newsfeeds" status="stat">
+						<div class="message-item" id="m16">
+
+							<div class="message-inner">
+								<div class="message-head clearfix">
+									<div class="avatar pull-left">
+										<a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img
+											src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
 									</div>
-								</div>
-							</div>
-						</div>
-						<div class="qa-message-content">
-							<s:label name="newsfeeds[%{#stat.index}].content"
-								value="%{content}" theme="simple"  />
-						</div>
-						<form role="form">
-							<div class="row customPadComment">
-								<div class="col-xs-10 col-sm-10 col-md-10">
-									<div class="text-center">
-										<div class="row">
-											<div class="col-xs-4 col-sm-4 col-md-4">
-												<div class="like"><span
-													class="glyphicon glyphicon-thumbs-up"></span> <s:label
-														name="newsfeeds[%{#stat.index}].likes_count"
-														value="%{likes_count}" theme="simple"  /></div>
-											</div>
-											<div class="col-xs-4 col-sm-4 col-md-4">
-												<div class="dislike"><span
-													class="glyphicon glyphicon-thumbs-down"></span> <s:label
-														name="newsfeeds[%{#stat.index}].dislikes_count"
-														value="%{dislikes_count}" theme="simple"  /></div>
-											</div>
-											<div class="col-xs-4 col-sm-4 col-md-4">
-												<div class="comments"><s:label
-														name="newsfeeds[%{#stat.index}].comment_count"
-														value="%{comment_count}" theme="simple"  /></div>
+									<div class="user-detail">
+										<h5 class="handle">
+											<s:label name="newsfeeds[%{#stat.index}].type_of_feed"
+												value="%{type_of_feed}" theme="simple" />
+										</h5>
+										<div class="post-meta">
+											<div class="asker-meta">
+												<span class="qa-message-what"></span> <span
+													class="qa-message-when"> <span
+													class="qa-message-when-data"><s:date name="%{date}" /></span>
+												</span> <span class="qa-message-who"> <span
+													class="qa-message-who-pad">by </span> <span
+													class="qa-message-who-data"><a><s:label
+																name="newsfeeds[%{#stat.index}].posted_by"
+																value="%{posted_by}" theme="simple" /></a></span>
+												</span>
 											</div>
 										</div>
+									</div>
+								</div>
+								<div class="qa-message-content">
+									<s:label name="newsfeeds[%{#stat.index}].content"
+										value="%{content}" theme="simple" />
+								</div>
+								<form role="form">
+									<div class="row customPadComment">
+										<div class="col-xs-10 col-sm-10 col-md-10">
+											<div class="text-center">
+												<div class="row">
+													<div class="col-xs-4 col-sm-4 col-md-4">
+														<div class="like">
+															<span class="glyphicon glyphicon-thumbs-up"></span>
+															<s:label name="newsfeeds[%{#stat.index}].likes_count"
+																value="%{likes_count}" theme="simple" />
+														</div>
+													</div>
+													<div class="col-xs-4 col-sm-4 col-md-4">
+														<div class="dislike">
+															<span class="glyphicon glyphicon-thumbs-down"></span>
+															<s:label name="newsfeeds[%{#stat.index}].dislikes_count"
+																value="%{dislikes_count}" theme="simple" />
+														</div>
+													</div>
+													<div class="col-xs-4 col-sm-4 col-md-4">
+														<div class="comments">
+															<s:label name="newsfeeds[%{#stat.index}].comment_count"
+																value="%{comment_count}" theme="simple" />
+														</div>
+													</div>
+												</div>
 
+
+											</div>
+
+										</div>
+										<!-- 								<div class="col-xs-6 col-sm-6 col-md-6"> -->
+										<!-- 									<input type="text" name="comment" id="comment" -->
+										<!-- 										class="form-control input-sm" placeholder="Add Comment"> -->
+										<!-- 								</div> -->
+										<div class="col-xs-2 col-sm-2 col-md-2">
+											<!-- 									<input type="submit" value="Comment" -->
+											<!-- 										class="btn btn-info btn-block"> -->
+										</div>
 
 									</div>
 
-								</div>
-<!-- 								<div class="col-xs-6 col-sm-6 col-md-6"> -->
-<!-- 									<input type="text" name="comment" id="comment" -->
-<!-- 										class="form-control input-sm" placeholder="Add Comment"> -->
-<!-- 								</div> -->
-								<div class="col-xs-2 col-sm-2 col-md-2">
-<!-- 									<input type="submit" value="Comment" -->
-<!-- 										class="btn btn-info btn-block"> -->
-								</div>
 
+
+								</form>
 							</div>
 
+						</div>
 
 
-						</form>
-					</div>
-					
+					</s:iterator>
 				</div>
 
 
-				</s:iterator>
+
+
+
 			</div>
 
 
 
-
-
+			<div class="row" id="moreInfo"></div>
+			<div class="row" id="moreCourses"></div>
 		</div>
+		<!-- end container  -->
+		<!-- 	<form action="loginaction" method="post"> -->
+		<!-- 		User:<br /> <input type="text" name="user" /><br /> Password:<br /> -->
+		<!-- 		<input type="password" name="password" /><br /> <input type="submit" -->
+		<!-- 			value="Login" /> -->
+		<!-- 	</form> -->
+		<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9">
+					<h6>Copyright &copy; 2015 Team Cocome</h6>
+				</div>
+				<!-- end col-sm-4 -->
 
 
 
-		<div class="row" id="moreInfo"></div>
-		<div class="row" id="moreCourses"></div>
-	</div>
-	<!-- end container  -->
-	<!-- 	<form action="loginaction" method="post"> -->
-	<!-- 		User:<br /> <input type="text" name="user" /><br /> Password:<br /> -->
-	<!-- 		<input type="password" name="password" /><br /> <input type="submit" -->
-	<!-- 			value="Login" /> -->
-	<!-- 	</form> -->
-	<footer class="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-9">
-				<h6>Copyright &copy; 2015 Team Cocome</h6>
+				<div class="col-sm-3">
+					<h6>
+						Coded with <span class="glyphicon glyphicon-heart"></span> by
+						Nihar, Bipra, Satvik, Mrunal
+					</h6>
+				</div>
+				<!-- end col-sm-4 -->
 			</div>
-			<!-- end col-sm-4 -->
-
-
-
-			<div class="col-sm-3">
-				<h6>
-					Coded with <span class="glyphicon glyphicon-heart"></span> by
-					Nihar, Bipra, Satvik, Mrunal
-				</h6>
-			</div>
-			<!-- end col-sm-4 -->
+			<!-- end row -->
 		</div>
-		<!-- end row -->
-	</div>
-	<!-- end container --> </footer>
+		<!-- end container --> </footer>
 
-	<!-- All Javascript at the bottom of the page for faster page loading -->
+		<!-- All Javascript at the bottom of the page for faster page loading -->
 
-	<!-- First try for the online version of jQuery-->
-	<script src="http://code.jquery.com/jquery.js"></script>
+		<!-- First try for the online version of jQuery-->
+		<script src="http://code.jquery.com/jquery.js"></script>
 
-	<!-- If no online access, fallback to our hardcoded version of jQuery -->
-	<script>
+		<!-- If no online access, fallback to our hardcoded version of jQuery -->
+		<script>
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
 	</script>
 
-	<!-- Bootstrap JS -->
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
 
-	<!-- Custom JS -->
-	<script src="includes/js/script.js"></script>
-
-
+		<!-- Custom JS -->
+		<script src="includes/js/script.js"></script>
 </body>
 </html>
