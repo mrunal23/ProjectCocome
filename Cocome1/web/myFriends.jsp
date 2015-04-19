@@ -122,7 +122,7 @@
 		<div class="row" id="friendsTiles">
 
 			<s:iterator value="friends" status="stat">
-				<div class="col-md-12 friends-bar">
+				<div class="col-md-12 friends-bar" onclick="location.href='ViewFriendsProfile?friend_id=<s:property value='%{user.user_id}'/>'">
 					<div class="well well-sm ">
 						<div class="row">
 							<div class="col-xs-3 col-md-3 col-sm-3 text-center">

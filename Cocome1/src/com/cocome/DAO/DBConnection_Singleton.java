@@ -72,7 +72,7 @@ public class DBConnection_Singleton {
 	public Connection getDBConnection() throws SQLException, ClassNotFoundException{
 		Class.forName(myDriver);
 		if(connection==null)
-			connection = (Connection) DriverManager. getConnection(myUrl,"root","");
+			connection = (Connection) DriverManager. getConnection(myUrl,"root","root");
 	    return connection;
 	}
 

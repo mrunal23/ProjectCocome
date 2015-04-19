@@ -27,7 +27,7 @@ public class MyProfileAction extends ActionSupport {
 	public String DisplayDetails() throws ClassNotFoundException, SQLException{
 		System.out.println("Friend Profile Load enter");
 		UserDAOImpl userdao=new UserDAOImpl();
-		user=userdao.getUserDetails(user.getUser_id());
+		user=userdao.getUserDetails(friend_id);
 		System.out.println(user.getFirst_name());
 		System.out.println("Friend Profile Load Exit");
 		return SUCCESS;

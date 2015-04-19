@@ -47,7 +47,7 @@ public class EmailSendService{
          Message message = new MimeMessage(session);
          message.setFrom(new InternetAddress("cocome2015nbsm@gmail.com"));
          message.setRecipients(Message.RecipientType.TO, 
-            InternetAddress.parse("satvikshetty05@gmail.com"));
+            InternetAddress.parse(login.getUser_id()));
          message.setSubject("Password reset");
          message.setText("Your new password is "+login.getPassword());
          Transport.send(message);

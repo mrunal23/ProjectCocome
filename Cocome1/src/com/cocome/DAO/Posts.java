@@ -8,6 +8,7 @@ public class Posts {
 		private String content;
 		private Timestamp post_date;
 		private int likes_count;
+		private int dislikes_count;
 		public int getPost_id() {
 			return post_id;
 		}
@@ -37,6 +38,12 @@ public class Posts {
 		}
 		public void setLikes_count(int likes_count) {
 			this.likes_count = likes_count;
+		}
+		public int getDislikes_count() {
+			return dislikes_count;
+		}
+		public void setDislikes_count(int dislikes_count) {
+			this.dislikes_count = dislikes_count;
 		}
 
 
