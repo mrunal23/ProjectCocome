@@ -17,7 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class NewsfeedDAOImpl implements NewsfeedDAO {
 	private Connection db_connection;
 	private PreparedStatement statement1;
-
+	
 	private String query1;
 	private String query2;
 	private String query3;
@@ -31,6 +31,7 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 	@Override
 	public List<Newsfeed> getNewsfeedOfUser(String user_id) throws SQLException, ClassNotFoundException {
 		List<Newsfeed> newsfeeds=new ArrayList<Newsfeed>();
+		List<Posts> posts = new ArrayList<Posts>();
 		Map session = ActionContext.getContext().getSession();
 		User user=(User) session.get("user");
 		
@@ -63,23 +64,34 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 			System.out.println(eachFrnd);
 			
 			//Getting post for each friend
-			query2="select * from posts where user_id=? and post_date>?";
-			statement1=(PreparedStatement) db_connection.prepareStatement(query2);
-			statement1.setString(1, eachFrnd);
-			statement1.setTimestamp(2, user.getLogout_time());
-			ResultSet rs1=statement1.executeQuery();			
-			while(rs1.next()){
-				Newsfeed newsfeed=new Newsfeed();
-				newsfeed.setType_of_feed("Friend's Status Updates");
-				UserDAOImpl userDAO = new UserDAOImpl();			
-				newsfeed.setPosted_by(userDAO.getFirstLastNameOfUser(eachFrnd));				
-				newsfeed.setDate(new Timestamp(rs1.getDate("post_date").getTime()));
-				newsfeed.setContent(rs1.getString("content"));
-				newsfeed.setComment_count("");
-				newsfeed.setLikes_count(Integer.toString(rs1.getInt("likes_count")) + " Likes");
-				newsfeed.setDislikes_count(Integer.toString(rs1.getInt("dislike_count")) + " Dis-likes");
-				newsfeeds.add(newsfeed);
-			}
+			PostsDAOImpl postsDAO = new PostsDAOImpl();
+			List<Posts> allPostByEachUser = new ArrayList<Posts>();
+			
+//			allPostByEachUser = postsDAO.getPostsOfUserAfterTime(eachFrnd, user.getLogout_time());
+//			for (Posts eachPost: allPostByEachUser){
+//				posts.add(eachPost);
+//			}
+			
+			//Continue coding after this
+			
+			
+//			query2="select * from posts where user_id=? and post_date>?";
+//			statement1=(PreparedStatement) db_connection.prepareStatement(query2);
+//			statement1.setString(1, eachFrnd);
+//			statement1.setTimestamp(2, user.getLogout_time());
+//			ResultSet rs1=statement1.executeQuery();			
+//			while(rs1.next()){
+//				Newsfeed newsfeed=new Newsfeed();
+//				newsfeed.setType_of_feed("Friend's Status Updates");
+//				UserDAOImpl userDAO = new UserDAOImpl();			
+//				newsfeed.setPosted_by(userDAO.getFirstLastNameOfUser(eachFrnd));				
+//				newsfeed.setDate(new Timestamp(rs1.getDate("post_date").getTime()));
+//				newsfeed.setContent(rs1.getString("content"));
+//				newsfeed.setComment_count("");
+//				newsfeed.setLikes_count(Integer.toString(rs1.getInt("likes_count")) + " Likes");
+//				newsfeed.setDislikes_count(Integer.toString(rs1.getInt("dislike_count")) + " Dis-likes");
+//				newsfeeds.add(newsfeed);
+//			}
 			
 			//Getting Questions for each friend
 			query3="select * from questions where user_id=? and post_date>?";
@@ -140,7 +152,8 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 		
 		return newsfeeds;		
 	}
-	
+
+
 	
 	
 	

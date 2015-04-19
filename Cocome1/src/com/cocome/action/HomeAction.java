@@ -36,12 +36,15 @@ public class HomeAction extends ActionSupport {
 		Map session = ActionContext.getContext().getSession();
 		user=(User) session.get("user");
 		
-		NewsfeedDAOImpl newsfeedDAO=new NewsfeedDAOImpl();
-		
+		NewsfeedDAOImpl newsfeedDAO=new NewsfeedDAOImpl();		
 		newsfeeds = newsfeedDAO.getNewsfeedOfUser(user.getUser_id());
-		System.out.println("Newsfeed of the given user");
-		for(Newsfeed q:newsfeeds){
-			System.out.println(q.getPosted_by());
+		
+		PostsDAOImpl postsDAO=new PostsDAOImpl();
+		posts = postsDAO.getPostsOfUsersFriends(user.getUser_id(), user.getLogout_time());
+		
+		System.out.println("Posts of the given users friends");
+		for(Posts q:posts){
+			System.out.println(q.getUser_id());
 			System.out.println(q.getContent());
 		}
 		//session.put("user_newsfeed", newsfeeds); 

@@ -197,7 +197,7 @@ function updateStatus(){
 										<li>|</li>
 										<span class="timeline-dislikes"><a><i class="glyphicon glyphicon-thumbs-down"></i> <s:label
 												name="posts[%{#stat.index}].likes_count"
-												value="%{likes_count}" theme="simple" /> Dislikes</a></span>
+												value="%{dislikes_count}" theme="simple" /> Dislikes</a></span>
 										<li>
 											<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
 											<span><i class="fa fa-facebook-square"></i></span> <span><i
