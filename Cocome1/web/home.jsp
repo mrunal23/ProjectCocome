@@ -313,6 +313,26 @@
 				</form>
 				<!-- end panel -->
 			</div>
+			
+			<div class="col-sm-3 feature">
+				<form role="form" action="callMyProfileAction"
+					method="post">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">My Profile</h3>
+						</div>
+						<!-- end panel-heading -->
+						<span class="glyphicon glyphicon-flag glyphicon-tiles"
+							aria-hidden="true"></span>
+
+						<p class="tile-notification-text">Can add values here</p>
+
+						<input value="View My Profile"
+							class="btn btn-warning btn-block" type="submit">
+					</div>
+				</form>
+				<!-- end panel -->
+			</div>
 
 			<div class="col-sm-3 feature">
 				<form role="form" action="callFriendsNotificationAction"

@@ -104,6 +104,17 @@
 			method="friendsNotificationAction">
 			<result name="success">/friendsNotification.jsp</result>
 		</action>
+		<action name="callMyProfileAction" class="com.cocome.action.MyProfileAction"
+			method="load">
+			<result name="success">/UserProfile.jsp</result>
+		</action>
+	</package>
+	
+	<package name="ViewProfile" extends="struts-default">
+		<action name="ViewFriendsProfile" class="com.cocome.action.MyProfileAction"
+			method="DisplayDetails">
+			<result name="success">/FriendsProfile.jsp</result>
+		</action>
 	</package>
 
 	<package name="discussionForum" extends="struts-default">
