@@ -175,7 +175,27 @@
 
 
 	<!-- end container -->
-	</footer>
+	<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9">
+				<h6>Copyright &copy; 2015 Team Cocome</h6>
+			</div>
+			<!-- end col-sm-4 -->
+
+
+
+			<div class="col-sm-3">
+				<h6>
+					Coded with <span class="glyphicon glyphicon-heart"></span> by
+					Nihar, Bipra, Satvik, Mrunal
+				</h6>
+			</div>
+			<!-- end col-sm-4 -->
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container --> </footer>
 
 	<!-- All Javascript at the bottom of the page for faster page loading -->
 
@@ -184,7 +204,6 @@
 
 	<!-- If no online access, fallback to our hardcoded version of jQuery -->
 	<script>
-	
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')

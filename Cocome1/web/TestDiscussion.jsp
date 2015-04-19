@@ -5,8 +5,8 @@
 <html>
 <head>
 
-<!-- Web site Title & Description for Search Engine purposes -->
-<title>Home Page</title>
+<!-- Website Title & Description for Search Engine purposes -->
+<title>Post A Question</title>
 <meta name="description" content="">
 
 <!-- Mobile viewport optimized -->
@@ -143,11 +143,10 @@
 		<!-- end container -->
 	</div>
 	<!--end navbar  -->
+	">
+	<div class="container" id="container1">
 
-
-
-
-	<div class="row commentBox" id="posts">
+			<div class="row commentBox" id="posts">
 
 		<div class="box">
 			<div class="icon">
@@ -191,8 +190,8 @@
 
 					</form>
 					<div class="more">
-						<a href="#" title="Title Link"><i class="fa fa-plus"></i>
-							Details </a>
+						<a  title="Title Link"><i class="fa-hand-o-up"></i>
+							***</a>
 					</div>
 				</div>
 			</div>
@@ -202,9 +201,9 @@
 
 
 	</div>
-	<div class="row" id="moreCourses"></div>
-	</div>
 
+	</div>
+	<!-- end container -->
 	<footer class="footer">
 	<div class="container">
 		<div class="row">
@@ -237,6 +236,8 @@
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
+	
+		
 	</script>
 
 	<!-- Bootstrap JS -->
@@ -244,5 +245,7 @@
 
 	<!-- Custom JS -->
 	<script src="includes/js/script.js"></script>
+
+
 </body>
 </html>
