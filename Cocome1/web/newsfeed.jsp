@@ -151,18 +151,18 @@
 											<div class="row">
 												<div class="col-xs-4 col-sm-4 col-md-4">
 													<div class="like">
-														<span class="glyphicon glyphicon-thumbs-up"></span>
-														<s:label name="posts[%{#stat.index}].likes_count"
-															value="%{likes_count}" theme="simple" />
-														Likes
+														<a> <span class="glyphicon glyphicon-thumbs-up"></span>
+															<s:label name="posts[%{#stat.index}].likes_count"
+																value="%{likes_count}" theme="simple" /> Likes
+														</a>
 													</div>
 												</div>
 												<div class="col-xs-4 col-sm-4 col-md-4">
 													<div class="dislike">
-														<span class="glyphicon glyphicon-thumbs-down"></span>
+														<a> <span class="glyphicon glyphicon-thumbs-down"></span>
 														<s:label name="posts[%{#stat.index}].dislikes_count"
 															value="%{dislikes_count}" theme="simple" />
-														Dislikes
+														Dislikes </a>
 													</div>
 												</div>
 												<div class="col-xs-4 col-sm-4 col-md-4">

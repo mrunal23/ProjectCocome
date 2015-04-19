@@ -552,9 +552,7 @@ body {
 	border-radius: 7px;
 }
 
-.qa-message-list .like {
-	color: rgb(90, 161, 55);
-}
+
 
 .timeline-likes {
 	color: rgb(90, 161, 55);
@@ -573,7 +571,19 @@ body {
 	color: rgb(66, 139, 202);
 }
 
+.qa-message-list .like {
+	color: rgb(90, 161, 55);
+}
+
 .qa-message-list .dislike {
+	color: rgb(219, 10, 10);
+}
+
+.qa-message-list .like a {
+	color: rgb(90, 161, 55);
+}
+
+.qa-message-list .dislike a {
 	color: rgb(219, 10, 10);
 }
 
