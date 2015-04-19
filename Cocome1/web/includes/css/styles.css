@@ -542,7 +542,17 @@ body {
 .qa-message-list .like {
 	color: rgb(90, 161, 55);
 }
+.timeline-likes{
+	color: rgb(90, 161, 55);
+}
 
+.timeline-dislikes{
+	color: rgb(219, 10, 10);
+}
+
+.timeline-comment{
+	color: rgb(66, 139, 202);
+}
 .qa-message-list .dislike {
 	color: rgb(219, 10, 10);
 }

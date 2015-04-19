@@ -71,7 +71,8 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 			while(rs1.next()){
 				Newsfeed newsfeed=new Newsfeed();
 				newsfeed.setType_of_feed("Friend's Status Updates");
-				newsfeed.setPosted_by(rs1.getString("user_id"));
+				UserDAOImpl userDAO = new UserDAOImpl();			
+				newsfeed.setPosted_by(userDAO.getFirstLastNameOfUser(eachFrnd));				
 				newsfeed.setDate(new Timestamp(rs1.getDate("post_date").getTime()));
 				newsfeed.setContent(rs1.getString("content"));
 				newsfeed.setComment_count("");
@@ -89,7 +90,8 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 			while(rs2.next()){
 				Newsfeed newsfeed=new Newsfeed();
 				newsfeed.setType_of_feed("Question Posted");
-				newsfeed.setPosted_by(rs2.getString("user_id"));
+				UserDAOImpl userDAO = new UserDAOImpl();			
+				newsfeed.setPosted_by(userDAO.getFirstLastNameOfUser(eachFrnd));	
 				newsfeed.setDate(new Timestamp(rs2.getDate("post_date").getTime()));
 				newsfeed.setContent(rs2.getString("content"));
 				newsfeed.setComment_count(Integer.toString(rs2.getInt("no_of_answers")) + " Answers");
@@ -117,7 +119,8 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 			while(rs3.next()){
 				Newsfeed newsfeed=new Newsfeed();
 				newsfeed.setType_of_feed("Answers Posted");
-				newsfeed.setPosted_by(rs3.getString("user_id"));
+				UserDAOImpl userDAO = new UserDAOImpl();			
+				newsfeed.setPosted_by(userDAO.getFirstLastNameOfUser(rs3.getString("user_id")));	
 				newsfeed.setDate(new Timestamp(rs3.getDate("post_date").getTime()));
 				newsfeed.setContent(rs3.getString("content"));
 				newsfeed.setComment_count("Question: " + eachQuestion.getContent());

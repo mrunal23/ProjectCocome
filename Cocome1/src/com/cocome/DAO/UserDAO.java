@@ -7,4 +7,5 @@ public interface UserDAO {
 	boolean insertUser(User user) throws SQLException;
     boolean updateUser(User user) throws SQLException;
     boolean deleteUser( String user_id) throws SQLException;
+    String getFirstLastNameOfUser(String user_id) throws SQLException;
 }

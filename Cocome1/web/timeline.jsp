@@ -130,14 +130,14 @@
 								<div class="col-md-6 col-xs-6 col-sm-6">
 								<div class="timeline-body-upper">
 									<ul class="list-inline list-unstyled">
-										<li><span><i class="glyphicon glyphicon-calendar"></i>
+										<li><span class="timeline-date"><i class="glyphicon glyphicon-calendar"></i>
 												<s:date name="%{date}" /> </span></li>
 										<li>|</li>
-										<span><i class="glyphicon glyphicon-thumbs-up"></i> <s:label
+										<span class="timeline-likes"><i class="glyphicon glyphicon-thumbs-up"></i> <s:label
 												name="newsfeeds[%{#stat.index}].likes" value="%{likes}"
 												theme="simple" /></span>
 										<li>|</li>
-										<span><i class="glyphicon glyphicon-thumbs-down"></i> <s:label
+										<span class="timeline-dislikes"><i class="glyphicon glyphicon-thumbs-down"></i> <s:label
 												name="newsfeeds[%{#stat.index}].dislikes"
 												value="%{dislikes}" theme="simple" /></span>
 										
@@ -148,7 +148,7 @@
 								<div class="timeline-body-lower">
 									<ul class="list-inline list-unstyled">
 									<li>
-										<span><s:label
+										<span class="timeline-comment"><s:label
 												name="newsfeeds[%{#stat.index}].comment" value="%{comment}"
 												theme="simple" /></span>
 									</li>
