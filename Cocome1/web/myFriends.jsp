@@ -105,11 +105,9 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<h4 class="friendsPanelFont">
-						<%!Map session = ActionContext.getContext().getSession();
-	User user = (User) session.get("user");%>
-						<%=user.getFirst_name()%>
+						<s:property value="user.getFirst_name()"/>
 						has 
-						<%=user.getCount_of_friends()%>
+						<s:property value="user.getCount_of_friends()"/>
 						Friends
 					</h4>
 				</div>

@@ -22,12 +22,13 @@ public class HomeAction extends ActionSupport {
 	private List<Newsfeed> newsfeeds;
 	private List<Friends> friends;
 	private List<FriendRequests> friendRequests;
+	private User user;
 	
 	
 
 	public String newsfeedAction()throws ClassNotFoundException, SQLException{
 		Map session = ActionContext.getContext().getSession();
-		User user=(User) session.get("user");
+		user=(User) session.get("user");
 		
 		NewsfeedDAOImpl newsfeedDAO=new NewsfeedDAOImpl();
 		
@@ -49,7 +50,7 @@ public class HomeAction extends ActionSupport {
 	public String timelineAction() throws ClassNotFoundException, SQLException {
 		
 		Map session = ActionContext.getContext().getSession();
-		User user=(User) session.get("user");
+		user=(User) session.get("user");
 		System.out.println(user.getUser_id());
 		PostsDAOImpl postsDAO=new PostsDAOImpl();
 		posts = postsDAO.getPostsOfUser(user.getUser_id());
@@ -95,7 +96,7 @@ public class HomeAction extends ActionSupport {
 	
 	public String myFriendsAction()throws ClassNotFoundException, SQLException{
 		Map session = ActionContext.getContext().getSession();
-		User user=(User) session.get("user");		
+		user=(User) session.get("user");		
 		FriendsDAOImpl friendsDAO=new FriendsDAOImpl();
 		
 		friends = friendsDAO.getFriendsOfUser(user.getUser_id());
@@ -110,7 +111,7 @@ public class HomeAction extends ActionSupport {
 	
 	public String friendsNotificationAction() throws ClassNotFoundException, SQLException{
 		Map session = ActionContext.getContext().getSession();
-		User user=(User) session.get("user");
+		user=(User) session.get("user");
 		
 		FriendRequestsDAOImpl friendRequestsDAO=new FriendRequestsDAOImpl();
 		
@@ -162,6 +163,16 @@ public class HomeAction extends ActionSupport {
 
 	public void setFriendRequests(List<FriendRequests> friendRequests) {
 		this.friendRequests = friendRequests;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	

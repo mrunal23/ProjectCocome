@@ -13,6 +13,7 @@ public class LoginAction extends ActionSupport {
 	
 	private Login login;
 	private String name;
+	private User user = null;
 	
 	public String execute() throws ClassNotFoundException, SQLException{
 
@@ -21,7 +22,8 @@ public class LoginAction extends ActionSupport {
 		if(loginDAO.validateUser(login)){
 			
 			UserDAOImpl userDAO=new UserDAOImpl();
-			User user=userDAO.getUserDetails(login.getUser_id());
+			user=userDAO.getUserDetails(login.getUser_id());
+			
 			setName(user.getFirst_name());
 			Map session = ActionContext.getContext().getSession();
 			session.put("user", user);
@@ -51,5 +53,8 @@ public Login getLogin() {
 		this.name = name;
 	}
 
-	
+	public User getUser()
+	{
+		return user;
+	}
 }

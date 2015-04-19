@@ -110,15 +110,12 @@
 					class="img-thumbnail picture hidden-xs" /> 
 				<div class="header">
 					<h1>
-						<%!Map session = ActionContext.getContext().getSession();
-				User user=(User) session.get("user");	
-				%>
-				<%=user.getFirst_name()%>
-
+ 						
+					<s:property value="user.getFirst_name()"/>
 
 					</h1>
-					<h4><%=user.getProfession()%></h4>
-					<span><%=user.getStatus()%></span>
+					<h4><s:property value="user.getProfession()"/></h4>
+ 					<span><s:property value="user.getStatus()"/></span> 
 				</div>
 			</div>
 		</div>

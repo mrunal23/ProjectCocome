@@ -105,11 +105,12 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<h4 class="friendsPanelFont">
-						<%!Map session = ActionContext.getContext().getSession();
-	User user = (User) session.get("user");%>
-						<%=user.getFirst_name()%>
+						
+						
+						<s:property value="user.getFirst_name()"/>
 						has 
-						<%=user.getPending_friend_requests()%>
+						
+						<s:property value="user.getPending_friend_requests()"/>
 						Friends Requests to be Approved
 					</h4>
 				</div>
