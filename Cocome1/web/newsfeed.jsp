@@ -119,8 +119,8 @@
 									<div class="asker-meta">
 										<span class="qa-message-what"></span> <span
 											class="qa-message-when"> <span
-											class="qa-message-when-data"><s:label
-													name="newsfeeds[%{#stat.index}].date" value="%{date}" theme="simple" /></span>
+											class="qa-message-when-data"><s:date
+													name="%{date}" /></span>
 										</span> <span class="qa-message-who"> <span
 											class="qa-message-who-pad">by </span> <span
 											class="qa-message-who-data"><a><s:label
@@ -137,26 +137,25 @@
 						</div>
 						<form role="form">
 							<div class="row customPadComment">
-								<div class="col-xs-4 col-sm-4 col-md-4">
+								<div class="col-xs-10 col-sm-10 col-md-10">
 									<div class="text-center">
 										<div class="row">
 											<div class="col-xs-4 col-sm-4 col-md-4">
-												<a class="like" href="#"><span
+												<div class="like"><span
 													class="glyphicon glyphicon-thumbs-up"></span> <s:label
 														name="newsfeeds[%{#stat.index}].likes_count"
-														value="%{likes_count}" theme="simple"  /> likes</a>
+														value="%{likes_count}" theme="simple"  /></div>
 											</div>
 											<div class="col-xs-4 col-sm-4 col-md-4">
-												<a class="dislike" href="#"><span
+												<div class="dislike"><span
 													class="glyphicon glyphicon-thumbs-down"></span> <s:label
 														name="newsfeeds[%{#stat.index}].dislikes_count"
-														value="%{dislikes_count}" theme="simple"  /> dislikes</a>
+														value="%{dislikes_count}" theme="simple"  /></div>
 											</div>
 											<div class="col-xs-4 col-sm-4 col-md-4">
-												<a class="comments" href="#"><span
-													class="glyphicon glyphicon-comment"></span> <s:label
+												<div class="comments"><s:label
 														name="newsfeeds[%{#stat.index}].comment_count"
-														value="%{comment_count}" theme="simple"  /> comments</a>
+														value="%{comment_count}" theme="simple"  /></div>
 											</div>
 										</div>
 
@@ -164,13 +163,13 @@
 									</div>
 
 								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<input type="text" name="comment" id="comment"
-										class="form-control input-sm" placeholder="Add Comment">
-								</div>
+<!-- 								<div class="col-xs-6 col-sm-6 col-md-6"> -->
+<!-- 									<input type="text" name="comment" id="comment" -->
+<!-- 										class="form-control input-sm" placeholder="Add Comment"> -->
+<!-- 								</div> -->
 								<div class="col-xs-2 col-sm-2 col-md-2">
-									<input type="submit" value="Comment"
-										class="btn btn-info btn-block">
+<!-- 									<input type="submit" value="Comment" -->
+<!-- 										class="btn btn-info btn-block"> -->
 								</div>
 
 							</div>

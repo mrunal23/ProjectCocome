@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface NewsfeedDAO {
-	List<Newsfeed> getNewsfeedOfUser(String user_id) throws SQLException;
+	List<Newsfeed> getNewsfeedOfUser(String user_id) throws SQLException, ClassNotFoundException;
 	
    
 }

@@ -7,11 +7,29 @@ public class Newsfeed {
 		private String posted_by;
 		private String content;
 		private Timestamp date;
-		private int likes_count;
-		private int dislikes_count;
-		private int comment_count;
+		private String likes_count;
+		private String dislikes_count;
+		private String comment_count;
 		public String getType_of_feed() {
 			return type_of_feed;
+		}
+		public String getLikes_count() {
+			return likes_count;
+		}
+		public void setLikes_count(String likes_count) {
+			this.likes_count = likes_count;
+		}
+		public String getDislikes_count() {
+			return dislikes_count;
+		}
+		public void setDislikes_count(String dislikes_count) {
+			this.dislikes_count = dislikes_count;
+		}
+		public String getComment_count() {
+			return comment_count;
+		}
+		public void setComment_count(String comment_count) {
+			this.comment_count = comment_count;
 		}
 		public void setType_of_feed(String type_of_feed) {
 			this.type_of_feed = type_of_feed;
@@ -34,23 +52,5 @@ public class Newsfeed {
 		public void setDate(Timestamp date) {
 			this.date = date;
 		}
-		public int getLikes_count() {
-			return likes_count;
-		}
-		public void setLikes_count(int likes_count) {
-			this.likes_count = likes_count;
-		}
-		public int getDislikes_count() {
-			return dislikes_count;
-		}
-		public void setDislikes_count(int dislikes_count) {
-			this.dislikes_count = dislikes_count;
-		}
-		public int getComment_count() {
-			return comment_count;
-		}
-		public void setComment_count(int comment_count) {
-			this.comment_count = comment_count;
-		}
-		
+
 }
