@@ -1,6 +1,7 @@
 package com.cocome.DAO;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface UserDAO {
 	User getUserDetails(String user_id) throws SQLException;
@@ -8,4 +9,5 @@ public interface UserDAO {
     boolean updateUser(User user) throws SQLException;
     boolean deleteUser( String user_id) throws SQLException;
     String getFirstLastNameOfUser(String user_id) throws SQLException;
+	List<User> getAllUsersByFirstName(String firstName) throws SQLException;
 }

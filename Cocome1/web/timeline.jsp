@@ -24,6 +24,32 @@
 <!-- Include Modernizr in the head, before any other Javascript -->
 <script src="includes/js/modernizr-2.6.2.min.js"></script>
 
+
+<script>
+function updateStatus(){
+	
+	var content=document.getElementById("comment").value;
+	
+	
+	$.ajax({
+		type : "POST",
+		url : "updateStatus?comment="+content,
+		success : function(result) {
+			
+			$('#comment').val('');
+			alert('Status Updated Successfully!!');
+			
+		},
+		error : function(e) {
+			alert('Error: ' + e);
+		}
+		
+	});
+	
+	
+}
+</script>
+
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
@@ -99,6 +125,23 @@
 
 
 	<div class="container" id="main">
+		<form role="form" action="updateStatus">
+			<div class="row customPadComment">
+				<div class="col-xs-2 col-sm-2 col-md-2"></div>
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<input type="text" name="comment" id="comment"
+						class="form-control input-sm" placeholder="What's on your Mind?">
+				</div>
+				<div class="col-xs-2 col-sm-2 col-md-2">
+					<input type="button" value="Update Status"
+						onClick="updateStatus();" class="btn btn-info btn-block">
+				</div>
+				<div class="col-xs-2 col-sm-2 col-md-2"></div>
+			</div>
+
+
+
+		</form>
 		<div class="row clearfix">
 
 			<ul class="timeline">
@@ -128,37 +171,38 @@
 
 								</div>
 								<div class="col-md-6 col-xs-6 col-sm-6">
-								<div class="timeline-body-upper">
-									<ul class="list-inline list-unstyled">
-										<li><span class="timeline-date"><i class="glyphicon glyphicon-calendar"></i>
-												<s:date name="%{date}" /> </span></li>
-										<li>|</li>
-										<span class="timeline-likes"><i class="glyphicon glyphicon-thumbs-up"></i> <s:label
-												name="newsfeeds[%{#stat.index}].likes" value="%{likes}"
-												theme="simple" /></span>
-										<li>|</li>
-										<span class="timeline-dislikes"><i class="glyphicon glyphicon-thumbs-down"></i> <s:label
-												name="newsfeeds[%{#stat.index}].dislikes"
-												value="%{dislikes}" theme="simple" /></span>
-										
-										
-										
-									</ul>
-								</div>
-								<div class="timeline-body-lower">
-									<ul class="list-inline list-unstyled">
-									<li>
-										<span class="timeline-comment"><s:label
-												name="newsfeeds[%{#stat.index}].comment" value="%{comment}"
-												theme="simple" /></span>
-									</li>
-									</ul>
-								</div>
+									<div class="timeline-body-upper">
+										<ul class="list-inline list-unstyled">
+											<li><span class="timeline-date"><i
+													class="glyphicon glyphicon-calendar"></i> <s:date
+														name="%{date}" /> </span></li>
+											<li>|</li>
+											<span class="timeline-likes"><i
+												class="glyphicon glyphicon-thumbs-up"></i> <s:label
+													name="newsfeeds[%{#stat.index}].likes" value="%{likes}"
+													theme="simple" /></span>
+											<li>|</li>
+											<span class="timeline-dislikes"><i
+												class="glyphicon glyphicon-thumbs-down"></i> <s:label
+													name="newsfeeds[%{#stat.index}].dislikes"
+													value="%{dislikes}" theme="simple" /></span>
 
+
+
+										</ul>
+									</div>
+									<div class="timeline-body-lower">
+										<ul class="list-inline list-unstyled">
+											<li><span class="timeline-comment"><s:label
+														name="newsfeeds[%{#stat.index}].comment"
+														value="%{comment}" theme="simple" /></span></li>
+										</ul>
+									</div>
+
+
+								</div>
 
 							</div>
-
-						</div>
 					</li>
 				</s:iterator>
 			</ul>

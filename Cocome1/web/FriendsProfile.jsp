@@ -85,8 +85,8 @@
 
 							<li class="divider"></li>
 
-							<li><a href="index.jsp"><span class="glyphicon glyphicon-off"></span>
-									Sign out</a></li>
+							<li><a href="index.jsp"><span
+									class="glyphicon glyphicon-off"></span> Sign out</a></li>
 						</ul></li>
 				</ul>
 				<!-- end nav pull-right -->
@@ -97,141 +97,100 @@
 		<!-- end container -->
 	</div>
 	<!--end navbar  -->
-<div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-   
-   
-          <div class="panel panel-info">
-            <div class="panel-heading">
-            	<div class="col-xs-9 col-md-9 col-sm-9">
-              		<h3 class="panel-title"><s:property value="user.first_name"/> <s:property value="user.last_name"/></h3>
-              	</div>
-              	<div class="col-xs-3 col-md-3 col-sm-3">
-              		<button type="button" class="btn btn-primary btn-lg pull-right">
-  						<span class="fa fa-frown-o"></span> Unfriend
-					</button>
-              	</div>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
-                
-                <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-                  <dl>
-                    <dt>DEPARTMENT:</dt>
-                    <dd>Administrator</dd>
-                    <dt>HIRE DATE</dt>
-                    <dd>11/12/2013</dd>
-                    <dt>DATE OF BIRTH</dt>
-                       <dd>11/12/2013</dd>
-                    <dt>GENDER</dt>
-                    <dd>Male</dd>
-                  </dl>
-                </div>-->
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>Status:</td>
-                        <td><s:property value="user.status"/></td>
-                      </tr>
-                      <tr>
-                        <td>Date of Birth</td>
-                        <td><s:property value="user.date_of_birth"/></td>
-                      </tr>
-                      <tr>
-                        <td>Gender</td>
-                        <td><s:property value="user.gender"/></td>
-                      </tr>
-                        <tr>
-                        <td>Location</td>
-                        <td><s:property value="user.location"/></td>
-                      </tr>
-                      <tr>
-                        <td>Profession</td>
-                        <td><s:property value="user.profession"/></td>
-                      </tr>
-                      <tr>
-                        <td>Education</td>
-                        <td><s:property value="user.education"/></td>
-                      </tr>
-                      <tr>
-                        <td>Email</td>
-                        <td><s:property value="user.user_id"/></td>
-                      </tr>
-                      <tr>
-                        <td>Phone Number</td>
-                        <td><s:property value="user.phone_number"/>
-                        </td>
-                       </tr>
-                       <tr>
-                        <td>Relationship Status</td>
-                        <td><s:property value="user.rel_stat"/></td>
-                      </tr>
-                      <tr>
-                        <td>LinkedIn Handle</td>
-                        <td><s:property value="user.linkedin_handle"/></td>
-                      </tr>
-                       <tr>
-                        <td>Hobby</td>
-                        <td><s:property value="user.hobby"/></td>
-                      </tr>
-                      <tr>
-                        <td>About Me</td>
-                        <td><s:property value="user.about_me"/></td>
-                      </tr>
-                     
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-
-<style>
-
-.user-row {
-    margin-bottom: 14px;
-}
-
-.user-row:last-child {
-    margin-bottom: 0;
-}
-
-.dropdown-user {
-    margin: 13px 0;
-    padding: 5px;
-    height: 100%;
-}
-
-.dropdown-user:hover {
-    cursor: pointer;
-}
-
-.table-user-information > tbody > tr {
-    border-top: 1px solid rgb(221, 221, 221);
-}
-
-.table-user-information > tbody > tr:first-child {
-    border-top: 0;
-}
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad">
 
 
-.table-user-information > tbody > tr > td {
-    border-top: 0;
-}
-.toppad
-{margin-top:20px;
-}
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-9 col-md-9 col-sm-9">
+								<h3 class="panel-title">
+									<s:property value="user.first_name" />
+									<s:property value="user.last_name" />
+								</h3>
+							</div>
+							<div class="col-xs-3 col-md-3 col-sm-3">
+								<button type="button" class="btn btn-primary btn-md pull-right">
+									<span class="fa fa-frown-o"></span> Unfriend
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-lg-3 " align="center">
+								<img alt="User Pic"
+									src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+									class="img-circle">
+							</div>
 
-</style>
+							<div class=" col-md-9 col-lg-9 ">
+								<table class="table table-user-information">
+									<tbody>
+										<tr>
+											<td>Status:</td>
+											<td><s:property value="user.status" /></td>
+										</tr>
+										<tr>
+											<td>Date of Birth</td>
+											<td><s:property value="user.date_of_birth" /></td>
+										</tr>
+										<tr>
+											<td>Gender</td>
+											<td><s:property value="user.gender" /></td>
+										</tr>
+										<tr>
+											<td>Location</td>
+											<td><s:property value="user.location" /></td>
+										</tr>
+										<tr>
+											<td>Profession</td>
+											<td><s:property value="user.profession" /></td>
+										</tr>
+										<tr>
+											<td>Education</td>
+											<td><s:property value="user.education" /></td>
+										</tr>
+										<tr>
+											<td>Email</td>
+											<td><s:property value="user.user_id" /></td>
+										</tr>
+										<tr>
+											<td>Phone Number</td>
+											<td><s:property value="user.phone_number" /></td>
+										</tr>
+										<tr>
+											<td>Relationship Status</td>
+											<td><s:property value="user.rel_stat" /></td>
+										</tr>
+										<tr>
+											<td>LinkedIn Handle</td>
+											<td><s:property value="user.linkedin_handle" /></td>
+										</tr>
+										<tr>
+											<td>Hobby</td>
+											<td><s:property value="user.hobby" /></td>
+										</tr>
+										<tr>
+											<td>About Me</td>
+											<td><s:property value="user.about_me" /></td>
+										</tr>
 
-</style>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<!-- end container -->
 	</footer>
 
@@ -242,12 +201,9 @@
 
 	<!-- If no online access, fallback to our hardcoded version of jQuery -->
 	<script>
-	
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
-	
-		
 	</script>
 
 	<!-- Bootstrap JS -->

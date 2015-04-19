@@ -2,7 +2,6 @@ package com.cocome.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +34,41 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 	}
 	
 	@Override
-	public List<Questions> getQuestionsOfUser(String user_id) throws SQLException {
+	public List<Questions> getQuestionsOfUser(String user_id) throws SQLException, ClassNotFoundException {
 		List<Questions> questions=new ArrayList<Questions>();
 		query="select * from questions where user_id=?";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1, user_id);
 		ResultSet rs=statement.executeQuery();
+		UserDAOImpl userDAO=new UserDAOImpl();
+		while(rs.next()){
+			Questions question=new Questions();
+			question.setQuestion_No(rs.getInt("qno"));
+			question.setUser(userDAO.getUserDetails(rs.getString("user_id")));
+			question.setUpvote(rs.getInt("upvote_count"));
+			question.setDownvote(rs.getInt("downvote_count"));
+			question.setTimestamp(rs.getTimestamp("post_date")	);
+			question.setContent(rs.getString("content"));
+			question.setTopic(rs.getString("topic"));
+			question.setVisibility(rs.getString("visibility"));
+			question.setNo_of_answers(rs.getInt("no_of_answers"));
+			questions.add(question);
+			//System.out.println(rs.getTimestamp("post_date"));
+			
+		}
+		statement.close();
+		return questions;
+	}
+	
+	@Override
+	public List<Questions> getQuestionsOfUser(String user_id,String visibility) throws SQLException, ClassNotFoundException {
+		List<Questions> questions=new ArrayList<Questions>();
+		query="select * from questions where user_id=? and visibility=?";
+		statement=(PreparedStatement) db_connection.prepareStatement(query);
+		statement.setString(1, user_id);
+		statement.setString(2, visibility);
+		ResultSet rs=statement.executeQuery();
+		UserDAOImpl userDAO=new UserDAOImpl();
 		while(rs.next()){
 			Questions question=new Questions();
 			question.setQuestion_No(rs.getInt("qno"));
@@ -52,6 +80,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 			question.setTopic(rs.getString("topic"));
 			question.setVisibility(rs.getString("visibility"));
 			question.setNo_of_answers(rs.getInt("no_of_answers"));
+			question.setUser(userDAO.getUserDetails(rs.getString("user_id")));
 			questions.add(question);
 			//System.out.println(rs.getTimestamp("post_date"));
 			

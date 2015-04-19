@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 public class Questions {
 		private int question_No;
 		private String user_id;
+		private User user;
 		private int upvote;
 		private int downvote;
 		private Timestamp timestamp;
@@ -70,7 +71,13 @@ public class Questions {
 		public void setNo_of_answers(int no_of_answers) {
 			this.no_of_answers = no_of_answers;
 		}
+		public User getUser() {
+			return user;
+		}
+		public void setUser(User user) {
+			this.user = user;
+		}
 		
-
+		
 
 }

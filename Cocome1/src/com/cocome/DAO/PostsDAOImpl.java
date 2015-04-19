@@ -16,14 +16,11 @@ public class PostsDAOImpl implements PostsDAO {
 	public PostsDAOImpl() throws ClassNotFoundException, SQLException{
 		db_connection=DBConnection_Singleton.getInstance().getDBConnection();
 	}
-	public boolean insertPosts(Posts posts) throws SQLException{
-		query="insert into posts(user_id,content,post_date,likes_count) values(?,?,?,?,?)";
+	public boolean insertPosts(String user_id,String content) throws SQLException{
+		query="insert into posts(user_id,content) values(?,?)";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
-		statement.setString(1,posts.getUser_id());
-		statement.setString(2, posts.getContent());		
-		statement.setTimestamp(3,posts.getPost_date());
-		statement.setInt(4, posts.getLikes_count());
-		statement.setInt(5, posts.getDislikes_count());
+		statement.setString(1,user_id);
+		statement.setString(2, content);
 		int val=statement.executeUpdate();
 		statement.close();
 		if(val>0)

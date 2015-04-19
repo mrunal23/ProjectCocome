@@ -73,6 +73,14 @@ Author:  Nihar Khetan
 	padding: 13px 15px;
 }
 
+#featuresHeading {
+	background: rgb(244, 244, 244);
+	border-radius: 8px;
+	padding: 0 0 8px 0;
+	margin-bottom: 22px;
+	color: rgb(98, 98, 98);
+}
+
 /* --------------------------------------
    Carousel
    -------------------------------------- */
@@ -272,6 +280,11 @@ body {
 
 .customPadComment {
 	padding-top: 17px;
+	background: rgb(244, 244, 244);
+	border-radius: 8px;
+	padding: 20px 0px 20px 0;
+	margin-bottom: 0px;
+	color: rgb(98, 98, 98);
 }
 
 /*Styles for Timeline*/
@@ -316,7 +329,7 @@ body {
 }
 
 .timeline>li>.timeline-panel {
-	width: calc(100% -       55px);
+	width: calc(100% -           55px);
 	float: right;
 	border: 1px solid #d4d4d4;
 	border-radius: 22px;
@@ -542,23 +555,25 @@ body {
 .qa-message-list .like {
 	color: rgb(90, 161, 55);
 }
-.timeline-likes{
+
+.timeline-likes {
 	color: rgb(90, 161, 55);
 }
 
-.timeline-dislikes{
+.timeline-dislikes {
 	color: rgb(219, 10, 10);
 }
 
-.timeline-comment{
+.timeline-comment {
 	color: rgb(66, 139, 202);
 }
+
 .qa-message-list .dislike {
 	color: rgb(219, 10, 10);
 }
 
 .qa-message-list .comments {
-	  color: rgb(66, 139, 202);
+	color: rgb(66, 139, 202);
 }
 
 /*Home Screen Profile Panel*/

@@ -18,7 +18,6 @@
 				<tr class="info">
 					<th>Question</th>
 					<th>Topic</th>
-					<th>User</th>
 					<th>Visibility</th>
 					<th>Date</th>
 
@@ -42,10 +41,7 @@
 							<s:label
 								name="questions[%{#stat.index}].topic" value="%{topic}"
 								theme="simple" /></td>
-						<td class="warning">
-							<s:label
-								 value="%{user.first_name} %{user.last_name}" 
-								theme="simple" /></td>
+						
 
 						<td class="active"><s:label
 								name="questions[%{#stat.index}].visibility"
