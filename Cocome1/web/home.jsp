@@ -105,7 +105,7 @@
 		<div class="row panel">
 			<div class="col-md-4 col-xs-4 col-sm-4 bg_blur "></div>
 			<div class="col-md-8 col-sm-8  col-xs-8">
-				<img src="images/nkhetan.jpg"
+				<img src="images/profile-photo.jpg"
 					class="img-thumbnail picture hidden-xs" />
 				<div class="header">
 					<h1>
@@ -145,7 +145,7 @@
 						<span class="glyphicon glyphicon-flag glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text">-</p>
 
 						<input value="View My Profile" class="btn btn-warning btn-block"
 							type="submit">
@@ -166,7 +166,7 @@
 						<span class="glyphicon glyphicon-time glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text"><s:property value="countNewsfeeds"></s:property> New Notifications</p>
 
 						<input value="Newsfeed" class="btn btn-warning btn-block"
 							type="submit">
@@ -186,7 +186,7 @@
 						<span class="glyphicon glyphicon-list-alt glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text"><s:property value="countTimelineEvents"></s:property> Events Till Now</p>
 
 						<input value="Timeline" class="btn btn-warning btn-block"
 							type="submit">
@@ -200,13 +200,13 @@
 				<form role="form" action="callFriendsOnlineAction" method="post">
 					<div class="panel">
 						<div class="panel-heading">
-							<h3 class="panel-title">4 Friends Online</h3>
+							<h3 class="panel-title">Friends Online</h3>
 						</div>
 						<!-- end panel-heading -->
 						<span class="glyphicon glyphicon-comment glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text">-</p>
 
 						<input value="Chat" class="btn btn-warning btn-block"
 							type="submit">
@@ -241,9 +241,9 @@
 						<span class="glyphicon glyphicon-flag glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text"><s:property value="countFriends"></s:property> Happy Friends </p>
 
-						<input value="See My Friends" class="btn btn-warning btn-block"
+						<input value="View My Friends" class="btn btn-warning btn-block"
 							type="submit">
 					</div>
 				</form>
@@ -261,9 +261,9 @@
 						<span class="glyphicon glyphicon-flag glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text">Approve <s:property value="countFriendRequests"></s:property> Requests</p>
 
-						<input value="See Pending Requests"
+						<input value="View Pending Requests"
 							class="btn btn-warning btn-block" type="submit">
 					</div>
 				</form>
@@ -280,7 +280,7 @@
 						<span class="glyphicon glyphicon-magnet glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text"><s:property value="countSuggestedFriends"></s:property> Friends Suggested</p>
 
 						<input value="View Suggested Friends"
 							class="btn btn-warning btn-block" type="submit">
@@ -302,7 +302,7 @@
 						<span class="glyphicon glyphicon-plane glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text">-</p>
 
 						<input value="Something" class="btn btn-warning btn-block"
 							type="submit">
@@ -347,9 +347,9 @@
 						<span class="glyphicon glyphicon-flag glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text">-</p>
 
-						<input value="Start a Discussion"
+						<input value="View My Discussion Posts"
 							class="btn btn-warning btn-block" type="submit">
 					</div>
 				</form>
@@ -367,9 +367,9 @@
 						<span class="glyphicon glyphicon-glass glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Start a discussion</p>
+						<p class="tile-notification-text">-</p>
 
-						<input value="View Discussions" class="btn btn-warning btn-block"
+						<input value="Post New Question" class="btn btn-warning btn-block"
 							type="submit">
 					</div>
 				</form>
@@ -388,9 +388,9 @@
 						<span class="glyphicon glyphicon-bullhorn glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text">-</p>
 
-						<input value="Post a Question" class="btn btn-warning btn-block"
+						<input value="View Friends Discussion" class="btn btn-warning btn-block"
 							type="submit">
 					</div>
 				</form>
@@ -407,9 +407,9 @@
 						<span class="glyphicon glyphicon-bullhorn glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Can add values here</p>
+						<p class="tile-notification-text">-</p>
 
-						<input value="Post a Question" class="btn btn-warning btn-block"
+						<input value="View Public Discussions" class="btn btn-warning btn-block"
 							type="submit">
 					</div>
 				</form>

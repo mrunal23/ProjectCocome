@@ -23,7 +23,8 @@
 <!-- Include Modernizr in the head, before any other Javascript -->
 <script src="includes/js/modernizr-2.6.2.min.js"></script>
 <script src="includes/js/jquery-1.8.2.min.js"></script>
-
+<link rel="stylesheet" type="text/css"
+	href="font-awesome/css/font-awesome.min.css" />
 <script>
 	function updateVotes(type) {
 
@@ -145,7 +146,13 @@
 	<!--end navbar  -->
 	">
 	<div class="container" id="container1">
+	<div class="row" id="featuresHeading" class="panel-home-above-tiles">
+			<div class="col-12">
+				<h3>Answer the Question / Click on comments to see answers</h3>
 
+			</div>
+		</div>
+		<hr class="colorgraph">
 			<div class="row commentBox" id="posts">
 
 		<div class="box">
@@ -190,8 +197,8 @@
 
 					</form>
 					<div class="more">
-						<a  title="Title Link"><i class="fa-hand-o-up"></i>
-							***</a>
+						<a  title="Title Link"><i class="fa fa-hand-o-up"></i>
+							</a>
 					</div>
 				</div>
 			</div>

@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
 <!-- Website Title & Description for Search Engine purposes -->
-<title>Login Page</title>
+<title>Post A Question</title>
 <meta name="description" content="">
 
 <!-- Mobile viewport optimized -->
@@ -26,8 +25,6 @@
 
 </head>
 <body>
-
-
 	<div class="navbar navbar-fixed-top">
 		<div class="container">
 
@@ -98,105 +95,136 @@
 		<!-- end container -->
 	</div>
 	<!--end navbar  -->
-	<form role="form" action="postQuestion" method="post">
+	">
 	<div class="container" id="container1">
-		<div class="row centered-form">
-			<div
-				class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-				<div class="panel panel-default">
-				
-					<div class="panel-heading">
-						<h3 class="panel-title text-center">Submit your question</h3>
-						<span class="glyphicon glyphicon-question-sign"></span>
-					</div>
-					
-					<div class="panel-body">
-						<form role="form">
-							<div class="form-group">
-								<input type="text" placeholder="Question" name="content" id="content"
-									class="form-control input-sm" >
-							</div>
-							
-									<p>Topic tags : </p>
-							
 
-							<div class="panel-body">
-								<ul class="list-group">
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label> <input type="checkbox" name="topic" value="Science">
-												Science
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label> <input type="checkbox" name="topic" value="Politics">
-												Politics
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label> <input type="checkbox" name="topic" value="Sports">
-												Sports
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label> <input type="checkbox" name="topic" value="Health">
-												Health
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label> <input type="checkbox" name="topic" value="Fiction">
-												Fiction
-											</label>
-										</div>
-									</li>
-								</ul>
-							</div>
+		<div class="row">
+			<form role="form" action="postQuestion" method="post">
+				<div
+					class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-0 col-md-offset-0">
+					<div class="panel panel-default">
 
-							<p>Visible to :</p>
-							<div class="radio">
-								<label><input type="radio" name="visibility" value="Friends">Friends
-									</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="visibility" value="Public">Public
-									</label>
-							</div>
-							
+						<div class="panel-heading">
+							<h3 class="panel-title text-center">Submit your question</h3>
+							<span class="glyphicon glyphicon-question-sign"></span>
+						</div>
 
-							
+						<div class="panel-body">
+							<form role="form">
+								<div class="form-group">
+									<input type="text" placeholder="Question" name="content"
+										id="content" class="form-control input-sm">
+								</div>
 
-							<input type="submit" value="Post Question"
-								class="btn btn-info btn-block">
-						</form>
+								<p>Topic tags :</p>
+
+
+								<div class="panel-body">
+									<ul class="list-group">
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label> <input type="checkbox" name="topic"
+													value="Science"> Science
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label> <input type="checkbox" name="topic"
+													value="Politics"> Politics
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label> <input type="checkbox" name="topic"
+													value="Sports"> Sports
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label> <input type="checkbox" name="topic"
+													value="Health"> Health
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label> <input type="checkbox" name="topic"
+													value="Fiction"> Fiction
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<p>Visible to :</p>
+								<div class="radio">
+									<label><input type="radio" name="visibility"
+										value="Friends">Friends </label>
+								</div>
+								<div class="radio">
+									<label><input type="radio" name="visibility"
+										value="Public">Public </label>
+								</div>
+
+
+
+
+								<input type="submit" value="Post Question"
+									class="btn btn-info btn-block">
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
+
 	</div>
-</form>
-	<style>
-#container1 {
-	background-color: #e2dada;
-}
+	<!-- end container -->
+	<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9">
+				<h6>Copyright &copy; 2015 Team Cocome</h6>
+			</div>
+			<!-- end col-sm-4 -->
 
-.centered-form {
-	margin-top: 120px;
-	margin-left: 300px;
-	margin-right: 3000px margin-bottom: 120px;
-}
 
-.centered-form .panel {
-	background: rgba(255, 255, 255, 0.8);
-	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
-</style>
+
+			<div class="col-sm-3">
+				<h6>
+					Coded with <span class="glyphicon glyphicon-heart"></span> by
+					Nihar, Bipra, Satvik, Mrunal
+				</h6>
+			</div>
+			<!-- end col-sm-4 -->
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container --> </footer>
+
+	<!-- All Javascript at the bottom of the page for faster page loading -->
+
+	<!-- First try for the online version of jQuery-->
+	<script src="http://code.jquery.com/jquery.js"></script>
+
+	<!-- If no online access, fallback to our hardcoded version of jQuery -->
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
+	
+		
+	</script>
+
+	<!-- Bootstrap JS -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="includes/js/script.js"></script>
+
+
 </body>
 </html>

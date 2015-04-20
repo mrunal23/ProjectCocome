@@ -42,6 +42,9 @@ Author:  Nihar Khetan
 
 .tile-notification-text {
 	margin-top: 10px;
+	font-size: 15px;
+	font-weight: 600;
+	color: rgb(62, 170, 202);
 }
 
 .footer {
@@ -280,7 +283,6 @@ body {
 
 .customPadComment {
 	padding-top: 17px;
-	background: rgb(244, 244, 244);
 	border-radius: 8px;
 	padding: 20px 0px 20px 0;
 	margin-bottom: 0px;
@@ -329,7 +331,7 @@ body {
 }
 
 .timeline>li>.timeline-panel {
-	width: calc(100% -           55px);
+	width: calc(100% -             55px);
 	float: right;
 	border: 1px solid #d4d4d4;
 	border-radius: 22px;
@@ -552,18 +554,19 @@ body {
 	border-radius: 7px;
 }
 
-
-
 .timeline-likes {
 	color: rgb(90, 161, 55);
 }
-.timeline-likes a{
+
+.timeline-likes a {
 	color: rgb(90, 161, 55);
 }
+
 .timeline-dislikes {
 	color: rgb(219, 10, 10);
 }
-.timeline-dislikes a{
+
+.timeline-dislikes a {
 	color: rgb(219, 10, 10);
 }
 
@@ -809,6 +812,10 @@ body {
 	color: rgb(12, 23, 100);
 }
 
-.lower-font{
+.lower-font {
 	font-size: 10px;
+}
+
+.margintopPosts {
+	margin-top: 16px;
 }

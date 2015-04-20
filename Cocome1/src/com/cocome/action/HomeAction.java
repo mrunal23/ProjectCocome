@@ -42,6 +42,7 @@ public class HomeAction extends ActionSupport {
 		PostsDAOImpl postsDAO=new PostsDAOImpl();
 		posts = postsDAO.getPostsOfUsersFriends(user.getUser_id(), user.getLogout_time());
 		
+		
 		System.out.println("Posts of the given users friends");
 		for(Posts q:posts){
 			System.out.println(q.getUser_id());
@@ -89,10 +90,15 @@ public class HomeAction extends ActionSupport {
 		return SUCCESS;		
 	}
 	
-	public String suggestedFriendsAction(){
+	public String suggestedFriendsAction() throws ClassNotFoundException, SQLException{
 		String ret = SUCCESS;
+		Map session = ActionContext.getContext().getSession();
+		user=(User) session.get("user");		
+		FriendsDAOImpl friendsDAO=new FriendsDAOImpl();
+		
+		friends = friendsDAO.getSuggestedFriendsOfUser(user.getUser_id());
 	    
-	      return ret;		
+	    return ret;		
 	}
 	
 	public String friendsOnlineAction(){
@@ -210,7 +216,9 @@ public class HomeAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+
+
 	
 	
 	
