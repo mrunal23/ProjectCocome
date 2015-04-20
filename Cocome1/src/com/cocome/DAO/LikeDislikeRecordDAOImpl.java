@@ -20,7 +20,7 @@ public class LikeDislikeRecordDAOImpl {
 		db_connection=DBConnection_Singleton.getInstance().getDBConnection();
 	}
 	public boolean insert(int entity_type,int entity_id,String user_id,boolean like,boolean dislike) throws SQLException{
-		System.out.println("LikeDislikeRecord insert");
+		
 		query="insert into likedislikerecord(entity_type,entity_id,user_id,`like`,dislike) values(?,?,?,?,?)";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
 		statement.setInt(1,entity_type);
@@ -129,8 +129,9 @@ public class LikeDislikeRecordDAOImpl {
 	}
 	
 	public List<LikeDislikeRecord> getLikeDisLikeQuestionsOfUserAfterTime(String user_id, Timestamp post_date) throws SQLException {
+		
 		List<LikeDislikeRecord> likeDislikeRecords = new ArrayList<LikeDislikeRecord>();
-		query = "select * from likedislikerecord where user_id=? and entity_type=? and timestamp=?";
+		query = "select * from likedislikerecord where user_id=? and entity_type=? and timestamp>?";
 		statement = (PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1, user_id);
 		statement.setInt(2, 0);
@@ -138,6 +139,8 @@ public class LikeDislikeRecordDAOImpl {
 		ResultSet rs = statement.executeQuery();
 		while (rs.next()) {
 			LikeDislikeRecord likeDislikeRecord = new LikeDislikeRecord();
+			System.out.println("Record FOUND");
+			System.out.println(rs.getString("user_id") + Integer.toString(rs.getInt("entity_id")));
 			likeDislikeRecord.setId(rs.getInt("id"));
 			likeDislikeRecord.setUser_id(rs.getString("user_id"));
 			likeDislikeRecord.setEntity_id(rs.getInt("entity_id"));
@@ -177,7 +180,7 @@ public class LikeDislikeRecordDAOImpl {
 	
 	public List<LikeDislikeRecord> getLikeDisLikeAnswersOfUserAfterTime(String user_id, Timestamp post_date) throws SQLException {
 		List<LikeDislikeRecord> likeDislikeRecords = new ArrayList<LikeDislikeRecord>();
-		query = "select * from likedislikerecord where user_id=? and entity_type=? and timestamp=?";
+		query = "select * from likedislikerecord where user_id=? and entity_type=? and timestamp>?";
 		statement = (PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1, user_id);
 		statement.setInt(2, 1);
@@ -223,8 +226,9 @@ public class LikeDislikeRecordDAOImpl {
 	}
 	
 	public List<LikeDislikeRecord> getLikeDisLikePostsOfUserAfterTime(String user_id, Timestamp post_date) throws SQLException {
+		
 		List<LikeDislikeRecord> likeDislikeRecords = new ArrayList<LikeDislikeRecord>();
-		query = "select * from likedislikerecord where user_id=? and entity_type=? and timestamp=?";
+		query = "select * from likedislikerecord where user_id=? and entity_type=? and timestamp>?";
 		statement = (PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1, user_id);
 		statement.setInt(2, 2);
@@ -248,7 +252,7 @@ public class LikeDislikeRecordDAOImpl {
 	
 
 	public List<LikeDislikeRecord> getLikeDisLikeQuestionsOfUserFriendsAfterTime(String user_id, Timestamp post_date) throws SQLException {
-
+		
 		List<LikeDislikeRecord> likeDislikeRecords = new ArrayList<LikeDislikeRecord>();
 		query = "select friend_user_id from friends where user_id=?";
 		statement = (PreparedStatement) db_connection.prepareStatement(query);
@@ -263,7 +267,7 @@ public class LikeDislikeRecordDAOImpl {
 		}
 
 		for (String eachFrnd : friendList) {
-
+			System.out.println("FINDING FOR " + eachFrnd);
 			List<LikeDislikeRecord> eachLikeDislikeRecordByFriend = new ArrayList<LikeDislikeRecord>();
 			eachLikeDislikeRecordByFriend = getLikeDisLikeQuestionsOfUserAfterTime(eachFrnd, post_date);
 			for (LikeDislikeRecord eachRecord : eachLikeDislikeRecordByFriend) {
@@ -277,7 +281,7 @@ public class LikeDislikeRecordDAOImpl {
 	}
 	
 	public List<LikeDislikeRecord> getLikeDisLikeAnswersOfUserFriendsAfterTime(String user_id, Timestamp post_date) throws SQLException {
-
+		
 		List<LikeDislikeRecord> likeDislikeRecords = new ArrayList<LikeDislikeRecord>();
 		query = "select friend_user_id from friends where user_id=?";
 		statement = (PreparedStatement) db_connection.prepareStatement(query);
@@ -306,7 +310,10 @@ public class LikeDislikeRecordDAOImpl {
 	}
 	
 	public List<LikeDislikeRecord> getLikeDisLikePostsOfUserFriendsAfterTime(String user_id, Timestamp post_date) throws SQLException {
-
+		
+		
+		
+		
 		List<LikeDislikeRecord> likeDislikeRecords = new ArrayList<LikeDislikeRecord>();
 		query = "select friend_user_id from friends where user_id=?";
 		statement = (PreparedStatement) db_connection.prepareStatement(query);
