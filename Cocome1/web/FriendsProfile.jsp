@@ -113,7 +113,7 @@
 								</h3>
 							</div>
 							<div class="col-xs-3 col-md-3 col-sm-3">
-								<button type="button" class="btn btn-primary btn-md pull-right">
+								<button type="button" class="btn btn-primary btn-md pull-right"  onclick="location.href='Unfriend?friend_id=<s:property value='%{user.user_id}'/>'">
 									<span class="fa fa-frown-o"></span> Unfriend
 								</button>
 							</div>

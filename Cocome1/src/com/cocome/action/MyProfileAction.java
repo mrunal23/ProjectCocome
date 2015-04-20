@@ -48,6 +48,17 @@ public class MyProfileAction extends ActionSupport {
 		}
 	}
 	
+	public String UnFriend() throws ClassNotFoundException, SQLException{
+        Map session = ActionContext.getContext().getSession();
+        user=(User)session.get("user");
+        FriendsDAO frnd_obj=new FriendsDAOImpl();
+        if(frnd_obj.DelFriends(user.getUser_id(), friend_id)){
+              return SUCCESS;
+        }
+        else
+              return ERROR;
+  }
+	
 	public User getUser() {
 		return user;
 	}

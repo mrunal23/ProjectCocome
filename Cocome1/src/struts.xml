@@ -72,7 +72,7 @@
 		</action>
 
 	</package>
-	
+
 	<package name="AccountSettings" extends="struts-default">
 		<action name="AccountSettingsLoad" class="com.cocome.action.AccountSettingsAction"
 			method="load">
@@ -88,7 +88,7 @@
 		</action>
 
 	</package>
-	
+
 	<package name="home" extends="struts-default">
 		<action name="callNewsfeedAction" class="com.cocome.action.HomeAction"
 			method="newsfeedAction">
@@ -145,9 +145,17 @@
 			method="updateStatus">
 			<result type="stream" />
 		</action>
-	
+
 	</package>
-	
+
+	<package name="ApproveFriendRequests" extends="struts-default">
+		<action name="approveFriendRequest" class="com.cocome.action.ApproveFriendRequest"
+			method="approveFriendRequest">
+			<result type="stream" />
+		</action>
+
+	</package>
+
 	<package name="ViewProfile" extends="struts-default">
 		<action name="ViewFriendsProfile" class="com.cocome.action.MyProfileAction"
 			method="DisplayDetails">
@@ -161,6 +169,10 @@
 		<action name="ViewSugFriendsProfile" class="com.cocome.action.MyProfileAction"
 			method="DisplayDetails">
 			<result name="success">/PublicProfile.jsp</result>
+		</action>
+		<action name="Unfriend" class="com.cocome.action.MyProfileAction"
+			method="UnFriend">
+			<result name="success" type="chain">callMyFriendsAction</result>
 		</action>
 	</package>
 
@@ -198,7 +210,7 @@
 			method="getFriendsDiscussions">
 			<result name="success">/viewUserPosts.jsp</result>
 		</action>
-		
+
 		<action name="viewPublicDiscussions" class="com.cocome.action.FetchPublicDiscussions"
 			method="getPublicDiscussions">
 			<result name="success">/viewUserPosts.jsp</result>

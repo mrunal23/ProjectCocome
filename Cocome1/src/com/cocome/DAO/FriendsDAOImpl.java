@@ -200,5 +200,29 @@ public class FriendsDAOImpl implements FriendsDAO {
 		else
 			return false;
 	}
+	
+	@Override
+    public boolean DelFriends(String usermain,String friend) throws SQLException{
+          query="delete from friends where user_id=? and friend_user_id=?";
+          statement= (PreparedStatement) db_connection.prepareStatement(query);
+          statement.setString(1, usermain);
+          statement.setString(2, friend);
+          int res=statement.executeUpdate();
+          if(res==1){
+                statement= (PreparedStatement) db_connection.prepareStatement(query);
+                statement.setString(2, usermain);
+                statement.setString(1, friend);
+                res=statement.executeUpdate();
+                if(res==1){
+                      statement.close();
+                      return true;
+                }
+                else
+                      return false;
+          }
+          else
+                return false;
+    }
+
 		
 }

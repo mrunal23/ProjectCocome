@@ -22,25 +22,66 @@
 <link href="includes/css/styles.css" rel="stylesheet">
 
 <!-- Include Modernizr in the head, before any other Javascript -->
-<script src="includes/js/modernizr-2.6.2.min.js"></script>
+<script src="includes/js/modernizr-2.6.2.min.js">
+
+
 <script src="includes/js/jquery-1.8.2.min.js"></script>
 <script>
 	function updateAnswerVotes(uniqueElement, type,answer_no) {
 		debugger
-		//var answer_no = document.getElementById("answer_no").value;
-		//alert(answer_no);	
-		//alert(type);
-		
+		var inst = uniqueElement
 		$.ajax({
 			type : "POST",
 			url : "updateAnswerVotes?answer_no=" + answer_no + "&type=" + type,
 		
 			success : function(result) {
-				//alert(result);
+				console.log(result);
+				debugger
+				
 				if (type === "upvote")
-					$(uniqueElement).find('label').html(result);
+					$(uniqueElement);
 				else
-					$(uniqueElement).find('label').html(result);
+					$(uniqueElement); 
+				if(result==="upvoteFail")
+					alert("The answer was already up voted by you!!");
+ 				else if(result==="downvoteFail")
+					alert("The answer was already down voted by you!!");
+				else if(result.indexOf("Upvote")!=-1 && result.indexOf("Downvote")!=-1){
+					var res=result.split(' ');
+					//alert(res[1]);
+					//alert(res[3]);
+					if (type === "upvote"){
+						$(uniqueElement).find('label').html(res[1]);
+						$(uniqueElement).parent().next().next().find('a').find('label').html(res[3]);
+					}
+						
+					else if (type === "downvote"){
+						$(uniqueElement).find('label').html(res[3]);
+						$(uniqueElement).parent().prev().prev().find('a').find('label').html(res[1]);
+					}
+					
+					
+				}
+				else if(result.indexOf("Upvote")!=-1){
+					//alert("Correct");
+					var res=result.split(" ");
+					$(uniqueElement).find('label').html(res[1]);
+					
+				}
+				else{
+					//alert("Incorrect");
+					var res=result.split(" ");
+					$(uniqueElement).find('label').html(res[1]);
+					
+				}
+				
+				
+				
+				
+				
+				
+				//alert(result);
+				
 				
 			},
 			error : function(e) {
@@ -50,6 +91,8 @@
 	}
 	</script>
 </head>
+
+
 <body>
 	<div class="navbar navbar-fixed-top">
 		<div class="container">

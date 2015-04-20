@@ -24,8 +24,31 @@
 <!-- Custom CSS -->
 <link href="includes/css/styles.css" rel="stylesheet">
 
+
 <!-- Include Modernizr in the head, before any other Javascript -->
 <script src="includes/js/modernizr-2.6.2.min.js"></script>
+<script src="includes/js/jquery-1.8.2.min.js"></script>
+<script>
+	function approveRequest(uniqueElement, requesterID) {
+
+		$.ajax({
+			type : "POST",
+			url : "approveFriendRequest?requesterID=" + requesterID,
+
+			success : function(result) {
+				//alert(result);
+				debugger
+				$('#noOfFriendRequests').html(result);
+				//$(uniqueElement).find('button').html(result);
+				$(uniqueElement).parent().parent().parent().parent().remove()
+
+			},
+			error : function(e) {
+				alert('Error: ' + e);
+			}
+		});
+	}
+</script>
 
 </head>
 <body>
@@ -105,13 +128,12 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<h4 class="friendsPanelFont">
-						
-						
-						<s:property value="user.getFirst_name()"/>
-						has 
-						
-						<s:property value="user.getPending_friend_requests()"/>
-						Friends Requests to be Approved
+
+
+						<s:property value="user.getFirst_name()" />
+						has <span id="noOfFriendRequests"> <s:property
+								value="user.getPending_friend_requests()" />
+						</span> Friends Requests to be Approved
 					</h4>
 				</div>
 			</div>
@@ -133,28 +155,45 @@
 							</div>
 							<div class="col-xs-6 col-md-6 col-sm-6 section-box">
 								<h4>
-									<s:label name="friendRequests[%{#stat.index}].request_from_user.first_name"
+									<s:label
+										name="friendRequests[%{#stat.index}].request_from_user.first_name"
 										value="%{request_from_user.first_name}" theme="simple" />
-									<s:label name="friendRequests[%{#stat.index}].request_from_user.last_name"
+									<s:label
+										name="friendRequests[%{#stat.index}].request_from_user.last_name"
 										value="%{request_from_user.last_name}" theme="simple" />
 									<a href="http://bootsnipp.com/" target="_blank"><span
 										class="glyphicon glyphicon-new-window"> </span></a>
 								</h4>
 								<hr />
 								<p>
-									<s:label name="friends[%{#stat.index}].request_from_user.location"
+									<s:label
+										name="friends[%{#stat.index}].request_from_user.location"
 										value="%{request_from_user.location}" theme="simple" />
 									|
-									<s:label name="friends[%{#stat.index}].request_from_user.about_me"
+									<s:label
+										name="friends[%{#stat.index}].request_from_user.about_me"
 										value="%{request_from_user.about_me}" theme="simple" />
 								</p>
 
 
 							</div>
 							<div class="col-xs-3 col-md-3 col-sm-3">
-							<button type="button" class="btn btn-primary btn-lg pull-right">
-  <span class="fa fa-plus" aria-hidden="true"></span> Add Friends
-</button></div>
+
+								<%-- <a href="#"
+									onClick="approveRequest(this ,'<s:property value="%{request_from_user.user_id}"/>');">
+									<span class="fa fa-plus"> </span> <span> <s:label
+											id="asd" value="Approve Request" />
+								</span>
+								</a> --%>
+
+
+								<!-- 							<input type="button" value="Approve Request" -->
+								<!-- 									class="btn btn-primary btn-block"  -->
+								<%-- 									onClick="approveRequest(this,<s:property value="%{request_from_user.user_id}" />);" /> --%>
+								 							<button type="button" id="approveButton" class="btn btn-primary btn-lg pull-right" onClick="approveRequest(this,'<s:property value="%{request_from_user.user_id}" />');">
+
+								<span class="fa fa-plus" aria-hidden="true"></span> Approve Request</button>
+							</div>
 						</div>
 					</div>
 				</div>

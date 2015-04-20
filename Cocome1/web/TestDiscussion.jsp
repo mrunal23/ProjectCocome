@@ -29,16 +29,37 @@
 	function updateVotes(type) {
 
 		var question_No = document.getElementById("question_No").value;
-		
+		//alert("Function entry");
 		$.ajax({
 			type : "POST",
 			url : "updateVotes?question_No=" + question_No + "&type=" + type,
 		
 			success : function(result) {
-				if (type === "upvote")
-					$('#upvoteElement').html(result);
-				else
-					$('#downvoteElement').html(result);
+				//alert(result);
+				if(result==="upvoteFail")
+					alert("The question was already up voted by you!!");
+				else if(result==="downvoteFail")
+					alert("The question was already down voted by you!!");
+				else if(result.indexOf("Upvote")!=-1 && result.indexOf("Downvote")!=-1){
+					var res=result.split(' ');
+					//alert(res[1]);
+					//alert(res[3]);
+					$('#upvoteElement').html(res[1]);
+					$('#downvoteElement').html(res[3]);
+					
+				}
+				else if(result.indexOf("Upvote")!=-1){
+					//alert("Correct");
+					var res=result.split(" ");
+					$('#upvoteElement').html(res[1]);
+				}
+				else{
+					//alert("Incorrect");
+					var res=result.split("|");
+					$('#downvoteElement').html(res[1]);
+				}
+				
+				
 				
 			},
 			error : function(e) {
