@@ -1,5 +1,8 @@
 package com.cocome.DAO;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ public class UserDAOImpl implements UserDAO {
 		statement = (PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1, user_id);
 		ResultSet result = statement.executeQuery();
-		if (result.next()) {
+		if(result.next()) {
 			user = new User();
 			user.setUser_id(user_id);
 			user.setStatus(result.getString("status"));
@@ -134,6 +137,35 @@ public class UserDAOImpl implements UserDAO {
 		int val = statement.executeUpdate();
 		statement.close();
 		if (val > 0)
+			return true;
+		else
+			return false;
+	}
+    
+    @Override
+	public boolean updateSignout(User user) throws SQLException {
+		java.util.Date today = new java.util.Date();
+		java.sql.Timestamp time = new java.sql.Timestamp(today.getTime());
+		query="update user set logout_time=?,login_status=0 where user_id=?";
+		statement=(PreparedStatement) db_connection.prepareStatement(query);
+		statement.setTimestamp(1,time);
+		statement.setString(2,user.getUser_id());
+		int val=statement.executeUpdate();
+		statement.close();
+		if(val>0)
+			return true;
+		else
+			return false;
+	}
+    
+    @Override
+	public boolean updateLoginStatus(User user) throws SQLException {
+		query="update user set login_status=1 where user_id=?";
+		statement=(PreparedStatement) db_connection.prepareStatement(query);
+		statement.setString(1,user.getUser_id());
+		int val=statement.executeUpdate();
+		statement.close();
+		if(val>0)
 			return true;
 		else
 			return false;

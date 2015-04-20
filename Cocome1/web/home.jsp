@@ -79,8 +79,8 @@
 							My Account <strong class="caret"></strong></a>
 
 						<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-									Settings</a></li>
+							<li><a href=<s:url action="AccountSettingsLoad"/>><span class="glyphicon glyphicon-wrench"></span>
+									Account Settings</a></li>
 
 							<li action="EditprofLoad"><a
 								href=<s:url action="EditprofLoad"/>><span
@@ -88,7 +88,7 @@
 
 							<li class="divider"></li>
 
-							<li><a href="index.jsp"><span
+							<li><a href=<s:url action="signout"/>><span
 									class="glyphicon glyphicon-off"></span> Sign out</a></li>
 						</ul></li>
 				</ul>

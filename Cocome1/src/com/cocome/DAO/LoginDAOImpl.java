@@ -59,10 +59,28 @@ public class LoginDAOImpl implements LoginDAO {
 		statement.setString(1, login.getUser_id());
 		statement.setString(2, login.getPassword());
 		int res=statement.executeUpdate();
-		statement.close();
 		if(res==1){
 			//setting user object in session
+					statement.close();
+					return true;
+			}
 			
+		
+		
+			return false;
+	}
+	
+	@Override
+	public boolean DeleteUser(String user_id) throws SQLException {
+		
+		String query="delete from login where user_id=?";
+		statement= (PreparedStatement) db_connection.prepareStatement(query);
+		statement.setString(1, user_id);
+		int res=statement.executeUpdate();
+		
+		if(res==1){
+			//setting user object in session
+					statement.close();
 					return true;
 			}
 			
@@ -85,6 +103,23 @@ public class LoginDAOImpl implements LoginDAO {
 			return true;
 		else
 			return false;
+	}
+	
+	
+	@Override
+	public Login getLoginDetails(String user_id) throws SQLException {
+		Login login=null;
+		String query="select * from  login where user_id=?";
+		statement= (PreparedStatement) db_connection.prepareStatement(query);
+		statement.setString(1,user_id);
+		ResultSet result=statement.executeQuery();
+		if(result.next()){
+				login=new Login();
+				login.setUser_id(user_id);
+				login.setPassword(result.getString("password"));
+		}
+		statement.close();
+		return login;
 	}
 
 }

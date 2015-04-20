@@ -49,6 +49,10 @@
 			<result name="success">/EditProf.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="signout" class="com.cocome.action.SignOutAction"
+			method="execute">
+			<result name="success">/index.jsp</result>
+		</action>
 
 	</package>
 	<package name="forgotpassword" extends="struts-default">
@@ -63,6 +67,23 @@
 		</action>
 
 	</package>
+	
+	<package name="AccountSettings" extends="struts-default">
+		<action name="AccountSettingsLoad" class="com.cocome.action.AccountSettingsAction"
+			method="load">
+			<result name="success">/AccountSettings.jsp</result>
+		</action>
+		<action name="ResetPassword" class="com.cocome.action.AccountSettingsAction"
+			method="ResetPassword">
+			<result name="success">/AccountSettings.jsp</result>
+		</action>
+		<action name="deleteprofile" class="com.cocome.action.AccountSettingsAction"
+			method="DeleteProfile">
+			<result name="success">/index.jsp</result>
+		</action>
+
+	</package>
+	
 	<package name="home" extends="struts-default">
 		<action name="callNewsfeedAction" class="com.cocome.action.HomeAction"
 			method="newsfeedAction">

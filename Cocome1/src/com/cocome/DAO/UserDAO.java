@@ -10,4 +10,6 @@ public interface UserDAO {
     boolean deleteUser( String user_id) throws SQLException;
     String getFirstLastNameOfUser(String user_id) throws SQLException;
 	List<User> getAllUsersByFirstName(String firstName) throws SQLException;
+	boolean updateSignout(User user) throws SQLException;
+    boolean updateLoginStatus(User user) throws SQLException;
 }
