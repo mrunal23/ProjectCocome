@@ -26,27 +26,84 @@
 
 
 <script>
-	function updateStatus() {
+function updateStatus(){
+	
+	var content=document.getElementById("comment").value;
+	
+	
+	$.ajax({
+		type : "POST",
+		url : "updateStatus?comment="+content,
+		success : function(result) {
+			
+			$('#comment').val('');
+			alert('Status Updated Successfully!!');
+			
+		},
+		error : function(e) {
+			alert('Error: ' + e);
+		}
+		
+	});
+	
+	
+}
+</script>
 
-		var content = document.getElementById("comment").value;
-
+<script>
+	function updatePostVotes(uniqueElement, type,post_id) {
+		debugger
+		var inst = uniqueElement
 		$.ajax({
 			type : "POST",
-			url : "updateStatus?comment=" + content,
+			url : "updatePostVotes?post_id=" + post_id + "&type=" + type,
+		
 			success : function(result) {
-
-				$('#comment').val('');
-				alert('Status Updated Successfully!!');
+				
+				
+				if (type === "upvote")
+					$(uniqueElement);
+				else
+					$(uniqueElement); 
+				if(result==="upvoteFail")
+					alert("The post was already liked by you!!");
+ 				else if(result==="downvoteFail")
+					alert("The post was already disliked by you!!");
+				else if(result.indexOf("Upvote")!=-1 && result.indexOf("Downvote")!=-1){
+					var res=result.split(' ');
+					
+					if (type === "upvote"){
+						$(uniqueElement).find('label').html(res[1]);
+						$(uniqueElement).parent().next().next().find('a').find('label').html(res[3]);
+					}
+						
+					else if (type === "downvote"){
+						$(uniqueElement).find('label').html(res[3]);
+						$(uniqueElement).parent().prev().prev().find('a').find('label').html(res[1]);
+					}
+					
+					
+				}
+				else if(result.indexOf("Upvote")!=-1){
+					
+					var res=result.split(" ");
+					$(uniqueElement).find('label').html(res[1]);
+					
+				}
+				else{
+					
+					var res=result.split(" ");
+					$(uniqueElement).find('label').html(res[1]);
+					
+				}
 
 			},
 			error : function(e) {
 				alert('Error: ' + e);
 			}
-
 		});
-
 	}
-</script>
+	</script>
 
 </head>
 <body>
@@ -178,12 +235,14 @@
 										<li><span><i class="glyphicon glyphicon-calendar"></i>
 												<s:date name="%{post_date}" /> </span></li>
 										<li>|</li>
-										<span class="timeline-likes"><a><i
+										<span class="timeline-likes"><a
+											onClick="updatePostVotes(this,'upvote',<s:property value="%{post_id}" />);"><i
 												class="glyphicon glyphicon-thumbs-up"></i> <s:label
 													name="posts[%{#stat.index}].likes_count"
 													value="%{likes_count}" theme="simple" /> Likes</a></span>
 										<li>|</li>
-										<span class="timeline-dislikes"><a><i
+										<span class="timeline-dislikes"><a
+											onClick="updatePostVotes(this,'downvote',<s:property value="%{post_id}" />);"><i
 												class="glyphicon glyphicon-thumbs-down"></i> <s:label
 													name="posts[%{#stat.index}].likes_count"
 													value="%{dislikes_count}" theme="simple" /> Dislikes</a></span>

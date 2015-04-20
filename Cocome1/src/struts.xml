@@ -146,6 +146,22 @@
 			<result type="stream" />
 		</action>
 
+		<action name="updatePostVotes" class="com.cocome.action.UpdatePostVotes"
+			method="updatePostVotes">
+			<result type="stream" />
+		</action>
+
+	</package>
+
+
+	<package name="NewsFeed" extends="struts-default">
+
+
+		<action name="updatePostVotesNewsFeed" class="com.cocome.action.UpdatePostVotes"
+			method="updatePostVotes">
+			<result type="stream" />
+		</action>
+
 	</package>
 
 	<package name="ApproveFriendRequests" extends="struts-default">

@@ -9,4 +9,5 @@ public interface PostsDAO {
 	boolean insertPosts(String user_id,String content) throws SQLException;
 	List<Posts> getPostsOfUserAfterTime(String user_id, Timestamp post_date) throws SQLException;
 	List<Posts> getPostsOfUsersFriends(String user_id, Timestamp post_date) throws SQLException;
+	boolean updatePosts(Posts post) throws SQLException;
 }

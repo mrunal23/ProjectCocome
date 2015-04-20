@@ -23,6 +23,63 @@
 <!-- Include Modernizr in the head, before any other Javascript -->
 <script src="includes/js/modernizr-2.6.2.min.js"></script>
 
+<script>
+	function updatePostVotesNewsFeed(uniqueElement, type,post_id) {
+		debugger
+		var inst = uniqueElement
+		$.ajax({
+			type : "POST",
+			url : "updatePostVotesNewsFeed?post_id=" + post_id + "&type=" + type,
+		
+			success : function(result) {
+				
+				
+				if (type === "upvote")
+					$(uniqueElement);
+				else
+					$(uniqueElement); 
+				if(result==="upvoteFail")
+					alert("The post was already liked by you!!");
+ 				else if(result==="downvoteFail")
+					alert("The post was already disliked by you!!");
+				else if(result.indexOf("Upvote")!=-1 && result.indexOf("Downvote")!=-1){
+					var res=result.split(' ');
+					
+					if (type === "upvote"){
+						$(uniqueElement).find('label').html(res[1]);
+						$(uniqueElement).parent().parent().next().find('a').find('label').html(res[3]);
+						//$(uniqueElement).parent().next().next().find('a').find('label').html(res[3]);
+					}
+						
+					else if (type === "downvote"){
+						$(uniqueElement).find('label').html(res[3]);
+						$(uniqueElement).parent().parent().prev().find('a').find('label').html(res[1]);
+						//$(uniqueElement).parent().prev().prev().find('a').find('label').html(res[1]);
+					}
+					
+					
+				}
+				else if(result.indexOf("Upvote")!=-1){
+					
+					var res=result.split(" ");
+					$(uniqueElement).find('label').html(res[1]);
+					
+				}
+				else{
+					
+					var res=result.split(" ");
+					$(uniqueElement).find('label').html(res[1]);
+					
+				}
+
+			},
+			error : function(e) {
+				alert('Error: ' + e);
+			}
+		});
+	}
+	</script>
+
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
@@ -139,16 +196,20 @@
 											<div class="row">
 												<div class="col-xs-4 col-sm-4 col-md-4">
 													<div class="like">
-														<a> <span class="glyphicon glyphicon-thumbs-up"></span>
-															<s:label name="posts[%{#stat.index}].likes_count"
+														<a
+															onClick="updatePostVotesNewsFeed(this,'upvote',<s:property value="%{post_id}" />);">
+															<span class="glyphicon glyphicon-thumbs-up"></span> <s:label
+																name="posts[%{#stat.index}].likes_count"
 																value="%{likes_count}" theme="simple" /> Likes
 														</a>
 													</div>
 												</div>
 												<div class="col-xs-4 col-sm-4 col-md-4">
 													<div class="dislike">
-														<a> <span class="glyphicon glyphicon-thumbs-down"></span>
-															<s:label name="posts[%{#stat.index}].dislikes_count"
+														<a
+															onClick="updatePostVotesNewsFeed(this,'downvote',<s:property value="%{post_id}" />);">
+															<span class="glyphicon glyphicon-thumbs-down"></span> <s:label
+																name="posts[%{#stat.index}].dislikes_count"
 																value="%{dislikes_count}" theme="simple" /> Dislikes
 														</a>
 													</div>
