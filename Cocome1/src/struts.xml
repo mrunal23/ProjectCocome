@@ -158,6 +158,10 @@
 			<result name="friend">/FriendsProfile.jsp</result>
 			<result name="stranger">/PublicProfile.jsp</result>
 		</action>
+		<action name="ViewSugFriendsProfile" class="com.cocome.action.MyProfileAction"
+			method="DisplayDetails">
+			<result name="success">/PublicProfile.jsp</result>
+		</action>
 	</package>
 
 	<package name="discussionForum" extends="struts-default">

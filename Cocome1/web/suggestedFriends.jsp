@@ -120,7 +120,7 @@
 		<div class="row" id="friendsTiles">
 
 			<s:iterator value="friends" status="stat">
-				<div class="col-md-12 friends-bar">
+				<div class="col-md-12 friends-bar" onclick="location.href='ViewSugFriendsProfile?friend_id=<s:property value='%{user.user_id}'/>'">
 					<div class="well well-sm ">
 						<div class="row">
 							<div class="col-xs-3 col-md-3 col-sm-3 text-center">
@@ -146,10 +146,6 @@
 
 
 							</div>
-							<div class="col-xs-3 col-md-3 col-sm-3">
-							<button type="button" class="btn btn-primary btn-lg pull-right">
-  <span class="fa fa-plus" aria-hidden="true"></span> Add Friends
-</button></div>
 						</div>
 					</div>
 				</div>
