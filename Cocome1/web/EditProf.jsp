@@ -44,7 +44,7 @@
 
 				<div class="nav-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="home.jsp">Home</a></li>
+						<li class="active"><a href=<s:url action="LoadProfile"/>>Home</a></li>
 
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">Services <strong class="caret"></strong></a>

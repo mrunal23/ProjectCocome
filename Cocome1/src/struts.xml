@@ -49,6 +49,11 @@
 			<result name="success">/EditProf.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="LoadProfile" class="com.cocome.action.EditProfileAction"
+			method="load">
+			<result name="success">/home.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		<action name="signout" class="com.cocome.action.SignOutAction"
 			method="execute">
 			<result name="success">/index.jsp</result>
@@ -147,6 +152,11 @@
 		<action name="ViewFriendsProfile" class="com.cocome.action.MyProfileAction"
 			method="DisplayDetails">
 			<result name="success">/FriendsProfile.jsp</result>
+		</action>
+		<action name="ViewPublicProfile" class="com.cocome.action.MyProfileAction"
+			method="SearchFriend">
+			<result name="friend">/FriendsProfile.jsp</result>
+			<result name="stranger">/PublicProfile.jsp</result>
 		</action>
 	</package>
 

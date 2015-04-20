@@ -183,6 +183,22 @@ public class FriendsDAOImpl implements FriendsDAO {
 		
 
 		return friends;
-	}	
+	}
+	
+	
+	@Override
+	public boolean IfFriends(String usermain,String friend) throws SQLException{
+		query="select * from friends where user_id=? and friend_user_id=?";
+		statement= (PreparedStatement) db_connection.prepareStatement(query);
+		statement.setString(1, usermain);
+		statement.setString(2, friend);
+		ResultSet res=statement.executeQuery();
+		if(res.next()){
+			statement.close();
+			return true;
+		}
+		else
+			return false;
+	}
 		
 }

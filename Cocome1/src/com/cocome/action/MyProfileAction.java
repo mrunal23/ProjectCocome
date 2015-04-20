@@ -3,6 +3,8 @@ package com.cocome.action;
 import java.sql.SQLException;
 import java.util.Map;
 
+import com.cocome.DAO.FriendsDAO;
+import com.cocome.DAO.FriendsDAOImpl;
 import com.cocome.DAO.User;
 import com.cocome.DAO.UserDAOImpl;
 import com.opensymphony.xwork2.ActionContext;
@@ -25,12 +27,25 @@ public class MyProfileAction extends ActionSupport {
 	}
 	
 	public String DisplayDetails() throws ClassNotFoundException, SQLException{
-		System.out.println("Friend Profile Load enter");
 		UserDAOImpl userdao=new UserDAOImpl();
 		user=userdao.getUserDetails(friend_id);
 		System.out.println(user.getFirst_name());
-		System.out.println("Friend Profile Load Exit");
 		return SUCCESS;
+	}
+	
+	public String SearchFriend() throws ClassNotFoundException, SQLException{
+		User usermain;
+		Map session = ActionContext.getContext().getSession();
+		usermain=(User)session.get("user");
+		FriendsDAO frnd_obj=new FriendsDAOImpl();
+		UserDAOImpl userdao=new UserDAOImpl();
+		user=userdao.getUserDetails(friend_id);
+		if(frnd_obj.IfFriends(usermain.getUser_id(), friend_id)){
+			return "friend";
+		}
+		else{
+			return "stranger";
+		}
 	}
 	
 	public User getUser() {
