@@ -45,6 +45,22 @@ public class FriendRequestsDAOImpl implements FriendRequestsDAO {
 		return friendRequests;
 	}
 	
+	
+	@Override
+	public boolean IsFriendReqPending(String usermain,String friend) throws SQLException{
+		query="select * from friend_requests where request_from=? and request_to=?";
+		statement= (PreparedStatement) db_connection.prepareStatement(query);
+		statement.setString(1, usermain);
+		statement.setString(2, friend);
+		ResultSet res=statement.executeQuery();
+		if(res.next()){
+			statement.close();
+			return true;
+		}
+		else
+			return false;
+	}
+	
 	public boolean deleteFriendRequests(String requestFrom,String requestTo) throws SQLException, ClassNotFoundException{
 		query="delete from friend_requests where request_from=? and request_to=? and approved=0";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
@@ -56,5 +72,7 @@ public class FriendRequestsDAOImpl implements FriendRequestsDAO {
 		else
 			return false;
 	}
+    
+    
 		
 }

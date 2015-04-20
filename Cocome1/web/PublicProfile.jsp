@@ -26,7 +26,7 @@
 <s:set name="myVar" value="ErrMessage" />
 
 </head>
-<body>
+<body onload="myFunction()">
 	<div class="navbar navbar-fixed-top">
 		<div class="container">
 
@@ -101,9 +101,7 @@
 								</h3>
 							</div>
 							<div class="col-xs-3 col-md-3 col-sm-3">
-								<button type="button" class="btn btn-primary btn-md pull-right">
-									<span class="fa fa-plus"></span> Add friend
-								</button>
+								<div id="dyn_button" />							
 							</div>
 						</div>
 					</div>
@@ -172,6 +170,22 @@
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
+	</script>
+	<script>
+	
+	function myFunction(){
+	debugger
+	
+	var button = document.createElement("button");
+	var bool='<s:property value="pend_req"/>';
+	button.setAttribute('class', 'btn btn-primary btn-md pull-right');
+	if(bool == 'true'){
+		button.innerHTML = 'Pending Request';
+	}else{
+		button.innerHTML = 'AddFriend';
+	}
+	document.getElementById("dyn_button").appendChild(button);
+	}
 	</script>
 
 	<!-- Bootstrap JS -->
