@@ -41,29 +41,16 @@
 				alt="Your Logo"></a>
 
 			<div class="nav-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href=<s:url action="LoadHomePage"/>>Home</a></li>
+				<ul class="nav navbar-nav homeFontWeight">
+					<li><a href=<s:url action="LoadProfile"/>>Home</a></li>
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Services <strong class="caret"></strong></a>
-
-						<ul class="dropdown-menu">
-							<li><a href="#">Add something</a></li>
-
-							<li><a href="#">Delete something</a></li>
-
-							<li><a href="#">Edit something</a></li>
-
-							<li class="divider"></li>
-
-							<li class="dropdown-header">More Services</li>
-
-						</ul> <!-- end dropdown-menu --></li>
 				</ul>
 
-				<form class="navbar-form pull-left">
+				<form class="navbar-form pull-left searchMarginLeft"
+					action="searchUser">
 					<input type="text" class="form-control"
-						placeholder="Search this site..." id="searchInput">
+						placeholder="Enter First Name..." id="searchInput"
+						name="searchInput">
 					<button type="submit" class="btn btn-default">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
@@ -76,16 +63,17 @@
 							My Account <strong class="caret"></strong></a>
 
 						<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-									Settings</a></li>
+							<li><a href=<s:url action="AccountSettingsLoad"/>><span
+									class="glyphicon glyphicon-wrench"></span> Account Settings</a></li>
 
-							<li><a href=<s:url action="EditprofLoad"/>><span
+							<li action="EditprofLoad"><a
+								href=<s:url action="EditprofLoad"/>><span
 									class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
 
 							<li class="divider"></li>
 
-							<li><a href="index.jsp"><span class="glyphicon glyphicon-off"></span>
-									Sign out</a></li>
+							<li><a href=<s:url action="signout"/>><span
+									class="glyphicon glyphicon-off"></span> Sign out</a></li>
 						</ul></li>
 				</ul>
 				<!-- end nav pull-right -->
@@ -96,82 +84,89 @@
 		<!-- end container -->
 	</div>
 	<!--end navbar  -->
-<div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
-   
-   
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title"><s:property value="user.first_name"/> <s:property value="user.last_name"/></h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad">
 
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>Status:</td>
-                        <td><s:property value="user.status"/></td>
-                      </tr>
-                      <tr>
-                        <td>Date of Birth</td>
-                        <td><s:property value="user.date_of_birth"/></td>
-                      </tr>
-                      <tr>
-                        <td>Gender</td>
-                        <td><s:property value="user.gender"/></td>
-                      </tr>
-                        <tr>
-                        <td>Location</td>
-                        <td><s:property value="user.location"/></td>
-                      </tr>
-                      <tr>
-                        <td>Profession</td>
-                        <td><s:property value="user.profession"/></td>
-                      </tr>
-                      <tr>
-                        <td>Education</td>
-                        <td><s:property value="user.education"/></td>
-                      </tr>
-                      <tr>
-                        <td>Email</td>
-                        <td><s:property value="user.user_id"/></td>
-                      </tr>
-                      <tr>
-                        <td>Phone Number</td>
-                        <td><s:property value="user.phone_number"/>
-                        </td>
-                       </tr>
-                       <tr>
-                        <td>Relationship Status</td>
-                        <td><s:property value="user.rel_stat"/></td>
-                      </tr>
-                      <tr>
-                        <td>LinkedIn Handle</td>
-                        <td><s:property value="user.linkedin_handle"/></td>
-                      </tr>
-                       <tr>
-                        <td>Hobby</td>
-                        <td><s:property value="user.hobby"/></td>
-                      </tr>
-                      <tr>
-                        <td>About Me</td>
-                        <td><s:property value="user.about_me"/></td>
-                      </tr>
-                     
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<s:property value="user.first_name" />
+							<s:property value="user.last_name" />
+						</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-lg-3 " align="center">
+								<img alt="User Pic"
+									src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+									class="img-circle">
+							</div>
+
+							<div class=" col-md-9 col-lg-9 ">
+								<table class="table table-user-information">
+									<tbody>
+										<tr>
+											<td>Status:</td>
+											<td><s:property value="user.status" /></td>
+										</tr>
+										<tr>
+											<td>Date of Birth</td>
+											<td><s:property value="user.date_of_birth" /></td>
+										</tr>
+										<tr>
+											<td>Gender</td>
+											<td><s:property value="user.gender" /></td>
+										</tr>
+										<tr>
+											<td>Location</td>
+											<td><s:property value="user.location" /></td>
+										</tr>
+										<tr>
+											<td>Profession</td>
+											<td><s:property value="user.profession" /></td>
+										</tr>
+										<tr>
+											<td>Education</td>
+											<td><s:property value="user.education" /></td>
+										</tr>
+										<tr>
+											<td>Email</td>
+											<td><s:property value="user.user_id" /></td>
+										</tr>
+										<tr>
+											<td>Phone Number</td>
+											<td><s:property value="user.phone_number" /></td>
+										</tr>
+										<tr>
+											<td>Relationship Status</td>
+											<td><s:property value="user.rel_stat" /></td>
+										</tr>
+										<tr>
+											<td>LinkedIn Handle</td>
+											<td><s:property value="user.linkedin_handle" /></td>
+										</tr>
+										<tr>
+											<td>Hobby</td>
+											<td><s:property value="user.hobby" /></td>
+										</tr>
+										<tr>
+											<td>About Me</td>
+											<td><s:property value="user.about_me" /></td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<!-- end container -->

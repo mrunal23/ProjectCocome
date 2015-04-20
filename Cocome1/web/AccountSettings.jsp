@@ -26,109 +26,99 @@
 
 </head>
 <body>
-	
-	
-		<div class="navbar navbar-fixed-top">
-			<div class="container">
 
-				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-				<button class="navbar-toggle"
-					data-target=".navbar-responsive-collapse" data-toggle="collapse"
-					type="button">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
 
-				<a class="navbar-brand" href="/"><img src="images/logo.png"
-					alt="Your Logo"></a>
+	<div class="navbar navbar-fixed-top">
+		<div class="container">
 
-				<div class="nav-collapse collapse navbar-responsive-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="home.jsp">Home</a></li>
+			<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+			<button class="navbar-toggle"
+				data-target=".navbar-responsive-collapse" data-toggle="collapse"
+				type="button">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Services <strong class="caret"></strong></a>
+			<a class="navbar-brand" href="/"><img src="images/logo.png"
+				alt="Your Logo"></a>
 
-							<ul class="dropdown-menu">
-								<li><a href="#">Add something</a></li>
+			<div class="nav-collapse collapse navbar-responsive-collapse">
+				<ul class="nav navbar-nav homeFontWeight">
+					<li><a href=<s:url action="LoadProfile"/>>Home</a></li>
 
-								<li><a href="#">Delete something</a></li>
+				</ul>
 
-								<li><a href="#">Edit something</a></li>
+				<form class="navbar-form pull-left searchMarginLeft"
+					action="searchUser">
+					<input type="text" class="form-control"
+						placeholder="Enter First Name..." id="searchInput"
+						name="searchInput">
+					<button type="submit" class="btn btn-default">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</form>
+				<!-- end navbar-form -->
 
-								<li class="divider"></li>
+				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+							My Account <strong class="caret"></strong></a>
 
-								<li class="dropdown-header">More Services</li>
+						<ul class="dropdown-menu">
+							<li><span class="accountSettingmarginleft" ><span
+									class="glyphicon glyphicon-wrench"></span> Account Settings</span></li>
 
-							</ul> <!-- end dropdown-menu --></li>
-					</ul>
+							<li action="EditprofLoad"><a
+								href=<s:url action="EditprofLoad"/>><span
+									class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
 
-					<form class="navbar-form pull-left">
-						<input type="text" class="form-control"
-							placeholder="Search this site..." id="searchInput">
-						<button type="submit" class="btn btn-default">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</form>
-					<!-- end navbar-form -->
+							<li class="divider"></li>
 
-					<ul class="nav navbar-nav pull-right">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-								My Account <strong class="caret"></strong></a>
-
-							<ul class="dropdown-menu">
-								<li><a href="#"><span
-										class="glyphicon glyphicon-wrench"></span> Settings</a></li>
-
-								<li><a href=<s:url action="signout"/>><span
-										class="glyphicon glyphicon-refresh"></span>Update Profile</a></li>
-
-								<li class="divider"></li>
-
-								<li><a href="index.jsp"><span class="glyphicon glyphicon-off"></span>
-										Sign out</a></li>
-							</ul></li>
-					</ul>
-					<!-- end nav pull-right -->
-				</div>
-				<!-- end nav-collapse -->
-
+							<li><a href=<s:url action="signout"/>><span
+									class="glyphicon glyphicon-off"></span> Sign out</a></li>
+						</ul></li>
+				</ul>
+				<!-- end nav pull-right -->
 			</div>
-			<!-- end container -->
-		</div>
-		<!--end navbar  -->
-		<div class="container" id="main">
+			<!-- end nav-collapse -->
 
-				
-					<fieldset>
-						<h2>Account Settings</h2>
-						<hr class="colorgraph">
-						<form role="form" action="ResetPassword" method="post">
-						<div class="row">
-						<div class="form-group col-xs-3 col-sm-3 col-md-3">
-							<input name="login.password" id="password" class="form-control input-lg">
-						</div>
-						<div class="col-xs-3 col-sm-3 col-md-3">
-									<input class="btn btn-lg btn-success btn-block" value="Reset Password"
-										type="submit">
-								</div>
-						</div>
-						</form>
-						<br /><br />
-						<form role="form" action="deleteprofile" method="post">
-						<div class="row">		
-						<div class="col-xs-3 col-sm-3 col-md-3">
-									<input class="btn btn-lg btn-primary btn-block" value="Delete Profile"
-										type="submit">
-						</div>
-						</div>
-						</form>
-						<br />
-						<hr class="colorgraph">	
-					</fieldset>
+		</div>
+		<!-- end container -->
+	</div>
+	<!--end navbar  -->
+	<div class="container" id="main">
+
+
+		<fieldset>
+			<h2>Account Settings</h2>
+			<hr class="colorgraph">
+			<form role="form" action="ResetPassword" method="post">
+				<div class="row">
+					<div class="form-group col-xs-3 col-sm-3 col-md-3">
+						<input name="login.password" id="password"
+							class="form-control input-lg">
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3">
+						<input class="btn btn-lg btn-success btn-block"
+							value="Reset Password" type="submit">
+					</div>
 				</div>
-		<br/>
+			</form>
+			<br />
+			<br />
+			<form role="form" action="deleteprofile" method="post">
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3">
+						<input class="btn btn-lg btn-primary btn-block"
+							value="Delete Profile" type="submit">
+					</div>
+				</div>
+			</form>
+			<br />
+			<hr class="colorgraph">
+		</fieldset>
+	</div>
+	<br />
 	<footer class="footer">
 	<div class="container">
 		<div class="row">
@@ -162,7 +152,7 @@
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
 	</script>
-	
+
 	<script type="text/JavaScript">
 		document.getElementById("password").value='<s:property value="login.password"/>';
 			

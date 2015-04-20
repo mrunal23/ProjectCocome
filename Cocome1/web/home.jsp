@@ -43,27 +43,13 @@
 				alt="Your Logo"></a>
 
 			<div class="nav-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
+				<ul class="nav navbar-nav homeFontWeight">
 					<li class="active"><a href="#">Home</a></li>
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Services <strong class="caret"></strong></a>
-
-						<ul class="dropdown-menu">
-							<li><a href="#">Add something</a></li>
-
-							<li><a href="#">Delete something</a></li>
-
-							<li><a href="#">Edit something</a></li>
-
-							<li class="divider"></li>
-
-							<li class="dropdown-header">More Services</li>
-
-						</ul> <!-- end dropdown-menu --></li>
 				</ul>
 
-				<form class="navbar-form pull-left" action="searchUser">
+				<form class="navbar-form pull-left searchMarginLeft"
+					action="searchUser">
 					<input type="text" class="form-control"
 						placeholder="Enter First Name..." id="searchInput"
 						name="searchInput">
@@ -79,8 +65,8 @@
 							My Account <strong class="caret"></strong></a>
 
 						<ul class="dropdown-menu">
-							<li><a href=<s:url action="AccountSettingsLoad"/>><span class="glyphicon glyphicon-wrench"></span>
-									Account Settings</a></li>
+							<li><a href=<s:url action="AccountSettingsLoad"/>><span
+									class="glyphicon glyphicon-wrench"></span> Account Settings</a></li>
 
 							<li action="EditprofLoad"><a
 								href=<s:url action="EditprofLoad"/>><span
@@ -166,7 +152,10 @@
 						<span class="glyphicon glyphicon-time glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text"><s:property value="countNewsfeeds"></s:property> New Notifications</p>
+						<p class="tile-notification-text">
+							<s:property value="countNewsfeeds"></s:property>
+							New Notifications
+						</p>
 
 						<input value="Newsfeed" class="btn btn-warning btn-block"
 							type="submit">
@@ -186,7 +175,10 @@
 						<span class="glyphicon glyphicon-list-alt glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text"><s:property value="countTimelineEvents"></s:property> Events Till Now</p>
+						<p class="tile-notification-text">
+							<s:property value="countTimelineEvents"></s:property>
+							Events Till Now
+						</p>
 
 						<input value="Timeline" class="btn btn-warning btn-block"
 							type="submit">
@@ -241,7 +233,10 @@
 						<span class="glyphicon glyphicon-flag glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text"><s:property value="countFriends"></s:property> Happy Friends </p>
+						<p class="tile-notification-text">
+							<s:property value="countFriends"></s:property>
+							Happy Friends
+						</p>
 
 						<input value="View My Friends" class="btn btn-warning btn-block"
 							type="submit">
@@ -261,7 +256,11 @@
 						<span class="glyphicon glyphicon-flag glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text">Approve <s:property value="countFriendRequests"></s:property> Requests</p>
+						<p class="tile-notification-text">
+							Approve
+							<s:property value="countFriendRequests"></s:property>
+							Requests
+						</p>
 
 						<input value="View Pending Requests"
 							class="btn btn-warning btn-block" type="submit">
@@ -280,7 +279,10 @@
 						<span class="glyphicon glyphicon-magnet glyphicon-tiles"
 							aria-hidden="true"></span>
 
-						<p class="tile-notification-text"><s:property value="countSuggestedFriends"></s:property> Friends Suggested</p>
+						<p class="tile-notification-text">
+							<s:property value="countSuggestedFriends"></s:property>
+							Friends Suggested
+						</p>
 
 						<input value="View Suggested Friends"
 							class="btn btn-warning btn-block" type="submit">
@@ -390,8 +392,8 @@
 
 						<p class="tile-notification-text">-</p>
 
-						<input value="View Friends Discussion" class="btn btn-warning btn-block"
-							type="submit">
+						<input value="View Friends Discussion"
+							class="btn btn-warning btn-block" type="submit">
 					</div>
 				</form>
 				<!-- end panel -->
@@ -409,8 +411,8 @@
 
 						<p class="tile-notification-text">-</p>
 
-						<input value="View Public Discussions" class="btn btn-warning btn-block"
-							type="submit">
+						<input value="View Public Discussions"
+							class="btn btn-warning btn-block" type="submit">
 					</div>
 				</form>
 				<!-- end panel -->

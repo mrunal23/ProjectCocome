@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.cocome.DAO.PostsDAOImpl;
 import com.cocome.DAO.User;
+import com.cocome.DAO.UserDAOImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -32,8 +33,15 @@ public class UpdateStatus extends ActionSupport {
 		User user=(User) session.get("user");
 		PostsDAOImpl postsDAO=new PostsDAOImpl();
 		boolean result=postsDAO.insertPosts(user.getUser_id(), comment);
+		 
+		UserDAOImpl userDAO = new UserDAOImpl();
+		session.put("user",userDAO.getUserDetails(user.getUser_id()));
+			
+		
 		inputStream = new ByteArrayInputStream(String.valueOf(result).getBytes(StandardCharsets.UTF_8));
 		return SUCCESS;	
 	
 	}
+	
+	
 }

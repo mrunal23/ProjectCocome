@@ -49,8 +49,8 @@
 			<result name="success">/EditProf.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="LoadProfile" class="com.cocome.action.EditProfileAction"
-			method="load">
+		<action name="LoadProfile" class="com.cocome.action.loadEverythingAction"
+			method="execute">
 			<result name="success">/home.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>

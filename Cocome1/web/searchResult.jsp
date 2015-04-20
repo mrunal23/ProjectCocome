@@ -44,29 +44,16 @@
 				alt="Your Logo"></a>
 
 			<div class="nav-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
+				<ul class="nav navbar-nav homeFontWeight">
+					<li><a href=<s:url action="LoadProfile"/>>Home</a></li>
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Services <strong class="caret"></strong></a>
-
-						<ul class="dropdown-menu">
-							<li><a href="#">Add something</a></li>
-
-							<li><a href="#">Delete something</a></li>
-
-							<li><a href="#">Edit something</a></li>
-
-							<li class="divider"></li>
-
-							<li class="dropdown-header">More Services</li>
-
-						</ul> <!-- end dropdown-menu --></li>
 				</ul>
 
-				<form class="navbar-form pull-left">
+				<form class="navbar-form pull-left searchMarginLeft"
+					action="searchUser">
 					<input type="text" class="form-control"
-						placeholder="Search this site..." id="searchInput">
+						placeholder="Enter First Name..." id="searchInput"
+						name="searchInput">
 					<button type="submit" class="btn btn-default">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
@@ -79,16 +66,17 @@
 							My Account <strong class="caret"></strong></a>
 
 						<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-									Settings</a></li>
+							<li><a href=<s:url action="AccountSettingsLoad"/>><span
+									class="glyphicon glyphicon-wrench"></span> Account Settings</a></li>
 
-							<li><a href="#"><span
+							<li action="EditprofLoad"><a
+								href=<s:url action="EditprofLoad"/>><span
 									class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
 
 							<li class="divider"></li>
 
-							<li><a href="#"><span class="glyphicon glyphicon-off"></span>
-									Sign out</a></li>
+							<li><a href=<s:url action="signout"/>><span
+									class="glyphicon glyphicon-off"></span> Sign out</a></li>
 						</ul></li>
 				</ul>
 				<!-- end nav pull-right -->
@@ -105,9 +93,9 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<h4 class="friendsPanelFont">
-					Results for users with first name as 
-						<s:property value="%{searchInput}"/>
-						
+						Results for users with first name as
+						<s:property value="%{searchInput}" />
+
 					</h4>
 				</div>
 			</div>
@@ -121,7 +109,8 @@
 		<div class="row" id="friendsTiles">
 
 			<s:iterator value="searchResult" status="stat">
-				<div class="col-md-12 friends-bar">
+				<div class="col-md-12 friends-bar"
+					onclick="location.href='ViewPublicProfile?friend_id=<s:property value='%{user_id}'/>'">
 					<div class="well well-sm ">
 						<div class="row">
 							<div class="col-xs-3 col-md-3 col-sm-3 text-center">
@@ -129,28 +118,21 @@
 							</div>
 							<div class="col-xs-6 col-md-6 col-sm-6 section-box">
 								<h4>
-									<s:label name="first_name"
-										value="%{first_name}" theme="simple" />
-									<s:label name="last_name"
-										value="%{last_name}" theme="simple" />
+									<s:label name="first_name" value="%{first_name}" theme="simple" />
+									<s:label name="last_name" value="%{last_name}" theme="simple" />
 									<a href="http://bootsnipp.com/" target="_blank"><span
 										class="glyphicon glyphicon-new-window"> </span></a>
 								</h4>
 								<hr />
 								<p>
-									<s:label name="location"
-										value="%{location}" theme="simple" />
+									<s:label name="location" value="%{location}" theme="simple" />
 									|
-									<s:label name="about_me"
-										value="%{about_me}" theme="simple" />
+									<s:label name="about_me" value="%{about_me}" theme="simple" />
 								</p>
 
 
 							</div>
-							<div class="col-xs-3 col-md-3 col-sm-3">
-							<button type="button" class="btn btn-primary btn-lg pull-right">
-  <span class="fa fa-plus" aria-hidden="true"></span> Add Friends
-</button></div>
+
 						</div>
 					</div>
 				</div>

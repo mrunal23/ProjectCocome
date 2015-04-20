@@ -26,154 +26,159 @@
 
 </head>
 <body>
-	
-	
-		<div class="navbar navbar-fixed-top">
-			<div class="container">
 
-				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-				<button class="navbar-toggle"
-					data-target=".navbar-responsive-collapse" data-toggle="collapse"
-					type="button">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
 
-				<a class="navbar-brand" href="/"><img src="images/logo.png"
-					alt="Your Logo"></a>
+	<div class="navbar navbar-fixed-top">
+		<div class="container">
 
-				<div class="nav-collapse collapse navbar-responsive-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href=<s:url action="LoadProfile"/>>Home</a></li>
+			<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+			<button class="navbar-toggle"
+				data-target=".navbar-responsive-collapse" data-toggle="collapse"
+				type="button">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Services <strong class="caret"></strong></a>
+			<a class="navbar-brand" href="/"><img src="images/logo.png"
+				alt="Your Logo"></a>
 
-							<ul class="dropdown-menu">
-								<li><a href="#">Add something</a></li>
+			<div class="nav-collapse collapse navbar-responsive-collapse">
+				<ul class="nav navbar-nav homeFontWeight">
+					<li><a href=<s:url action="LoadProfile"/>>Home</a></li>
 
-								<li><a href="#">Delete something</a></li>
+				</ul>
 
-								<li><a href="#">Edit something</a></li>
-
-								<li class="divider"></li>
-
-								<li class="dropdown-header">More Services</li>
-
-							</ul> <!-- end dropdown-menu --></li>
-					</ul>
-
-					<form class="navbar-form pull-left">
-						<input type="text" class="form-control"
-							placeholder="Search this site..." id="searchInput">
-						<button type="submit" class="btn btn-default">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</form>
-					<!-- end navbar-form -->
-
-					<ul class="nav navbar-nav pull-right">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-								My Account <strong class="caret"></strong></a>
-
-							<ul class="dropdown-menu">
-								<li><a href="#"><span
-										class="glyphicon glyphicon-wrench"></span> Settings</a></li>
-
-								<li><a href="#"><span
-										class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
-
-								<li class="divider"></li>
-
-								<li><a href="index.jsp"><span class="glyphicon glyphicon-off"></span>
-										Sign out</a></li>
-							</ul></li>
-					</ul>
-					<!-- end nav pull-right -->
-				</div>
-				<!-- end nav-collapse -->
-
-			</div>
-			<!-- end container -->
-		</div>
-		<!--end navbar  -->
-		<div class="container" id="main">
-
-				<form role="form" action="EditprofUpdate" method="post">
-					<fieldset>
-						<h2>Edit Profile</h2>
-						<hr class="colorgraph">
-						<div class="row">
-						<div class="form-group col-xs-3 col-sm-3 col-md-3">
-							<input name="user.first_name" id="fstname" class="form-control input-lg" placeholder="First Name">
-						</div>
-						<div class="form-group col-xs-3 col-sm-3 col-md-3">
-							<input name="user.last_name" id="lstname" class="form-control input-lg" placeholder="Last Name">
-						</div>
-						</div>
-						<div class="row">
-						<div class="form-group col-xs-6 col-sm-6 col-md-6">
-							<input name="user.user_id" id="email" class="form-control input-lg" placeholder="Email Address" type="email">
-						</div>
-						</div>
-						<div class="row">
-						<div class="form-group col-xs-3 col-sm-3 col-md-3">
-							<input name="user.phone_number" id="phone" class="form-control input-lg" placeholder="Phone number">
-						</div>
-						</div>
-						<div class="row">
-		                            <div class="form-group col-xs-2 col-sm-2 col-md-2">
-		  								<select class="form-control dropdown" name="user.gender" id="gender">
-		    									<option value="Male">Male</option><option value="Female">Female</option>
-		  								</select>
-		  							</div>
-		                            <div class="form-group col-xs-2 col-sm-2 col-md-2">
-		  								<select class="form-control dropdown" name="user.rel_stat" id="rel_stat">
-		    								<option value="">Relationship Sta..</option><option value="Single">Single</option><option value="Committed">Committed</option>
-		  								</select>
-		  							</div>
-		  				</div>
-		  				<div class="row">
-						<div class="form-group col-xs-4 col-sm-4 col-md-4">
-							<input name="user.profession" id="profession" class="form-control input-lg" placeholder="Profession">
-						</div>
-						<div class="form-group col-xs-4 col-sm-4 col-md-4">
-							<input name="user.education" id="edu" class="form-control input-lg" placeholder="Education">
-						</div>
-						<div class="form-group col-xs-4 col-sm-4 col-md-4">
-							<input name="user.location" id="location" class="form-control input-lg" placeholder="Location">
-						</div>
-						</div>
-						<div class="row">
-						<div class="form-group col-xs-10 col-sm-10 col-md-10">
-							<input name="user.hobby" id="interest" class="form-control input-lg" placeholder="Interests (comma seperated)">
-						</div>
-						</div>
-						<div class="row">
-						<div class="form-group col-xs-12 col-sm-12 col-md-12">
-						  <textarea name="user.about_me" class="form-control" rows="5" id="about" placeholder="About Me"></textarea>
-						</div>
-						</div>
-						<div class="row">
-						<div class="form-group col-xs-6 col-sm-6 col-md-6">
-							<input name="user.linkedin_handle" id="lnkdin" class="form-control input-lg" placeholder="LinkedIn Handle">
-						</div>
-						</div>
-						<hr class="colorgraph">
-						<div class="row">
-								<div class="col-xs-3 col-sm-3 col-md-3">
-									<input class="btn btn-lg btn-success btn-block" value="Update"
-										type="submit">
-								</div>
-								<div class="col-xs-3 col-sm-3 col-md-3">
-									<a href="RegisterNew.jsp" class="btn btn-lg btn-primary btn-block">Cancel</a>
-								</div>
-						</div>
-					</fieldset>
+				<form class="navbar-form pull-left searchMarginLeft"
+					action="searchUser">
+					<input type="text" class="form-control"
+						placeholder="Enter First Name..." id="searchInput"
+						name="searchInput">
+					<button type="submit" class="btn btn-default">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
 				</form>
+				<!-- end navbar-form -->
+
+				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+							My Account <strong class="caret"></strong></a>
+
+						<ul class="dropdown-menu">
+							<li><a href=<s:url action="AccountSettingsLoad"/>><span
+									class="glyphicon glyphicon-wrench" ></span> Account Settings</a></li>
+
+							<li action="EditprofLoad"><span class="accountSettingmarginleft">  <span
+									class="glyphicon glyphicon-refresh"></span> Update Profile</span></li>
+
+							<li class="divider"></li>
+
+							<li><a href=<s:url action="signout"/>><span
+									class="glyphicon glyphicon-off"></span> Sign out</a></li>
+						</ul></li>
+				</ul>
+				<!-- end nav pull-right -->
+			</div>
+			<!-- end nav-collapse -->
+
 		</div>
-		<br/>
+		<!-- end container -->
+	</div>
+	<!--end navbar  -->
+	<!--end navbar  -->
+	<div class="container" id="main">
+
+		<form role="form" action="EditprofUpdate" method="post">
+			<fieldset>
+				<h2>Edit Profile</h2>
+				<hr class="colorgraph">
+				<div class="row">
+					<div class="form-group col-xs-3 col-sm-3 col-md-3">
+						<input name="user.first_name" id="fstname"
+							class="form-control input-lg" placeholder="First Name">
+					</div>
+					<div class="form-group col-xs-3 col-sm-3 col-md-3">
+						<input name="user.last_name" id="lstname"
+							class="form-control input-lg" placeholder="Last Name">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-6 col-sm-6 col-md-6">
+						<input name="user.user_id" id="email"
+							class="form-control input-lg" placeholder="Email Address"
+							type="email">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-3 col-sm-3 col-md-3">
+						<input name="user.phone_number" id="phone"
+							class="form-control input-lg" placeholder="Phone number">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-2 col-sm-2 col-md-2">
+						<select class="form-control dropdown" name="user.gender"
+							id="gender">
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>
+					</div>
+					<div class="form-group col-xs-2 col-sm-2 col-md-2">
+						<select class="form-control dropdown" name="user.rel_stat"
+							id="rel_stat">
+							<option value="">Relationship Sta..</option>
+							<option value="Single">Single</option>
+							<option value="Committed">Committed</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4 col-sm-4 col-md-4">
+						<input name="user.profession" id="profession"
+							class="form-control input-lg" placeholder="Profession">
+					</div>
+					<div class="form-group col-xs-4 col-sm-4 col-md-4">
+						<input name="user.education" id="edu"
+							class="form-control input-lg" placeholder="Education">
+					</div>
+					<div class="form-group col-xs-4 col-sm-4 col-md-4">
+						<input name="user.location" id="location"
+							class="form-control input-lg" placeholder="Location">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-10 col-sm-10 col-md-10">
+						<input name="user.hobby" id="interest"
+							class="form-control input-lg"
+							placeholder="Interests (comma seperated)">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-12 col-sm-12 col-md-12">
+						<textarea name="user.about_me" class="form-control" rows="5"
+							id="about" placeholder="About Me"></textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-6 col-sm-6 col-md-6">
+						<input name="user.linkedin_handle" id="lnkdin"
+							class="form-control input-lg" placeholder="LinkedIn Handle">
+					</div>
+				</div>
+				<hr class="colorgraph">
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3">
+						<input class="btn btn-lg btn-success btn-block" value="Update"
+							type="submit">
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3">
+						
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<br />
 	<!-- end container  -->
 	<!-- 	<form action="loginaction" method="post"> -->
 	<!-- 		User:<br /> <input type="text" name="user" /><br /> Password:<br /> -->
@@ -213,7 +218,7 @@
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
 	</script>
-	
+
 	<script type="text/JavaScript">
 	
 			

@@ -26,28 +26,26 @@
 
 
 <script>
-function updateStatus(){
-	
-	var content=document.getElementById("comment").value;
-	
-	
-	$.ajax({
-		type : "POST",
-		url : "updateStatus?comment="+content,
-		success : function(result) {
-			
-			$('#comment').val('');
-			alert('Status Updated Successfully!!');
-			
-		},
-		error : function(e) {
-			alert('Error: ' + e);
-		}
-		
-	});
-	
-	
-}
+	function updateStatus() {
+
+		var content = document.getElementById("comment").value;
+
+		$.ajax({
+			type : "POST",
+			url : "updateStatus?comment=" + content,
+			success : function(result) {
+
+				$('#comment').val('');
+				alert('Status Updated Successfully!!');
+
+			},
+			error : function(e) {
+				alert('Error: ' + e);
+			}
+
+		});
+
+	}
 </script>
 
 </head>
@@ -67,29 +65,16 @@ function updateStatus(){
 				alt="Your Logo"></a>
 
 			<div class="nav-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
+				<ul class="nav navbar-nav homeFontWeight">
+					<li><a href=<s:url action="LoadProfile"/>>Home</a></li>
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Services <strong class="caret"></strong></a>
-
-						<ul class="dropdown-menu">
-							<li><a href="#">Add something</a></li>
-
-							<li><a href="#">Delete something</a></li>
-
-							<li><a href="#">Edit something</a></li>
-
-							<li class="divider"></li>
-
-							<li class="dropdown-header">More Services</li>
-
-						</ul> <!-- end dropdown-menu --></li>
 				</ul>
 
-				<form class="navbar-form pull-left">
+				<form class="navbar-form pull-left searchMarginLeft"
+					action="searchUser">
 					<input type="text" class="form-control"
-						placeholder="Search this site..." id="searchInput">
+						placeholder="Enter First Name..." id="searchInput"
+						name="searchInput">
 					<button type="submit" class="btn btn-default">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
@@ -102,16 +87,17 @@ function updateStatus(){
 							My Account <strong class="caret"></strong></a>
 
 						<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-									Settings</a></li>
+							<li><a href=<s:url action="AccountSettingsLoad"/>><span
+									class="glyphicon glyphicon-wrench"></span> Account Settings</a></li>
 
-							<li><a href="#"><span
+							<li action="EditprofLoad"><a
+								href=<s:url action="EditprofLoad"/>><span
 									class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
 
 							<li class="divider"></li>
 
-							<li><a href="#"><span class="glyphicon glyphicon-off"></span>
-									Sign out</a></li>
+							<li><a href=<s:url action="signout"/>><span
+									class="glyphicon glyphicon-off"></span> Sign out</a></li>
 						</ul></li>
 				</ul>
 				<!-- end nav pull-right -->
@@ -149,8 +135,8 @@ function updateStatus(){
 
 			</div>
 		</div>
-		
-		
+
+
 		<div class="row clearfix">
 
 			<ul class="timeline">
@@ -172,32 +158,35 @@ function updateStatus(){
 									</div>
 									<div class="timeline-body lower-font">
 										<!---Time Line Body&Content--->
-										<p><i class="glyphicon glyphicon-glass"></i>
-										<i class="glyphicon glyphicon-music"></i>
-										<i class="glyphicon glyphicon-calendar"></i>
-										<i class="glyphicon glyphicon-heart"></i>
-										<i class="glyphicon glyphicon-star"></i>
-										<i class="glyphicon glyphicon-film"></i>
-										<i class="glyphicon glyphicon-road"></i>
-										<i class="glyphicon glyphicon-headphones"></i>
-										<i class="glyphicon glyphicon-camera"></i>
-										<i class="glyphicon glyphicon-glass"></i></p>
+										<p>
+											<i class="glyphicon glyphicon-glass"></i> <i
+												class="glyphicon glyphicon-music"></i> <i
+												class="glyphicon glyphicon-calendar"></i> <i
+												class="glyphicon glyphicon-heart"></i> <i
+												class="glyphicon glyphicon-star"></i> <i
+												class="glyphicon glyphicon-film"></i> <i
+												class="glyphicon glyphicon-road"></i> <i
+												class="glyphicon glyphicon-headphones"></i> <i
+												class="glyphicon glyphicon-camera"></i> <i
+												class="glyphicon glyphicon-glass"></i>
+										</p>
 									</div>
 
 								</div>
 								<div class="col-md-6 col-xs-6 col-sm-6">
 									<ul class="list-inline list-unstyled">
 										<li><span><i class="glyphicon glyphicon-calendar"></i>
-												<s:date name="%{post_date}" />
-										</span></li>
+												<s:date name="%{post_date}" /> </span></li>
 										<li>|</li>
-										<span class="timeline-likes"><a><i class="glyphicon glyphicon-thumbs-up"></i> <s:label
-												name="posts[%{#stat.index}].likes_count"
-												value="%{likes_count}" theme="simple" /> Likes</a></span>
+										<span class="timeline-likes"><a><i
+												class="glyphicon glyphicon-thumbs-up"></i> <s:label
+													name="posts[%{#stat.index}].likes_count"
+													value="%{likes_count}" theme="simple" /> Likes</a></span>
 										<li>|</li>
-										<span class="timeline-dislikes"><a><i class="glyphicon glyphicon-thumbs-down"></i> <s:label
-												name="posts[%{#stat.index}].likes_count"
-												value="%{dislikes_count}" theme="simple" /> Dislikes</a></span>
+										<span class="timeline-dislikes"><a><i
+												class="glyphicon glyphicon-thumbs-down"></i> <s:label
+													name="posts[%{#stat.index}].likes_count"
+													value="%{dislikes_count}" theme="simple" /> Dislikes</a></span>
 										<li>
 											<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
 											<span><i class="fa fa-facebook-square"></i></span> <span><i

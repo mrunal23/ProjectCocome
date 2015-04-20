@@ -41,53 +41,7 @@
 				alt="Your Logo"></a>
 
 			<div class="nav-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Services <strong class="caret"></strong></a>
-
-						<ul class="dropdown-menu">
-							<li><a href="#">Add something</a></li>
-
-							<li><a href="#">Delete something</a></li>
-
-							<li><a href="#">Edit something</a></li>
-
-							<li class="divider"></li>
-
-							<li class="dropdown-header">More Services</li>
-
-						</ul> <!-- end dropdown-menu --></li>
-				</ul>
-
-				<form class="navbar-form pull-left">
-					<input type="text" class="form-control"
-						placeholder="Search this site..." id="searchInput">
-					<button type="submit" class="btn btn-default">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</form>
-				<!-- end navbar-form -->
-
-				<ul class="nav navbar-nav pull-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-							My Account <strong class="caret"></strong></a>
-
-						<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-									Settings</a></li>
-
-							<li><a href="#"><span
-									class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
-
-							<li class="divider"></li>
-
-							<li><a href="index.jsp"><span class="glyphicon glyphicon-off"></span>
-									Sign out</a></li>
-						</ul></li>
-				</ul>
 				<!-- end nav pull-right -->
 			</div>
 			<!-- end nav-collapse -->
@@ -122,22 +76,22 @@
 									required>
 							</div>
 							<div>
-									<div class="row">
-										<div class="col-xs-6 col-sm-6 col-md-6">
-											<div class="form-group">
-												<input type="password" name="login.password" id="password"
-													class="form-control input-sm" placeholder="Password"
-													required>
-											</div>
-										</div>
-										<div class="col-xs-6 col-sm-6 col-md-6">
-											<div class="form-group">
-												<input type="password" name="confirmPassword"
-													id="confirmPassword" class="form-control input-sm"
-													placeholder="Confirm Password" required>
-											</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="password" name="login.password" id="password"
+												class="form-control input-sm" placeholder="Password"
+												required>
 										</div>
 									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="password" name="confirmPassword"
+												id="confirmPassword" class="form-control input-sm"
+												placeholder="Confirm Password" required>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<label>Birthday :</label>

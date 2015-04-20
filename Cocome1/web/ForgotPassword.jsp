@@ -41,53 +41,7 @@
 				alt="Your Logo"></a>
 
 			<div class="nav-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Services <strong class="caret"></strong></a>
-
-						<ul class="dropdown-menu">
-							<li><a href="#">Add something</a></li>
-
-							<li><a href="#">Delete something</a></li>
-
-							<li><a href="#">Edit something</a></li>
-
-							<li class="divider"></li>
-
-							<li class="dropdown-header">More Services</li>
-
-						</ul> <!-- end dropdown-menu --></li>
-				</ul>
-
-				<form class="navbar-form pull-left">
-					<input type="text" class="form-control"
-						placeholder="Search this site..." id="searchInput">
-					<button type="submit" class="btn btn-default">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</form>
-				<!-- end navbar-form -->
-
-				<ul class="nav navbar-nav pull-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-							My Account <strong class="caret"></strong></a>
-
-						<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-									Settings</a></li>
-
-							<li><a href="#"><span
-									class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
-
-							<li class="divider"></li>
-
-							<li><a href="index.jsp"><span class="glyphicon glyphicon-off"></span>
-									Sign out</a></li>
-						</ul></li>
-				</ul>
 				<!-- end nav pull-right -->
 			</div>
 			<!-- end nav-collapse -->
@@ -102,7 +56,8 @@
 				class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title text-center">Please enter your registered email address</h3>
+						<h3 class="panel-title text-center">Please enter your
+							registered email address</h3>
 					</div>
 					<div class="panel-body">
 						<form role="form" action="forgotpasswordupdate" method="post">
@@ -111,14 +66,15 @@
 									class="form-control input-sm" placeholder="Email Address"
 									required>
 							</div>
-							<s:property value="errMsg"/>
+							<s:property value="errMsg" />
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
-								  	<input class="btn btn-lg btn-success btn-block" value="Reset Password"
-										type="submit">
+									<input class="btn btn-lg btn-success btn-block"
+										value="Reset Password" type="submit">
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<a href="index.jsp" class="btn btn-lg btn-primary btn-block">Go Back</a>
+									<a href="index.jsp" class="btn btn-lg btn-primary btn-block">Go
+										Back</a>
 								</div>
 							</div>
 						</form>
@@ -155,12 +111,9 @@
 
 	<!-- If no online access, fallback to our hardcoded version of jQuery -->
 	<script>
-	
 		window.jQuery
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
-	
-		
 	</script>
 	<!-- Bootstrap JS -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>

@@ -819,3 +819,16 @@ body {
 .margintopPosts {
 	margin-top: 16px;
 }
+
+
+.searchMarginLeft{
+margin-left: 23rem;
+}
+
+.homeFontWeight{
+	font-weight: 700;
+}
+
+.accountSettingmarginleft{
+	margin-left: 20px;
+}

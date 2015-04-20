@@ -26,91 +26,45 @@
 
 </head>
 <body>
-	
-	
-		<div class="navbar navbar-fixed-top">
-			<div class="container">
 
-				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-				<button class="navbar-toggle"
-					data-target=".navbar-responsive-collapse" data-toggle="collapse"
-					type="button">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
 
-				<a class="navbar-brand" href="/"><img src="images/logo.png"
-					alt="Your Logo"></a>
+	<div class="navbar navbar-fixed-top">
+		<div class="container">
 
-				<div class="nav-collapse collapse navbar-responsive-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
+			<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+			<button class="navbar-toggle"
+				data-target=".navbar-responsive-collapse" data-toggle="collapse"
+				type="button">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Services <strong class="caret"></strong></a>
+			<a class="navbar-brand" href="/"><img src="images/logo.png"
+				alt="Your Logo"></a>
 
-							<ul class="dropdown-menu">
-								<li><a href="#">Add something</a></li>
-
-								<li><a href="#">Delete something</a></li>
-
-								<li><a href="#">Edit something</a></li>
-
-								<li class="divider"></li>
-
-								<li class="dropdown-header">More Services</li>
-
-							</ul> <!-- end dropdown-menu --></li>
-					</ul>
-
-					<form class="navbar-form pull-left">
-						<input type="text" class="form-control"
-							placeholder="Search this site..." id="searchInput">
-						<button type="submit" class="btn btn-default">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</form>
-					<!-- end navbar-form -->
-
-					<ul class="nav navbar-nav pull-right">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-								My Account <strong class="caret"></strong></a>
-
-							<ul class="dropdown-menu">
-								<li><a href="#"><span
-										class="glyphicon glyphicon-wrench"></span> Settings</a></li>
-
-								<li><a href="#"><span
-										class="glyphicon glyphicon-refresh"></span> Update Profile</a></li>
-
-								<li class="divider"></li>
-
-								<li><a href="#"><span class="glyphicon glyphicon-off"></span>
-										Sign out</a></li>
-							</ul></li>
-					</ul>
-					<!-- end nav pull-right -->
-				</div>
-				<!-- end nav-collapse -->
-
+			<div class="nav-collapse collapse navbar-responsive-collapse">
+				
+				<!-- end nav pull-right -->
 			</div>
-			<!-- end container -->
+			<!-- end nav-collapse -->
+
 		</div>
-		<!--end navbar  -->
-		<div class="container" id="main">
+		<!-- end container -->
+	</div>
+	<!--end navbar  -->
+	<div class="container" id="main">
 		<div class="row clearfix">
 
 			<div class="col-xs-8 col-sm-8 col-md-8">
 
 				<div class="carousel slide" id="carousel-558858">
 					<ol class="carousel-indicators">
-						<li data-slide-to="0" data-target="#carousel-558858"
-							class="active"></li>
+						<li class="active" data-slide-to="0"
+							data-target="#carousel-558858"></li>
 						<li data-slide-to="1" data-target="#carousel-558858"></li>
 						<li data-slide-to="2" data-target="#carousel-558858"></li>
-						<li data-slide-to="3" data-target="#carousel-558858"></li>
-						
+
+
 					</ol>
 
 					<div class="carousel-inner">
@@ -118,8 +72,10 @@
 							<img alt=""
 								src="http://i291.photobucket.com/albums/ll317/smellycat206/FriendsWall/Friends-med1.jpg">
 							<div class="carousel-caption">
-								<h3>Quote1</h3>
-								<p>something something.</p>
+								<h3>Friends are best</h3>
+								<p>---------------------------------- Walking with a friend
+									in dark is better than walking alone in
+									light.----------------------------------</p>
 							</div>
 						</div>
 
@@ -127,10 +83,12 @@
 							<img alt=""
 								src="http://static.hdw.eweb4.com/media/wallpapers_1920x1200/world/1/4/hong-kong-world-hd-wallpaper-1920x1200-39927.jpg">
 							<div class="carousel-caption">
-								<h3>Hours</h3>
-								<p>A new father must remain behind and try to keep his
-									prematurely born daughter alive after Hurricane Katrina knocks
-									out the power in their New Orleans hospital.</p>
+								<h3>Welcome to Beta Version</h3>
+								<p>We team Cocome welcome you to the social network. You can
+									connect, You can like, dislike, upvote, downvote. Well more
+									that that you can ask questions. So we give you Fb, Quora,
+									Twitter all in one.. Keep looking for upcoming developments.
+									Hope you have nice time at Cocome</p>
 							</div>
 						</div>
 
@@ -138,29 +96,12 @@
 							<img alt=""
 								src="http://www.4shared.com/download/0-PQ0bZkce/Lego.jpg?lgfp=3000">
 							<div class="carousel-caption">
-								<h3>Lego</h3>
+								<h3>Advertisement : Lego</h3>
 								<p>Emmet, an ordinary LEGO figurine who always follows the
 									rules, is mistakenly identified as the Special an extraordinary
 									being and the key to saving the world.</p>
 							</div>
 						</div>
-
-						<div class="item">
-							<img alt=""
-								src="http://www.4shared.com/download/ZIzTUTtjce/Now_You_See_Me.jpg?lgfp=3000">
-							<div class="carousel-caption">
-								<h3>Now You See Me</h3>
-								<p>Charismatic magician Atlas (Jesse Eisenberg) leads a team
-									of talented illusionists called the Four Horsemen. Atlas and
-									his comrades mesmerize audiences with a pair of amazing magic
-									shows that drain the bank accounts of the corrupt and funnel
-									the money to audience members.</p>
-							</div>
-						</div>
-
-				
-
-
 					</div>
 
 					<a class="left carousel-control" href="#carousel-558858"
@@ -178,28 +119,30 @@
 						<h2>Please Sign In</h2>
 						<hr class="colorgraph">
 						<div class="form-group">
-							  <input name="login.user_id" id="user_id" class="form-control input-lg"
-								placeholder="Email Address" type="email" required />
-							
+							<input name="login.user_id" id="user_id"
+								class="form-control input-lg" placeholder="Email Address"
+								type="email" required />
+
 						</div>
 						<div class="form-group">
-							 <input name="login.password" id="password"
+							<input name="login.password" id="password"
 								class="form-control input-lg" placeholder="Password"
 								type="password" required />
-								
+
 						</div>
 						<a href=<s:url action="forgotpassword"/>
-								class="btn btn-link pull-right">Forgot Password?</a> <br />
-							<hr class="colorgraph">
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-								  	<input class="btn btn-lg btn-success btn-block" value="Login"
-										type="submit">
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<a href="RegisterNew.jsp" class="btn btn-lg btn-primary btn-block">Register</a>
-								</div>
+							class="btn btn-link pull-right">Forgot Password?</a> <br />
+						<hr class="colorgraph">
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<input class="btn btn-lg btn-success btn-block" value="Login"
+									type="submit">
 							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<a href="RegisterNew.jsp"
+									class="btn btn-lg btn-primary btn-block">Register</a>
+							</div>
+						</div>
 					</fieldset>
 				</form>
 
