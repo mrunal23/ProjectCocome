@@ -234,5 +234,35 @@
 
 	</package>
 
+	<!-- Chat module changes start here -->
+	<package name="Chat" extends="struts-default">
+		<action name="openChatWindowConv" class="com.cocome.action.ChatSever"
+			method="connectChat">
+			<result name="success">/chat_window.jsp</result>
+		</action>
+
+		<action name="sendMessageToUser" class="com.cocome.action.ChatSever"
+			method="sendMessage">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="msgString">msgString</param>
+			</result>
+		</action>
+
+		<action name="callFriendsOnlineAction" class="com.cocome.action.FetchFriendListAction"
+			method="fetchFriendList">
+			<result name="success">/chat.jsp</result>
+		</action>
+
+		<action name="fetchChatsOfUser" class="com.cocome.action.ChatSever"
+			method="fetchMessageOfUser">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="msgString">msgString</param>
+			</result>
+		</action>
+	</package>
+	<!-- Chat module changes end here -->
+
 </struts>
 
