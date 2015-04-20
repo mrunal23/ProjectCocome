@@ -116,8 +116,8 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 			//query3="select * from questions where user_id=? and post_date>?";
 		}	
 		
-		statement1.close();
-		//statement2.close();
+		
+		//getting Questions which were answered for my user
 		QuestionsDAOImpl questionsDAO = new QuestionsDAOImpl();
 		List<Questions> questions = new ArrayList<Questions>();
 		questions = questionsDAO.getQuestionsOfUser(user_id);
@@ -142,6 +142,75 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 			}
 		}
 		
+		//Getting Like Dislikes
+		
+		List<LikeDislikeRecord> likeDislikeRecords = new ArrayList<LikeDislikeRecord>();
+		LikeDislikeRecordDAOImpl likeDislikeRecordDAO = new LikeDislikeRecordDAOImpl();
+		
+		likeDislikeRecords.addAll(likeDislikeRecordDAO.getLikeDisLikeQuestionsOfUserFriendsAfterTime(user_id, user.getLogout_time()));
+		
+		
+		//Getting like-dislike activity on answers
+		
+		likeDislikeRecords.addAll(likeDislikeRecordDAO.getLikeDisLikeAnswersOfUserFriendsAfterTime(user_id, user.getLogout_time()));
+			
+		//Getting like-dislike activity on posts
+				
+		likeDislikeRecords.addAll(likeDislikeRecordDAO.getLikeDisLikePostsOfUserFriendsAfterTime(user_id, user.getLogout_time()));	
+		
+		for(LikeDislikeRecord eachLikeDisLikeRecord: likeDislikeRecords){
+			Newsfeed newsfeed=new Newsfeed();
+			if (eachLikeDisLikeRecord.isLike()){
+				newsfeed.setType_of_feed("Your Friend Liked");
+			}
+			else{
+				newsfeed.setType_of_feed("You Friend Dis-liked");
+			}
+			if (eachLikeDisLikeRecord.getEntity_type() == 0){
+				//Question
+				QuestionsDAOImpl questionDAO = new QuestionsDAOImpl();
+				Questions question = new Questions();
+				question = questionDAO.getQuestion(eachLikeDisLikeRecord.getEntity_id());
+				newsfeed.setContent("Question: " + question.getContent());
+				newsfeed.setComment_count("Topic: " + question.getTopic());
+				newsfeed.setPosted_by(" Posted By: " + question.getUser_id());
+				newsfeed.setLikes_count(Integer.toString(question.getUpvote()) + " Up-Votes");
+				newsfeed.setDislikes_count(Integer.toString(question.getDownvote()) + " Down-Votes");
+				
+			}
+			else if (eachLikeDisLikeRecord.getEntity_type() == 1){
+				//Answer
+				AnswersDAOImpl answersDAO = new AnswersDAOImpl();
+				Answers answer = new Answers();
+				answer = answersDAO.getAnswer(eachLikeDisLikeRecord.getEntity_id());				
+				QuestionsDAOImpl questionDAO = new QuestionsDAOImpl();
+				Questions question = new Questions();
+				question = questionDAO.getQuestion(answer.getQuestion_No());		
+				newsfeed.setContent("Answer: " + answer.getContent());
+				newsfeed.setComment_count("Question: " + question.getContent());
+				newsfeed.setPosted_by("Posted by: " + question.getUser_id());
+				newsfeed.setLikes_count(Integer.toString(answer.getUpvote()) + " Up-Votes");
+				newsfeed.setDislikes_count(Integer.toString(answer.getUpvote()) + " Up-Votes");
+			}
+			else{
+				//Posts
+				PostsDAOImpl postsDAO = new PostsDAOImpl();
+				Posts post = new Posts();
+				post = postsDAO.getPost(eachLikeDisLikeRecord.getEntity_id());
+				newsfeed.setContent("Status Update: ");
+				newsfeed.setComment_count(post.getContent());
+				newsfeed.setPosted_by("-");
+				newsfeed.setLikes_count(Integer.toString(post.getLikes_count()) + " Likes");
+				newsfeed.setDislikes_count(Integer.toString(post.getDislikes_count()) + " Dis-likes");
+				
+			}
+			
+			newsfeed.setDate(eachLikeDisLikeRecord.getTimestamp());
+			newsfeeds.add(newsfeed);
+			
+		}
+		
+		
 		Collections.sort(newsfeeds, new Comparator<Newsfeed>() {
 			  public int compare(Newsfeed n1,  Newsfeed n2) {
 			      if (n1.getDate() == null || n2.getDate() == null)
@@ -149,7 +218,7 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 			      return n2.getDate().compareTo(n1.getDate());
 			  }
 			});
-		
+		statement1.close();
 		return newsfeeds;		
 	}
 

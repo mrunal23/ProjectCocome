@@ -24,13 +24,15 @@ public class TimelineDAOImpl implements TimelineDAO {
 	private String query4;
 	private String query5;
 	private String query6;
+	
+	
 	public TimelineDAOImpl() throws ClassNotFoundException, SQLException{
 		db_connection=DBConnection_Singleton.getInstance().getDBConnection();
 	}
 	
 	
 	@Override
-	public List<Timeline> getTimelineOfUser(String user_id) throws SQLException {
+	public List<Timeline> getTimelineOfUser(String user_id) throws SQLException, ClassNotFoundException {
 		List<Timeline> timelines=new ArrayList<Timeline>();
 		Map session = ActionContext.getContext().getSession();
 		User user=(User) session.get("user");
@@ -133,9 +135,73 @@ public class TimelineDAOImpl implements TimelineDAO {
 					timelines.add(timeline);
 				}
 			
-	
+		
+		//Getting like-dislike activity on questions
+		List<LikeDislikeRecord> likeDislikeRecords = new ArrayList<LikeDislikeRecord>();
+		LikeDislikeRecordDAOImpl likeDislikeRecordDAO = new LikeDislikeRecordDAOImpl();
+		
+		likeDislikeRecords.addAll(likeDislikeRecordDAO.getLikeDisLikeQuestionsOfUser(user_id));
+		
+		
+		//Getting like-dislike activity on answers
+		
+		likeDislikeRecords.addAll(likeDislikeRecordDAO.getLikeDisLikeAnswerssOfUser(user_id));
+			
+		//Getting like-dislike activity on posts
+				
+		likeDislikeRecords.addAll(likeDislikeRecordDAO.getLikeDisLikePostsOfUser(user_id));	
+		
+		for(LikeDislikeRecord eachLikeDisLikeRecord: likeDislikeRecords){
+			Timeline timeline=new Timeline();
+			if (eachLikeDisLikeRecord.isLike()){
+				timeline.setType_of_feed("You Liked");
+			}
+			else{
+				timeline.setType_of_feed("You Dis-liked");
+			}
+			if (eachLikeDisLikeRecord.getEntity_type() == 0){
+				//Question
+				QuestionsDAOImpl questionDAO = new QuestionsDAOImpl();
+				Questions question = new Questions();
+				question = questionDAO.getQuestion(eachLikeDisLikeRecord.getEntity_id());
+				timeline.setContent("Question: " + question.getContent());
+				timeline.setComment("Topic: " + question.getTopic() + "  |  " + " Posted By: " + question.getUser_id());
+				timeline.setLikes(Integer.toString(question.getUpvote()) + " Up-Votes");
+				timeline.setDislikes(Integer.toString(question.getDownvote()) + " Down-Votes");
+			}
+			else if (eachLikeDisLikeRecord.getEntity_type() == 1){
+				//Answer
+				AnswersDAOImpl answersDAO = new AnswersDAOImpl();
+				Answers answer = new Answers();
+				answer = answersDAO.getAnswer(eachLikeDisLikeRecord.getEntity_id());
+				timeline.setContent("Answer: " + answer.getContent());
+				QuestionsDAOImpl questionDAO = new QuestionsDAOImpl();
+				Questions question = new Questions();
+				question = questionDAO.getQuestion(answer.getQuestion_No());
+				timeline.setComment("Question: " + question.getContent());
+				timeline.setLikes(Integer.toString(answer.getUpvote()) + " Up-Votes");
+				timeline.setDislikes(Integer.toString(answer.getUpvote()) + " Up-Votes");
+			}
+			else{
+				//Posts
+				PostsDAOImpl postsDAO = new PostsDAOImpl();
+				Posts post = new Posts();
+				post = postsDAO.getPost(eachLikeDisLikeRecord.getEntity_id());
+				timeline.setContent("Status Update: ");
+				timeline.setComment(post.getContent());
+				timeline.setLikes(Integer.toString(post.getLikes_count()) + " Likes");
+				timeline.setDislikes(Integer.toString(post.getDislikes_count()) + " Dis-likes");
+			}
+			
+			timeline.setDate(eachLikeDisLikeRecord.getTimestamp());
+			timelines.add(timeline);
+			
+		}
+		
 		statement1.close();
 		//statement2.close();
+		
+		
 		
 		Collections.sort(timelines, new Comparator<Timeline>() {
 			  public int compare(Timeline t1,  Timeline t2) {
@@ -157,5 +223,7 @@ public class TimelineDAOImpl implements TimelineDAO {
 		
 		return timelines;		
 	}
-	
+
+
+		
 }
