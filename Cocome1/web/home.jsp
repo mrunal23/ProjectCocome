@@ -295,21 +295,21 @@
 			<!-- end feature -->
 
 			<div class="col-sm-3 feature">
-				<form role="form" action="callSomething" method="post">
-					<div class="panel">
-						<div class="panel-heading">
-							<h3 class="panel-title">Something</h3>
-						</div>
-						<!-- end panel-heading -->
-						<span class="glyphicon glyphicon-plane glyphicon-tiles"
-							aria-hidden="true"></span>
+<!-- 				<form role="form" action="callSomething" method="post"> -->
+<!-- 					<div class="panel"> -->
+<!-- 						<div class="panel-heading"> -->
+<!-- 							<h3 class="panel-title">Something</h3> -->
+<!-- 						</div> -->
+<!-- 						end panel-heading -->
+<%-- 						<span class="glyphicon glyphicon-plane glyphicon-tiles" --%>
+<%-- 							aria-hidden="true"></span> --%>
 
-						<p class="tile-notification-text">-</p>
+<!-- 						<p class="tile-notification-text">-</p> -->
 
-						<input value="Something" class="btn btn-warning btn-block"
-							type="submit">
-					</div>
-				</form>
+<!-- 						<input value="Something" class="btn btn-warning btn-block" -->
+<!-- 							type="submit"> -->
+<!-- 					</div> -->
+<!-- 				</form> -->
 				<!-- end panel -->
 			</div>
 			<!-- end feature -->
