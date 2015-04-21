@@ -11,6 +11,6 @@ Installation guide for testing
 4.	Download Apache Tomcat v7.0
 5.	Add this project in the tomcat directory.
 6.	Run the project.
-7.	If you face any more errors, then contact us 
+7.	If you face any issues, please contact us
 
 
