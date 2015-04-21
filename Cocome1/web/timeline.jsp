@@ -105,8 +105,20 @@ function updateStatus(){
 	}
 	</script>
 
+<script>
+function preventEnterPress(){
+	
+	$('#timelineThreadCommentButton').keypress(function(event) {
+	    if (event.keyCode == 13) {
+	        event.preventDefault();
+	    }
+	});
+}
+
+
+</script>
 </head>
-<body>
+<body onload="preventEnterPress()">
 	<div class="navbar navbar-fixed-top">
 		<div class="container">
 
@@ -172,7 +184,7 @@ function updateStatus(){
 			<div class="row customPadComment">
 				<div class="col-xs-2 col-sm-2 col-md-2"></div>
 				<div class="col-xs-6 col-sm-6 col-md-6">
-					<input type="text" name="comment" id="comment"
+					<input type="text" name="comment" id="timelineThreadCommentButton"
 						class="form-control input-sm" placeholder="What's on your Mind?">
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2">
