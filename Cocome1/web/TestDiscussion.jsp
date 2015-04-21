@@ -94,7 +94,10 @@
 </script>
 <script>
 function preventEnterPress(){
-	
+	if ($("#commentHref").children()[1].innerHTML == '0'){
+		$("#commentHref").removeAttr("href");		
+	}
+
 	$('#discussionThreadCommentButton').keypress(function(event) {
 	    if (event.keyCode == 13) {
 	        event.preventDefault();
@@ -196,7 +199,7 @@ function preventEnterPress(){
 							class="glyphicon glyphicon-thumbs-down"></span> <span
 							id="downvoteElement"> <s:property value="%{downvote}" /></span></a>
 							
-						<a href="viewComments?question_No=<s:property value='%{question_No}'/>""><span class="glyphicon glyphicon-comment"></span>
+						<a id="commentHref" href="viewComments?question_No=<s:property value='%{question_No}'/>""><span class="glyphicon glyphicon-comment"></span>
 							<span id="noOfComments"><s:property value="%{no_of_answers}" /></span> Comments</a>
 					</div>
 					<form role="form">
