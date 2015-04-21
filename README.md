@@ -1,8 +1,8 @@
 ProjectCocome
 ==========================================
 
-First social network of its kind
-------------------------------
+** First social network of its kind **
+
 
 ** Installation guide for testing **
 -	Download the project from https://github.com/niharkhetan/ProjectCocome.git
