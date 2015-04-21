@@ -7,9 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import com.opensymphony.xwork2.ActionContext;
 
 public class UserDAOImpl implements UserDAO {
 	private Connection db_connection;
@@ -205,9 +207,11 @@ public class UserDAOImpl implements UserDAO {
 	public List<User> getAllUsersByFirstName(String firstName) throws SQLException{
 		User user = null;
 		List<User> userList=new ArrayList<User>();
-		query="select * from user where first_name like '%"+firstName+"%'";
+		Map session = ActionContext.getContext().getSession();
+		User userFromSession=(User) session.get("user");
+		query="select * from user where first_name like '%"+firstName+"%' and user_id!=?";
 		statement = (PreparedStatement) db_connection.prepareStatement(query);
-		//statement.setString(1, firstName);
+		statement.setString(1, userFromSession.getUser_id());
 		ResultSet result = statement.executeQuery();
 		while(result.next()){
 			user = new User();
