@@ -179,11 +179,11 @@
 		</action>
 		<action name="ViewPublicProfile" class="com.cocome.action.MyProfileAction"
 			method="SearchFriend">
-			<result name="friend">/FriendsProfile.jsp</result>
-			<result name="stranger">/PublicProfile.jsp</result>
+			<result name="friend" type="chain">ViewFriendsProfile</result>
+			<result name="stranger" type="chain">ViewSugFriendsProfile</result>
 		</action>
 		<action name="ViewSugFriendsProfile" class="com.cocome.action.MyProfileAction"
-			method="DisplayDetails">
+			method="DisplayPublicDetails">
 			<result name="success">/PublicProfile.jsp</result>
 		</action>
 		<action name="Unfriend" class="com.cocome.action.MyProfileAction"
