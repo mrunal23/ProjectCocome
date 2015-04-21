@@ -181,7 +181,9 @@
 	button.setAttribute('class', 'btn btn-primary btn-md pull-right');
 	if(bool == 'true'){
 		button.innerHTML = 'Pending Request';
+		button.setAttribute("disabled","true");
 	}else{
+		button.setAttribute("OnClick", "location.href='Addfriend?friend_id=<s:property value='%{user.user_id}'/>'");
 		button.innerHTML = 'AddFriend';
 	}
 	document.getElementById("dyn_button").appendChild(button);

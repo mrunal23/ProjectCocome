@@ -73,6 +73,18 @@ public class MyProfileAction extends ActionSupport {
               return ERROR;
   }
 	
+	public String AddFriend() throws ClassNotFoundException, SQLException{
+        Map session = ActionContext.getContext().getSession();
+        user=(User)session.get("user");
+        FriendRequestsDAO frnd_obj=new FriendRequestsDAOImpl();
+        if(frnd_obj.AddFriendRequests(user.getUser_id(), friend_id)){
+        		System.out.println("Friend Added");
+              return SUCCESS;
+        }
+        else
+              return ERROR;
+  }
+	
 	public boolean isPend_req() {
 		return pend_req;
 	}

@@ -61,8 +61,22 @@ public class FriendRequestsDAOImpl implements FriendRequestsDAO {
 			return false;
 	}
 	
+	@Override
 	public boolean deleteFriendRequests(String requestFrom,String requestTo) throws SQLException, ClassNotFoundException{
 		query="delete from friend_requests where request_from=? and request_to=? and approved=0";
+		statement=(PreparedStatement) db_connection.prepareStatement(query);
+		statement.setString(1, requestFrom);
+		statement.setString(2, requestTo);
+		int val=statement.executeUpdate();
+		if (val > 0)
+			return true;
+		else
+			return false;
+	}
+	
+	@Override
+	public boolean AddFriendRequests(String requestFrom,String requestTo) throws SQLException, ClassNotFoundException{
+		query="insert into friend_requests(request_from,request_to) values(?,?)";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1, requestFrom);
 		statement.setString(2, requestTo);

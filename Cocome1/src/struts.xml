@@ -190,6 +190,10 @@
 			method="UnFriend">
 			<result name="success" type="chain">callMyFriendsAction</result>
 		</action>
+		<action name="Addfriend" class="com.cocome.action.MyProfileAction"
+			method="AddFriend">
+			<result name="success" type="chain">ViewSugFriendsProfile</result>
+		</action>
 	</package>
 
 	<package name="discussionForum" extends="struts-default">
