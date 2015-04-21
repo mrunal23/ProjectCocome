@@ -1,10 +1,10 @@
 ProjectCocome
 ==========================================
 
-** First social network of its kind **
+**First social network of its kind**
 
 
-** Installation guide for testing **
+Installation guide for testing
 -	Download the project from https://github.com/niharkhetan/ProjectCocome.git
 2.	Create database using the script file on the above link.
 3.	Change Drivername, url, username and Password  in the Database class named com.cocome.DAO.DBConnection_Singleton
