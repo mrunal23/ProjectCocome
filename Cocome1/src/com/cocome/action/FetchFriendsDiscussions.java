@@ -17,7 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FetchFriendsDiscussions extends ActionSupport {
 	private List<Questions> questions;
-	
+	private String topics;
 	public List<Questions> getQuestions() {
 		return questions;
 	}
@@ -25,8 +25,18 @@ public class FetchFriendsDiscussions extends ActionSupport {
 	public void setQuestions(List<Questions> questions) {
 		this.questions = questions;
 	}
+	
+	public String getTopics() {
+		return topics;
+	}
+
+	public void setTopics(String topics) {
+		this.topics = topics;
+	}
 
 	public String getFriendsDiscussions() throws ClassNotFoundException, SQLException {
+		System.out.println("FetchFriendsDiscussions topics :"+topics);
+		String[] discussionTopics=topics.split(",");
 		Map session = ActionContext.getContext().getSession();
 		User user=(User) session.get("user");
 		FriendsDAOImpl friendsDAO=new FriendsDAOImpl();
@@ -35,7 +45,7 @@ public class FetchFriendsDiscussions extends ActionSupport {
 		List<Questions> questionFromFriend;
 		questions=new ArrayList<Questions>();
 		for(Friends friend: friendsList){
-			questionFromFriend=questionsDAO.getQuestionsOfUser(friend.getUser().getUser_id(),"Friends");
+			questionFromFriend=questionsDAO.getQuestionsOfUser(friend.getUser().getUser_id(),"Friends",discussionTopics);
 			questions.addAll(questionFromFriend);
 		}
 		

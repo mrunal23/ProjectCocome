@@ -25,7 +25,32 @@
 <script src="includes/js/jquery-1.8.2.min.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="font-awesome/css/font-awesome.min.css" />
+<script>
+	function updateFlagValue(uniqueElement,flagValue,question_No) {
 
+		//var question_No = document.getElementById("question_No").value;
+		//alert("Function entry");
+		$.ajax({
+			type : "POST",
+			url : "updateFlagValue?question_No=" + question_No + "&flagValue=" + flagValue,
+		
+			success : function(result) {
+				if(flagValue===1){
+					alert("Question Flagged for notification on any answers");
+				}
+				else{
+					alert("Question Un-Flagged for notification on any answers");
+				}
+				
+				
+				
+			},
+			error : function(e) {
+				alert('Error: ' + e);
+			}
+		});
+	}
+	</script>
 
 </head>
 <body>
@@ -130,6 +155,38 @@
 
 								</div>
 							</div>
+							<hr>
+							<div class="text-center">
+								<div class="row radioButtonAdjust" >
+									<div class="col-xs-2 col-sm-2 col-md-2">
+									
+									</div>
+									<div class="col-xs-1 col-sm-1 col-md-1">
+										<div class="radio">
+											<label class="pull-right"><input type="radio" name="flagged" onClick="updateFlagValue(this,1,<s:property value="%{question_No}" />);"></label>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<span class="pull-left radioAdjust">Flag for updates</span>
+									</div>
+									<div class="col-xs-1 col-sm-1 col-md-1">
+										<div class="radio" >
+											<label class="pull-right"><input type="radio" name="flagged" checked="checked" onClick="updateFlagValue(this,0,<s:property value="%{question_No}" />);"></label>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3">
+										<span class="pull-left radioAdjust">Un-Flag for updates</span>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2">
+									
+									</div>
+									
+									
+								</div>
+							</div>
+							
+							
+							
 							<!-- 					<form role="form"> -->
 							<!-- 						<div class="row customPadComment"> -->
 							<!-- 							<div class="col-xs-2 col-sm-2 col-md-2"></div> -->

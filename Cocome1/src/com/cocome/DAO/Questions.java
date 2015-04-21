@@ -13,6 +13,7 @@ public class Questions {
 		private String topic;
 		private String visibility;
 		private int no_of_answers;
+		private boolean flagged;
 		public int getQuestion_No() {
 			return question_No;
 		}
@@ -76,6 +77,12 @@ public class Questions {
 		}
 		public void setUser(User user) {
 			this.user = user;
+		}
+		public boolean getFlagged() {
+			return flagged;
+		}
+		public void setFlagged(boolean flagged) {
+			this.flagged = flagged;
 		}
 		
 		

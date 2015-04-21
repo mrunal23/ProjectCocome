@@ -9,6 +9,6 @@ public interface QuestionsDAO {
 	boolean insertQuestions(Questions questions) throws SQLException;
     boolean updateQuestions(Questions questions) throws SQLException;
     boolean deleteQuestions( int qno) throws SQLException;
-    List<Questions> getQuestionsOfUser(String user_id,String visibility) throws SQLException, ClassNotFoundException;
+    List<Questions> getQuestionsOfUser(String user_id,String visibility,String[] topics) throws SQLException, ClassNotFoundException;
     
 }

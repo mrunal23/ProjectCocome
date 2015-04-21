@@ -17,7 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FetchPublicDiscussions extends ActionSupport {
 	private List<Questions> questions;
-
+	private String topics;
 	public List<Questions> getQuestions() {
 		return questions;
 	}
@@ -25,9 +25,20 @@ public class FetchPublicDiscussions extends ActionSupport {
 	public void setQuestions(List<Questions> questions) {
 		this.questions = questions;
 	}
+	
+
+	public String getTopics() {
+		return topics;
+	}
+
+	public void setTopics(String topics) {
+		this.topics = topics;
+	}
 
 	public String getPublicDiscussions() throws ClassNotFoundException,
 			SQLException {
+		System.out.println("Public : "+topics);
+		String[] discussionTopics=topics.split(",");
 		Map session = ActionContext.getContext().getSession();
 		User user = (User) session.get("user");
 		GenericDAOImpl genericDAO = new GenericDAOImpl();
@@ -36,7 +47,8 @@ public class FetchPublicDiscussions extends ActionSupport {
 		List<Questions> questionFromPublicUser;
 		questions = new ArrayList<Questions>();
 		for (String publicUser : publicUsers) {
-			questionFromPublicUser = questionsDAO.getQuestionsOfUser(publicUser, "Public");
+			System.out.println("Public user : "+publicUser);
+			questionFromPublicUser = questionsDAO.getQuestionsOfUser(publicUser, "Public",discussionTopics);
 			questions.addAll(questionFromPublicUser);
 		}
 

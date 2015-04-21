@@ -94,10 +94,20 @@
 			<hr class="colorgraph">
 			<form role="form" action="ResetPassword" method="post">
 				<div class="row">
-					<div class="form-group col-xs-3 col-sm-3 col-md-3">
-						<input name="login.password" id="password"
-							class="form-control input-lg">
+					<div class="col-xs-3 col-sm-3 col-md-3">
+						<div class="form-group">
+							<input type="password" name="login.password" id="password"
+									class="form-control input-sm" placeholder="Password" />
+						</div>
 					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3">
+						<div class="form-group">
+							<input type="password" name="confirmPassword"
+									id="confirmPassword" class="form-control input-sm"
+									placeholder="Confirm Password" />
+						</div>
+					</div>
+
 					<div class="col-xs-3 col-sm-3 col-md-3">
 						<input class="btn btn-lg btn-success btn-block"
 							value="Reset Password" type="submit">
@@ -152,11 +162,15 @@
 				|| document
 						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
 	</script>
-
-	<script type="text/JavaScript">
-		document.getElementById("password").value='<s:property value="login.password"/>';
-			
-  </script>
+	<script>
+	$('form').on('submit',function(){
+		   if($('#password').val()!=$('#confirmPassword').val()){
+		       alert('Password does not matches');
+		       return false;
+		   }
+		   return true;
+		});
+</script>
 
 	<!-- Bootstrap JS -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>

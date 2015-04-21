@@ -87,23 +87,19 @@
 	<div class="container" id="container1">
 
 		<div class="row">
-			<form role="form" action="postQuestion" method="post">
+			<form role="form" action="viewDiscussionsForSpecificTopics?source=<s:property value="%{source}" />"  method="post">
 				<div
 					class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-0 col-md-offset-0">
 					<div class="panel panel-default">
 
 						<div class="panel-heading">
-							<h3 class="panel-title text-center">Submit your question</h3>
+							<h3 class="panel-title text-center">Select the topics of
+								your interest for Discussions</h3>
 							<span class="glyphicon glyphicon-question-sign"></span>
 						</div>
 
 						<div class="panel-body">
 							<form role="form">
-								<div class="form-group">
-									<input type="text" placeholder="Shoot your Question" name="content"
-										id="content" class="form-control input-sm">
-								</div>
-
 								<p>Topic tags :</p>
 
 
@@ -111,56 +107,42 @@
 									<ul class="list-group">
 										<li class="list-group-item">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="topic"
+												<label> <input type="checkbox" name="topics"
 													value="Science"> Science
 												</label>
 											</div>
 										</li>
 										<li class="list-group-item">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="topic"
+												<label> <input type="checkbox" name="topics"
 													value="Politics"> Politics
 												</label>
 											</div>
 										</li>
 										<li class="list-group-item">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="topic"
+												<label> <input type="checkbox" name="topics"
 													value="Sports"> Sports
 												</label>
 											</div>
 										</li>
 										<li class="list-group-item">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="topic"
+												<label> <input type="checkbox" name="topics"
 													value="Health"> Health
 												</label>
 											</div>
 										</li>
 										<li class="list-group-item">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="topic"
+												<label> <input type="checkbox" name="topics"
 													value="Fiction"> Fiction
 												</label>
 											</div>
 										</li>
 									</ul>
 								</div>
-
-								<p>Visible to :</p>
-								<div class="radio">
-									<label><input type="radio" name="visibility" checked="checked"
-										value="Friends">Friends </label>
-								</div>
-								<div class="radio">
-									<label><input type="radio" name="visibility"
-										value="Public">Public </label>
-								</div>
-
-
-
-
-								<input type="submit" value="Post Question"
+								<input type="submit" value="View Discussions"
 									class="btn btn-info btn-block">
 							</form>
 						</div>

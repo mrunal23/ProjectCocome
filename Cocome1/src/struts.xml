@@ -179,11 +179,11 @@
 		</action>
 		<action name="ViewPublicProfile" class="com.cocome.action.MyProfileAction"
 			method="SearchFriend">
-			<result name="friend" type="chain">ViewFriendsProfile</result>
-			<result name="stranger" type="chain">ViewSugFriendsProfile</result>
+			<result name="friend">/FriendsProfile.jsp</result>
+			<result name="stranger">/PublicProfile.jsp</result>
 		</action>
 		<action name="ViewSugFriendsProfile" class="com.cocome.action.MyProfileAction"
-			method="DisplayPublicDetails">
+			method="DisplayDetails">
 			<result name="success">/PublicProfile.jsp</result>
 		</action>
 		<action name="Unfriend" class="com.cocome.action.MyProfileAction"
@@ -199,7 +199,7 @@
 	<package name="discussionForum" extends="struts-default">
 		<action name="postQuestion" class="com.cocome.action.PostQuestionAction"
 			method="postDiscussion">
-			<result name="success">/Test.jsp</result>
+			<result name="success">/home.jsp</result>
 		</action>
 
 		<action name="viewDiscussionThreadAction" class="com.cocome.action.DisplayDiscussionThread"
@@ -235,6 +235,24 @@
 			method="getPublicDiscussions">
 			<result name="success">/viewUserPosts.jsp</result>
 		</action>
+		
+		<action name="updateFlagValue" class="com.cocome.action.FlagValueUpdater"
+			method="updateFlagValue">
+			<result type="stream" />
+		</action>
+		
+		<action name="Discussions" class="com.cocome.action.DiscussionsVisibilityCapture"
+			method="captureDiscussionSource">
+			<result name="success">/SelectTopicForDiscussionThreads.jsp</result>
+		</action>
+		
+		<action name="viewDiscussionsForSpecificTopics" class="com.cocome.action.DiscussionsRedirector"
+			method="fetchDissuccionsVisibility">
+			<result name="friend" type="chain">viewFriendsDiscussions</result>
+			<result name="public" type="chain">viewPublicDiscussions</result>
+		</action>
+		
+		
 
 	</package>
 

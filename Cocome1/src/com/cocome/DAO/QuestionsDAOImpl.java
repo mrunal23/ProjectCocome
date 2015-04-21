@@ -61,12 +61,30 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 	}
 	
 	@Override
-	public List<Questions> getQuestionsOfUser(String user_id,String visibility) throws SQLException, ClassNotFoundException {
+	public List<Questions> getQuestionsOfUser(String user_id,String visibility,String[] topics) throws SQLException, ClassNotFoundException {
 		List<Questions> questions=new ArrayList<Questions>();
 		query="select * from questions where user_id=? and visibility=?";
+		for(String topic:topics)
+			System.out.println(topic);
+		if(topics.length>0){
+			query+=" and (topic like \'%"+topics[0]+"%\'";
+			for(int i=1;i<topics.length;i++){
+				query+=" or topic like \'%"+topics[i]+"%\'";
+			}
+			query+=")";
+		}
+		System.out.println(query);
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1, user_id);
 		statement.setString(2, visibility);
+		System.out.println(statement.toString());
+//		int c=3;
+//		if(topics.length>0){
+//			for(int i=0;i<topics.length;i++){
+//				statement.setString(c,topics[i]);
+//				c++;
+//			}
+//		}
 		ResultSet rs=statement.executeQuery();
 		UserDAOImpl userDAO=new UserDAOImpl();
 		while(rs.next()){
@@ -115,14 +133,15 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 	
 	@Override
 	public boolean updateQuestions(Questions questions) throws SQLException {
-		query="update questions set upvote_count=?,downvote_count=?,content=?,topic=?,visibility=? where qno=?";
+		query="update questions set upvote_count=?,downvote_count=?,content=?,topic=?,visibility=?,flagged=? where qno=?";
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
 		statement.setInt(1, questions.getUpvote());
 		statement.setInt(2, questions.getDownvote());
 		statement.setString(3,questions.getContent());
 		statement.setString(4,questions.getTopic());
 		statement.setString(5,questions.getVisibility());
-		statement.setInt(6,questions.getQuestion_No());
+		statement.setBoolean(6,questions.getFlagged());
+		statement.setInt(7,questions.getQuestion_No());
 		int val=statement.executeUpdate();
 		statement.close();
 		if(val>0)

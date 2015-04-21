@@ -381,7 +381,7 @@
 
 
 			<div class="col-sm-3 feature">
-				<form role="form" action="viewFriendsDiscussions" method="post">
+				<form role="form" action="Discussions?source=friend" method="post">
 					<div class="panel">
 						<div class="panel-heading">
 							<h3 class="panel-title">Friends Discussions</h3>
@@ -400,7 +400,7 @@
 			</div>
 
 			<div class="col-sm-3 feature">
-				<form role="form" action="viewPublicDiscussions" method="post">
+				<form role="form" action="Discussions?source=public" method="post">
 					<div class="panel">
 						<div class="panel-heading">
 							<h3 class="panel-title">Public Discussions</h3>
