@@ -207,6 +207,15 @@
 	<!-- Custom JS -->
 	<script src="includes/js/script.js"></script>
 	<script type="text/javascript">
+	$('.msg').on('keypress', function(e){
+		if ( e.keyCode == 13){
+			e.preventDefault();
+			$('#SendMsg').click();
+			return false;			
+		}
+ 
+	});
+		
 		function PollMessage() {
 			$
 					.ajax({
@@ -325,7 +334,7 @@
 												console.log(jsonObj.lastId);
 												$('#message_id').val(value.lastId);
 												 */});
-							setTimeout(PollMessage, 1000);
+							setTimeout(PollMessage, 650);
 						}
 					});
 		}
@@ -459,7 +468,7 @@
 														.getElementById("msg_input").value = "";
 											});//on click of send message		       	
 							//end of Poll message
-							setTimeout(PollMessage, 1000);
+							setTimeout(PollMessage, 650);
 						});//end of document.ready function
 	</script>
 

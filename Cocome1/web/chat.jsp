@@ -96,7 +96,7 @@
 				<ul class="list-group">
 					<s:iterator value="friends_list">
 						<li class="list-group-item list-group-item-info"><a
-							href="http://localhost:8080/Cocome1/openChatWindowConv?chatWithUser=<s:property />"
+							href="openChatWindowConv?chatWithUser=<s:property />"
 							target="_blank"><s:property /></a></li>
 					</s:iterator>
 				</ul>
