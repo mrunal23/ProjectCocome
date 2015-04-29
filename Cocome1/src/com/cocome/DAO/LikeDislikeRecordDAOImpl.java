@@ -120,7 +120,7 @@ public class LikeDislikeRecordDAOImpl {
 			likeDislikeRecord.setEntity_type(rs.getInt("entity_type"));
 			likeDislikeRecord.setLike(rs.getBoolean("like"));
 			likeDislikeRecord.setDislike(rs.getBoolean("dislike"));
-			likeDislikeRecord.setTimestamp(new Timestamp(rs.getDate("timestamp").getTime()));			
+			likeDislikeRecord.setTimestamp(new Timestamp(rs.getTimestamp("timestamp").getTime()));			
 			likeDislikeRecords.add(likeDislikeRecord);
 		}
 		statement.close();
@@ -147,7 +147,7 @@ public class LikeDislikeRecordDAOImpl {
 			likeDislikeRecord.setEntity_type(rs.getInt("entity_type"));
 			likeDislikeRecord.setLike(rs.getBoolean("like"));
 			likeDislikeRecord.setDislike(rs.getBoolean("dislike"));
-			likeDislikeRecord.setTimestamp(new Timestamp(rs.getDate("timestamp").getTime()));			
+			likeDislikeRecord.setTimestamp(new Timestamp(rs.getTimestamp("timestamp").getTime()));			
 			likeDislikeRecords.add(likeDislikeRecord);
 		}
 		statement.close();
@@ -170,7 +170,7 @@ public class LikeDislikeRecordDAOImpl {
 			likeDislikeRecord.setEntity_type(rs.getInt("entity_type"));
 			likeDislikeRecord.setLike(rs.getBoolean("like"));
 			likeDislikeRecord.setDislike(rs.getBoolean("dislike"));
-			likeDislikeRecord.setTimestamp(new Timestamp(rs.getDate("timestamp").getTime()));			
+			likeDislikeRecord.setTimestamp(new Timestamp(rs.getTimestamp("timestamp").getTime()));			
 			likeDislikeRecords.add(likeDislikeRecord);
 		}
 		statement.close();
@@ -194,7 +194,7 @@ public class LikeDislikeRecordDAOImpl {
 			likeDislikeRecord.setEntity_type(rs.getInt("entity_type"));
 			likeDislikeRecord.setLike(rs.getBoolean("like"));
 			likeDislikeRecord.setDislike(rs.getBoolean("dislike"));
-			likeDislikeRecord.setTimestamp(new Timestamp(rs.getDate("timestamp").getTime()));			
+			likeDislikeRecord.setTimestamp(new Timestamp(rs.getTimestamp("timestamp").getTime()));			
 			likeDislikeRecords.add(likeDislikeRecord);
 		}
 		statement.close();
@@ -217,7 +217,7 @@ public class LikeDislikeRecordDAOImpl {
 			likeDislikeRecord.setEntity_type(rs.getInt("entity_type"));
 			likeDislikeRecord.setLike(rs.getBoolean("like"));
 			likeDislikeRecord.setDislike(rs.getBoolean("dislike"));
-			likeDislikeRecord.setTimestamp(new Timestamp(rs.getDate("timestamp").getTime()));			
+			likeDislikeRecord.setTimestamp(new Timestamp(rs.getTimestamp("timestamp").getTime()));			
 			likeDislikeRecords.add(likeDislikeRecord);
 		}
 		statement.close();
@@ -242,7 +242,7 @@ public class LikeDislikeRecordDAOImpl {
 			likeDislikeRecord.setEntity_type(rs.getInt("entity_type"));
 			likeDislikeRecord.setLike(rs.getBoolean("like"));
 			likeDislikeRecord.setDislike(rs.getBoolean("dislike"));
-			likeDislikeRecord.setTimestamp(new Timestamp(rs.getDate("timestamp").getTime()));			
+			likeDislikeRecord.setTimestamp(new Timestamp(rs.getTimestamp("timestamp").getTime()));			
 			likeDislikeRecords.add(likeDislikeRecord);
 		}
 		statement.close();

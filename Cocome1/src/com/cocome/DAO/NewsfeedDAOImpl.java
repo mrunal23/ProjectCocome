@@ -104,7 +104,7 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 				newsfeed.setType_of_feed("Question Posted");
 				UserDAOImpl userDAO = new UserDAOImpl();			
 				newsfeed.setPosted_by(userDAO.getFirstLastNameOfUser(eachFrnd));	
-				newsfeed.setDate(new Timestamp(rs2.getDate("post_date").getTime()));
+				newsfeed.setDate(new Timestamp(rs2.getTimestamp("post_date").getTime()));
 				newsfeed.setContent(rs2.getString("content"));
 				newsfeed.setComment_count(Integer.toString(rs2.getInt("no_of_answers")) + " Answers");
 				newsfeed.setLikes_count(Integer.toString(rs2.getInt("upvote_count")) + " Up-votes");
@@ -133,7 +133,7 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 				newsfeed.setType_of_feed("Answers Posted");
 				UserDAOImpl userDAO = new UserDAOImpl();			
 				newsfeed.setPosted_by(userDAO.getFirstLastNameOfUser(rs3.getString("user_id")));	
-				newsfeed.setDate(new Timestamp(rs3.getDate("post_date").getTime()));
+				newsfeed.setDate(new Timestamp(rs3.getTimestamp("post_date").getTime()));
 				newsfeed.setContent(rs3.getString("content"));
 				newsfeed.setComment_count("Question: " + eachQuestion.getContent());
 				newsfeed.setLikes_count(Integer.toString(rs3.getInt("upvote_count")) + " Up-votes");
@@ -190,7 +190,7 @@ public class NewsfeedDAOImpl implements NewsfeedDAO {
 				newsfeed.setComment_count("Question: " + question.getContent());
 				newsfeed.setPosted_by("Posted by: " + question.getUser_id());
 				newsfeed.setLikes_count(Integer.toString(answer.getUpvote()) + " Up-Votes");
-				newsfeed.setDislikes_count(Integer.toString(answer.getUpvote()) + " Up-Votes");
+				newsfeed.setDislikes_count(Integer.toString(answer.getUpvote()) + " Down-Votes");
 			}
 			else{
 				//Posts

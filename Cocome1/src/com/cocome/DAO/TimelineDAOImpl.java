@@ -102,7 +102,7 @@ public class TimelineDAOImpl implements TimelineDAO {
 			
 			//timeline.setComment(Integer.toString(rs2.getInt("qid")) + " Number Answered");
 			timeline.setContent(rs2.getString("content"));			
-			timeline.setDate(new Timestamp(rs2.getDate("post_date").getTime()));
+			timeline.setDate(new Timestamp(rs2.getTimestamp("post_date").getTime()));
 			timeline.setLikes(Integer.toString(rs2.getInt("upvote_count")) + " Up-Votes");			
 			timeline.setDislikes(Integer.toString(rs2.getInt("downvote_count")) + " Down-Votes");
 			timelines.add(timeline);
@@ -129,7 +129,7 @@ public class TimelineDAOImpl implements TimelineDAO {
 					
 					//timeline.setContent("You became friends with " + rs3.getString("friend_user_id"));
 					timeline.setComment("Kudos to your friendship");			
-					timeline.setDate(new Timestamp(rs3.getDate("time").getTime()));
+					timeline.setDate(new Timestamp(rs3.getTimestamp("time").getTime()));
 					timeline.setLikes("Memories");			
 					timeline.setDislikes("Forever");
 					timelines.add(timeline);

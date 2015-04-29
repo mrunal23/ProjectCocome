@@ -47,7 +47,7 @@ public class PostsDAOImpl implements PostsDAO {
 			post.setPost_id(rs.getInt("post_id"));
 			post.setUser_id(rs.getString("user_id"));
 			post.setContent(rs.getString("content"));
-			post.setPost_date(new Timestamp(rs.getDate("post_date").getTime()));
+			post.setPost_date(new Timestamp(rs.getTimestamp("post_date").getTime()));
 			post.setLikes_count(rs.getInt("likes_count"));
 			post.setDislikes_count(rs.getInt("dislike_count"));
 			posts.add(post);
@@ -78,7 +78,7 @@ public class PostsDAOImpl implements PostsDAO {
 			post.setPost_id(rs.getInt("post_id"));
 			post.setUser_id(rs.getString("user_id"));
 			post.setContent(rs.getString("content"));
-			post.setPost_date(new Timestamp(rs.getDate("post_date").getTime()));
+			post.setPost_date(new Timestamp(rs.getTimestamp("post_date").getTime()));
 			post.setLikes_count(rs.getInt("likes_count"));
 			post.setDislikes_count(rs.getInt("dislike_count"));
 			posts.add(post);
