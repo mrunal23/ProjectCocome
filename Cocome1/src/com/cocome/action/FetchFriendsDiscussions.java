@@ -18,6 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class FetchFriendsDiscussions extends ActionSupport {
 	private List<Questions> questions;
 	private String topics;
+
 	public List<Questions> getQuestions() {
 		return questions;
 	}
@@ -25,7 +26,7 @@ public class FetchFriendsDiscussions extends ActionSupport {
 	public void setQuestions(List<Questions> questions) {
 		this.questions = questions;
 	}
-	
+
 	public String getTopics() {
 		return topics;
 	}
@@ -34,30 +35,37 @@ public class FetchFriendsDiscussions extends ActionSupport {
 		this.topics = topics;
 	}
 
-	public String getFriendsDiscussions() throws ClassNotFoundException, SQLException {
-		System.out.println("FetchFriendsDiscussions topics :"+topics);
-		String[] discussionTopics=topics.split(",");
+	public String getFriendsDiscussions() throws ClassNotFoundException,
+			SQLException {
+		System.out.println("FetchFriendsDiscussions topics :" + topics);
+		String[] discussionTopics = null;
+		if(topics!=null)
+			discussionTopics=topics.split(",");
 		Map session = ActionContext.getContext().getSession();
-		User user=(User) session.get("user");
-		FriendsDAOImpl friendsDAO=new FriendsDAOImpl();
-		List<Friends> friendsList=friendsDAO.getFriendsOfUser(user.getUser_id());
-		QuestionsDAOImpl questionsDAO=new QuestionsDAOImpl();
+		User user = (User) session.get("user");
+		FriendsDAOImpl friendsDAO = new FriendsDAOImpl();
+		List<Friends> friendsList = friendsDAO.getFriendsOfUser(user
+				.getUser_id());
+		QuestionsDAOImpl questionsDAO = new QuestionsDAOImpl();
 		List<Questions> questionFromFriend;
-		questions=new ArrayList<Questions>();
-		for(Friends friend: friendsList){
-			questionFromFriend=questionsDAO.getQuestionsOfUser(friend.getUser().getUser_id(),"Friends",discussionTopics);
-			questions.addAll(questionFromFriend);
+		questions = new ArrayList<Questions>();
+		if (friendsList != null) {
+			for (Friends friend : friendsList) {
+				questionFromFriend = questionsDAO.getQuestionsOfUser(friend
+						.getUser().getUser_id(), "Friends", discussionTopics);
+				questions.addAll(questionFromFriend);
+			}
 		}
-		
+
 		Collections.sort(questions, new Comparator<Questions>() {
-	        public int compare(Questions n1,  Questions n2) {
-	            if (n1.getTimestamp() == null || n2.getTimestamp() == null)
-	              return 0;
-	            return n2.getTimestamp().compareTo(n1.getTimestamp());
-	        }
-	      });
-		
+			public int compare(Questions n1, Questions n2) {
+				if (n1.getTimestamp() == null || n2.getTimestamp() == null)
+					return 0;
+				return n2.getTimestamp().compareTo(n1.getTimestamp());
+			}
+		});
+
 		return SUCCESS;
-		
+
 	}
 }

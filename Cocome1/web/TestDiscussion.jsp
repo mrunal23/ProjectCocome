@@ -207,7 +207,7 @@ function preventEnterPress(){
 							<div class="col-xs-2 col-sm-2 col-md-2"></div>
 							<div class="col-xs-6 col-sm-6 col-md-6">
 								<input type="text" name="comment" id="comment"
-									class="form-control input-sm" placeholder="Add Comment">
+									class="form-control input-sm" placeholder="Add Comment" maxlength="500">
 							</div>
 							<div class="col-xs-2 col-sm-2 col-md-2">
 								<input  type="button" value="Comment"

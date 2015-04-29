@@ -62,11 +62,11 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 	
 	@Override
 	public List<Questions> getQuestionsOfUser(String user_id,String visibility,String[] topics) throws SQLException, ClassNotFoundException {
+		
 		List<Questions> questions=new ArrayList<Questions>();
 		query="select * from questions where user_id=? and visibility=?";
-		for(String topic:topics)
-			System.out.println(topic);
-		if(topics.length>0){
+		
+		if(topics!=null && topics.length>0){
 			query+=" and (topic like \'%"+topics[0]+"%\'";
 			for(int i=1;i<topics.length;i++){
 				query+=" or topic like \'%"+topics[i]+"%\'";
@@ -77,14 +77,8 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 		statement=(PreparedStatement) db_connection.prepareStatement(query);
 		statement.setString(1, user_id);
 		statement.setString(2, visibility);
-		System.out.println(statement.toString());
-//		int c=3;
-//		if(topics.length>0){
-//			for(int i=0;i<topics.length;i++){
-//				statement.setString(c,topics[i]);
-//				c++;
-//			}
-//		}
+		
+
 		ResultSet rs=statement.executeQuery();
 		UserDAOImpl userDAO=new UserDAOImpl();
 		while(rs.next()){
@@ -100,7 +94,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 			question.setNo_of_answers(rs.getInt("no_of_answers"));
 			question.setUser(userDAO.getUserDetails(rs.getString("user_id")));
 			questions.add(question);
-			//System.out.println(rs.getTimestamp("post_date"));
+			
 			
 		}
 		statement.close();

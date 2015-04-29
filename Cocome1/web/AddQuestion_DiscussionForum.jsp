@@ -93,7 +93,7 @@
 					<div class="panel panel-default">
 
 						<div class="panel-heading">
-							<h3 class="panel-title text-center">Submit your question</h3>
+							<h3 class="panel-title text-center">Submit your Discussion</h3>
 							<span class="glyphicon glyphicon-question-sign"></span>
 						</div>
 
@@ -101,7 +101,7 @@
 							<form role="form">
 								<div class="form-group">
 									<input type="text" placeholder="Shoot your Question" name="content"
-										id="content" class="form-control input-sm">
+										id="content" class="form-control input-sm" maxlength="200">
 								</div>
 
 								<p>Topic tags :</p>
@@ -160,7 +160,7 @@
 
 
 
-								<input type="submit" value="Post Question"
+								<input type="submit" value="Post Discussion"
 									class="btn btn-info btn-block">
 							</form>
 						</div>

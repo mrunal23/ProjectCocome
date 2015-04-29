@@ -38,7 +38,9 @@ public class FetchPublicDiscussions extends ActionSupport {
 	public String getPublicDiscussions() throws ClassNotFoundException,
 			SQLException {
 		System.out.println("Public : "+topics);
-		String[] discussionTopics=topics.split(",");
+		String[] discussionTopics=null;
+			if(topics!=null)	
+				discussionTopics=topics.split(",");
 		Map session = ActionContext.getContext().getSession();
 		User user = (User) session.get("user");
 		GenericDAOImpl genericDAO = new GenericDAOImpl();
