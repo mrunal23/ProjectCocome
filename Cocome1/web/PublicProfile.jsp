@@ -109,7 +109,7 @@
 						<div class="row">
 							<div class="col-md-3 col-lg-3 " align="center">
 								<img alt="User Pic"
-									src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+									src="images/localDummy.png"
 									class="img-circle">
 							</div>
 

@@ -171,7 +171,7 @@
 									</div>
 									<div class="col-xs-1 col-sm-1 col-md-1">
 										<div class="radio" >
-											<label class="pull-right"><input type="radio" name="flagged" checked="checked" onClick="updateFlagValue(this,0,<s:property value="%{question_No}" />);"></label>
+											<label class="pull-right"><input type="radio" name="flagged"  onClick="updateFlagValue(this,0,<s:property value="%{question_No}" />);"></label>
 										</div>
 									</div>
 									<div class="col-xs-3 col-sm-3 col-md-3">

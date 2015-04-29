@@ -67,9 +67,9 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 		query="select * from questions where user_id=? and visibility=?";
 		
 		if(topics!=null && topics.length>0){
-			query+=" and (topic like \'%"+topics[0]+"%\'";
+			query+=" and (topic like \'%"+topics[0].trim()+"%\'";
 			for(int i=1;i<topics.length;i++){
-				query+=" or topic like \'%"+topics[i]+"%\'";
+				query+=" or topic like \'%"+topics[i].trim()+"%\'";
 			}
 			query+=")";
 		}
